@@ -1,0 +1,129 @@
+---
+#-------------------------------
+# General Site Settings
+baseurl: "" # The subpath of your site, e.g. /blog
+url: "" # The base hostname & protocol for your site, e.g. http://example.com
+title: Червепедия | Официальный сайт Черветреда
+logo: /assets/images/logo.png  
+description: Червепедия - официальный сайт Черветреда - людей, которых объединяет русофобия.
+copyright: Червепедия - официальный сайт Черветреда - людей, которых объединяет русофобия. Based on [Parsa Jekyll](https://themefisher.com). The fixes & additional scripts by Дрюнька столичный.
+# Preloader
+preloader: false 
+menu:
+  - name: Домой 
+    url: /
+  - name: Черветред
+    url: /about/
+  - name: Черветворчество
+    url:  https://www.youtube.com/@makisere8861
+    target: "_blank"
+  - name: Обезумевшего рубля тред
+    url: /
+    submenu:
+     - name: ОБР на Тучане
+       url: https://www1.2channel.moe/pol/
+       target: _blank
+     - name: ОБР на Концечане
+       url: https://endchan.gg/polru/
+       target: _blank
+  - name: Свидетельства преступлений Россиийского вторжения в Украину  
+    url: https://www1.2channel.moe/b/res/196943.html
+    target: _blank
+# *** NOTE ***
+# You can add submenus. For example:
+
+#  menu:
+#  - name: Home
+#    url: /
+#    submenu:
+#     - name: Peru
+#       url: /peru/
+# ----------------------------------
+
+layout_home_page: false # Homepage layout ( two layout is available, you can set the another layout by change the value of layout_home_page "true" to "false")
+
+featured-post-slider: false # You can enable or disable the featured-post-slider using true or false values.
+
+#-------------------------------
+# Hero Section
+hero:
+  hero-subtitle: Черветред - проукраинская ветка тредов на Дваче, объединяющая россиян, сочувствующих Украине.
+  hero-banner:  /assets/images/banner-img.png
+
+#-------------------------------
+# Author Settings
+author:
+  name: Станислав Котляров
+
+#-------------------------------
+# Contact
+contact:
+  phone: +79228292098
+  address:
+    city: Москва
+    street: Россия
+
+# Contact Form
+contact-form: example@email.com
+
+# Social links
+social:
+  - { icon: "fab fa-vk", link: "https://www.vk.com/s3t_s3t" }
+  - { icon: "fab fa-tumblr", link: "https://www.chervetred-chervepedia.tumblr.com" }
+  - { icon: "fab fa-youtube", link: "https://www.youtube.com/@makisere8861" }
+
+#-------------------------------
+# Comment Section (Disqus)
+disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
+
+#-------------------------------
+# Instagram Feed
+instafeed: false # To enable the instafeed, use the value true. To turn off use the value false.
+userID: 4044026246
+accessToken: 4044026246.1677ed0.8896752506ed4402a0519d23b8f50a17
+
+#-------------------------------
+# Google Analytics
+google-analytics: # Add your identifier. For example UA-99631805-1.
+
+#-------------------------------
+# Build settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll/tagging
+  - jekyll-archives
+  - jekyll-feed
+
+paginate: 10
+paginate_path: "/page/:num"
+
+# Pages Path
+defaults:
+  - scope:
+      path: "_pages"
+    values:
+      permalink: /:basename:output_ext
+
+include:
+  - _pages
+
+# Tags
+tag_page_dir: tag
+tag_page_layout: tag_page
+tag_permalink_style: pretty
+
+# categories
+jekyll-archives:
+  enabled: all
+  layout: category
+  permalinks: 
+    category: "/category/:name/"
+
+# Exclude from processing.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor

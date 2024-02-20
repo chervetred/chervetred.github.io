@@ -1,0 +1,150 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> <meta name="description" content="Черветред – русофобское сообщество на Дваче"/> </head>
+ 
+{% include head.html %}
+
+<body>
+ <link rel="stylesheet" href="styles.css">
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      
+ <!-- Снежинки -->
+ <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>     
+ <script>
+        new Snowflakes();
+    </script>
+<!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+ <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const zoom = mediumZoom('[data-zoomable]:not(.no-zoom)', {
+      // настройки по умолчанию, например:
+      margin: 48
+    });
+  });
+</script>
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(95786351, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/95786351" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(95281443, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/95281443" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+  
+  {% if site.google-analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
+
+  {% if site.preloader == true %}
+  <!-- preloader -->
+  <div class="preloader">
+    <div class="loader">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- /preloader -->
+  {% endif %}
+
+  {% include header.html %}
+
+    {{ content }}
+
+  {% include footer.html %}
+ 
+  <!-- jQuery -->
+  <script src="{{ site.baseurl }}/assets/plugins/jQuery/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="{{ site.baseurl }}/assets/plugins/bootstrap/bootstrap.min.js" defer></script>
+  <!-- slick slider -->
+  <script src="{{ site.baseurl }}/assets/plugins/slick/slick.min.js"></script>
+  <!-- imagesloaded -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+  <!-- masonry -->
+  <script src="{{ site.baseurl }}/assets/plugins/masonry/masonry.js"></script>
+  <!-- instafeed -->
+  <script src="{{ site.baseurl }}/assets/plugins/instafeed/instafeed.min.js"></script>
+  <!-- smooth scroll -->
+  <script src="{{ site.baseurl }}/assets/plugins/smooth-scroll/smooth-scroll.js"></script>
+  <!-- headroom -->
+  <script src="{{ site.baseurl }}/assets/plugins/headroom/headroom.js"></script>
+  <!-- reading time -->
+  <script src="{{ site.baseurl }}/assets/plugins/reading-time/readingTime.min.js"></script>
+  <!-- lunr.js -->
+  <script src="{{ site.baseurl }}/assets/plugins/search/lunr.min.js"></script>
+  <!-- search -->
+  <script src="{{ site.baseurl }}/assets/plugins/search/search.js"></script>                                                                               
+
+  <!-- Main Script -->
+  <script src="{{ site.baseurl }}/assets/js/script.js"></script>
+        
+    <!-- Кнопка вверх -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .scroll-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512" class="scroll-to-top">
+        <path d="M214.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3V480c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128z"/>
+    </svg>
+
+    <script>
+        // Получаем ссылку на иконку
+        const scrollButton = document.querySelector('.scroll-to-top');
+
+        // Добавляем обработчик события клика на иконку
+        scrollButton.addEventListener('click', () => {
+            // Прокручиваем страницу вверх
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+</html>
