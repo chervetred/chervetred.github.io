@@ -14,8 +14,6 @@ menu:
     url: /
   - name: Черветред
     url: /about/
-  - name: Черветворчество
-    url:  https://www.youtube.com/@makisere8861
     target: "_blank"
   - name: Обезумевшего рубля тред
     url: /
@@ -26,9 +24,15 @@ menu:
      - name: ОБР на Концечане
        url: https://endchan.gg/polru/
        target: _blank
-  - name: Свидетельства преступлений Россиийского вторжения в Украину  
-    url: https://www1.2channel.moe/b/res/196943.html
+      - name: видетельства преступлений Россиийского вторжения в Украину
+    url: /
+    submenu:
+     - name: Свидетельства преступлений Россиийского вторжения в Украину 1  
+       url: https://www1.2channel.moe/b/res/196943.html
     target: _blank
+     - name: Свидетельства преступлений Россиийского вторжения в Украину 2  
+       url: https://www1.2channel.moe/b/res/196097.html#196097
+    target: _blank    
 # *** NOTE ***
 # You can add submenus. For example:
 
