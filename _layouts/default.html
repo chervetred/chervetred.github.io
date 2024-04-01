@@ -4,9 +4,28 @@
  
 {% include head.html %}
 
-  <audio id="audio-player" controls autoplay>
-    <source src="https://drive.google.com/uc?export=download&id=1IYhtK4ULZNsgbWGSxp-Eyi-j4TA5lUSb" type="audio/mp3">
-  </audio>
+<head>
+  <title>Проигрыватель аудиофайла</title>
+  <script src="https://w.soundcloud.com/player/api.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="player"></div>
+
+  <script>
+    window.onload = function() {
+      SC.initialize({
+        client_id: 'YOUR_CLIENT_ID'
+      });
+
+      SC.oEmbed('https://soundcloud.com/bitard671/bitard671-9', {
+        element: document.getElementById('player'),
+        auto_play: true,
+        show_comments: false
+      });
+    };
+  </script>
+</body>
+</html>
  
 <body>
  <link rel="stylesheet" href="styles.css">
