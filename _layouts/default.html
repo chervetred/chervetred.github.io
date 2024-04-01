@@ -5,24 +5,31 @@
 {% include head.html %}
 
 <head>
-  <title>Проигрыватель аудиофайла</title>
-  <script src="https://w.soundcloud.com/player/api.js" crossorigin="anonymous"></script>
+  <title>Проигрывание аудиофайла с SoundCloud</title>
 </head>
 <body>
   <div id="player"></div>
 
+  <script src="https://w.soundcloud.com/player/api.js" async></script>
   <script>
-    window.onload = function() {
-      SC.initialize({
-        client_id: 'YOUR_CLIENT_ID'
-      });
+    // Создаем экземпляр SoundCloud плеера
+    const player = SC.Widget("player");
 
-      SC.oEmbed('https://soundcloud.com/bitard671/bitard671-9', {
-        element: document.getElementById('player'),
-        auto_play: true,
-        show_comments: false
-      });
-    };
+    // Используем метод .load для загрузки трека по URL
+    player.load("https://soundcloud.com/bitard671/bitard671-9");
+
+    // Опционально: устанавливаем параметры плеера
+    player.setVolume(50); // Установка громкости в 50%
+
+    // Опционально: добавляем обработчик события, чтобы узнать, когда трек начнется
+    player.bind(SC.Widget.Events.PLAY, function() {
+      console.log("Трек начался");
+    });
+
+    // Опционально: добавляем обработчик события, чтобы узнать, когда трек закончится
+    player.bind(SC.Widget.Events.FINISH, function() {
+      console.log("Трек закончился");
+    });
   </script>
 </body>
 </html>
