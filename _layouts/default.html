@@ -4,14 +4,9 @@
  
 {% include head.html %}
 
-<script>
-  function playAudio() {
-    var audio = new Audio('https://drive.google.com/uc?export=download&id=1IYhtK4ULZNsgbWGSxp-Eyi-j4TA5lUSb');
-    audio.loop = true;
-    audio.play();
-  }
-</script>
-</head>
+  <audio id="audio-player" controls autoplay>
+    <source src="https://drive.google.com/uc?export=download&id=1IYhtK4ULZNsgbWGSxp-Eyi-j4TA5lUSb" type="audio/mp3">
+  </audio>
  
 <body>
  <link rel="stylesheet" href="styles.css">
