@@ -1,49 +1,8 @@
 ---
-layout: page
-title: Червепедия - Новости Скотоублюдии
-permalink: /russia_news/
-keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
-image: 
+layout: default
 ---
-{% if paginator.total_pages > 1 %}
-<div class="row">
-  <div class="col-12">
-    <nav>
-      <ul class="pagination justify-content-center align-items-center">
-        <li class="page-item">
-          {% if paginator.previous_page %}
-          <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; назад</a>
-          {% endif %}
-        </li>
-        
-        {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-        <li class="page-item active">
-          <span class="page-link">{{page}}</span>
-        </li>
-        {% elsif page == 1 %}
-          <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
-        {% else %}
-          <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-          </li>
-        {% endif %}
-        {% endfor %}
-      
-        <li class="page-item">
-          {% if paginator.next_page %}
-          <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">вперёд &raquo;</a>
-          {% endif %}
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
-{% endif %}
-
-
-<div id="scroll-container">
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74103" data-width="100%"></script>
-  <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/53" data-width="100%"></script>
+<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/53" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74102" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74099" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74083" data-width="100%"></script>
@@ -55,13 +14,5 @@ image:
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73707" data-width="100%"></script>
-  <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73688" data-width="100%"></script>
-  
-</div>
-
-<script>
-  window.addEventListener('scroll', function() {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    }
-  });
-</script>
+<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73688" data-width="100%"></script>
+{% include sidebar.html %}
