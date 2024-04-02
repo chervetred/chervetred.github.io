@@ -6,3 +6,4 @@ keywords: червепедия, черветред, черветред - это,
 image: 
 ---
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74103" data-width="100%"></script>
+<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74102" data-width="100%"></script>
