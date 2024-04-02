@@ -12,6 +12,8 @@ preloader: false
 menu:
   - name: Домой 
     url: /
+  - name: Новости Скотоублюдии
+    url: /russia_news/
   - name: Черветред
     url: /about/
     target: "_blank"
