@@ -8,4 +8,4 @@ image:
 
 <script>$("#testLoad").load("https://www1.2channel.moe/b/res/203580.html");</script>
 <div id="testLoad"></div>
-//would this help">
+//would this help
