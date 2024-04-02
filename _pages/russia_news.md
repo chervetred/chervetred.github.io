@@ -21,3 +21,4 @@ image:
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73707" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73688" data-width="100%"></script>
 {% include sidebar.html %}
+{% include pagination.html %}
