@@ -18,12 +18,6 @@
   </div>
   <div class="widget">
     <h6 class="mb-4">КОММЕНТАРИИ</h6>
-    <ul class="list-inline tag-list">
-      {% for category in site.categories %}
-      <li class="list-inline-item m-1"><a href="{{ 'category/' | relative_url }}{{ category | first | slugify }}">{{ category | first }}</a></li>
-      {% unless forloop.last %}&nbsp;{% endunless %}
-      {% endfor %}
-      
 +++
 title = "Telegram Comments Widget"
 description = ""
