@@ -15,4 +15,4 @@ image:
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73797" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73784" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
-https://t.me/nexta_live/73707
+<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
