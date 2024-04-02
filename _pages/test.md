@@ -6,4 +6,4 @@ keywords: червепедия, черветред, черветред - это,
 image: 
 ---
 
-<embed src="[http://www.example.com](https://www1.2channel.moe/b/res/196943.html)" style="width:500px; height: 300px;">
+<embed src="https://www1.2channel.moe/b/res/203580.html" style="width:500px; height: 300px;">
