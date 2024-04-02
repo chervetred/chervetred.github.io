@@ -7,6 +7,7 @@ image:
 ---
 <div id="scroll-container">
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74103" data-width="100%"></script>
+  <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/53" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74102" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74099" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74083" data-width="100%"></script>
@@ -17,6 +18,9 @@ image:
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73784" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
+<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73707" data-width="100%"></script>
+  <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73688" data-width="100%"></script>
+  
 </div>
 
 <script>
