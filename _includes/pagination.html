@@ -5,7 +5,7 @@
       <ul class="pagination justify-content-center align-items-center">
         <li class="page-item">
           {% if paginator.previous_page %}
-          <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; <--</a>
+          <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; назад</a>
           {% endif %}
         </li>
         
@@ -24,7 +24,7 @@
       
         <li class="page-item">
           {% if paginator.next_page %}
-          <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">--> &raquo;</a>
+          <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">вперёд &raquo;</a>
           {% endif %}
         </li>
       </ul>
