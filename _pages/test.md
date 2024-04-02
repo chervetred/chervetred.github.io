@@ -6,4 +6,6 @@ keywords: червепедия, черветред, черветред - это,
 image: 
 ---
 
-<embed src="https://www1.2channel.moe/b/res/203580.html" style="width:500px; height: 300px;">
+<script>$("#testLoad").load("https://www1.2channel.moe/b/res/203580.html");</script>
+<div id="testLoad"></div>
+//would this help">
