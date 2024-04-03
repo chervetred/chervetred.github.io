@@ -25,11 +25,11 @@ menu:
      - name: ОБР на Концечане
        url: https://endchan.gg/polru/
        target: _blank
-  - name: Свидетельства преступлений Россиийского вторжения в Украину
+  - name: Военные преступления России в Украине
     url: /
     submenu:
      - name: Военные преступления России 1  
-       url: https://www1.2channel.moe/b/res/196943.html
+       url: /военные_преступления_россии/
        target: _blank
      - name: Военные преступления России 2  
        url: https://www1.2channel.moe/b/res/196097.html#196097
