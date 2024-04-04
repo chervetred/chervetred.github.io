@@ -5,55 +5,76 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-<div id="telegram-posts-container"></div>
-<button id="load-more" onclick="loadMorePosts()" style="display:none;">Загрузить следующие</button>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Новости Скотоублюдии</title>
+<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="pravyvzgliad/18659" data-width="100%"></script>
+</head>
+<body>
+<div id="telegram-posts"></div>
+<div id="load-more" style="display: none;">
+    <button onclick="loadMorePosts()">Загрузить следующие</button>
+</div>
 
 <script>
-var allPosts = [
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="pravyvzgliad/18659" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73636" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/56" data-width="100%"></script>  
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/54" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74103" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/53" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74102" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74099" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74083" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74070" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="oko18_channel/8183" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73801" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73797" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73784" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73707" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73688" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/72153" data-width="100%"></script>m
+let posts = [
+    'nexta_live/73636',
+    'chervethread_2ch/56',
+    'chervethread_2ch/54',
+    'nexta_live/74103',
+    'chervethread_2ch/53',
+    'nexta_live/74102',
+    'nexta_live/74099',
+    'nexta_live/74083',
+    'nexta_live/74070',
+    'oko18_channel/8183',
+    'nexta_live/73801',
+    'nexta_live/73797',
+    'nexta_live/73784',
+    'nexta_live/73748',
+    'nexta_live/73748',
+    'nexta_live/73707',
+    'nexta_live/73688',
+    'nexta_live/72153'
 ];
-var loadedPosts = 0;
+
+let currentPage = 0;
+let postsPerPage = 5;
+
+function displayPosts() {
+    for (let i = currentPage * postsPerPage; i < (currentPage + 1) * postsPerPage; i++) {
+        if (posts[i]) {
+            let script = document.createElement('script');
+            script.src = `https://telegram.org/js/telegram-widget.js?22`;
+            script.setAttribute('data-telegram-post', posts[i]);
+            script.setAttribute('data-width', '100%');
+            document.getElementById('telegram-posts').appendChild(script);
+        }
+    }
+    currentPage++;
+}
 
 function loadMorePosts() {
-    var container = document.getElementById('telegram-posts-container');
-    for (var i = 0; i < 5 && loadedPosts < allPosts.length; i++) {
-        var script = document.createElement('script');
-        script.src = 'https://telegram.org/js/telegram-widget.js?22';
-        script.setAttribute('data-telegram-post', allPosts[loadedPosts]);
-        script.setAttribute('data-width', '100%');
-        container.appendChild(script);
-        loadedPosts++;
-    }
-    if (loadedPosts >= allPosts.length) {
+    displayPosts();
+    if (currentPage * postsPerPage >= posts.length) {
         document.getElementById('load-more').style.display = 'none';
     }
 }
 
-function onScroll() {
-    var loadMoreButton = document.getElementById('load-more');
-    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-        loadMoreButton.style.display = 'block';
+window.addEventListener('scroll', function() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 1000) {
+        loadMorePosts();
     }
-}
+});
 
-window.addEventListener('scroll', onScroll);
-loadMorePosts(); // Загрузить первые пять постов при инициализации
+displayPosts();
 </script>
+</body>
+</html>
+
+
+Этот код позволит загружать посты Telegram по мере прокрутки страницы. Когда пользователь достигнет 5 постов, появится кнопка "Загрузить следующие", позволяющая подгрузить дополнительные сообщения. С помощью данного скрипта вы сможете реализовать функционал динамической загрузки постов на вашей странице.
