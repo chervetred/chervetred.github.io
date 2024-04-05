@@ -1,100 +1,142 @@
 ---
 layout: page
 title: Новости Скотоублюдии
-permalink: /russia_news/
+permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
 
-    <div id="content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Новости Скотоублюдии</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script async src="https://telegram.org/js/telegram-widget.js?22"></script>
+<script src="https://cdn.jsdelivr.net/npm/neon-border@1.0.0/dist/neon-border.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .load-more-button {
+        background-color: #fdefe6;
+        color: black;
+        padding: 10px 20px;
+        border: 2px solid #fdefe6;
+        border-radius: 20px;
+        transition: background-color 0.3s;
+    }
+    .load-more-button:hover {
+        background-color: #fdefe8;
+        color: white;
+    }
 
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/64" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74200" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74173" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="mar_lik/38023" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/57" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="pravyvzgliad/18659" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73636" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/56" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/54" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74103" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/53" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74102" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74099" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74083" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74070" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="oko18_channel/8183" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73801" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73797" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73784" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73748" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73707" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/73688" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/72153" data-width="100%"></script>
-    </div>
-    <div class="post">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethread_2ch/62" data-width="100%"></script>
+    #navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+    }
+
+    #load-more {
+        margin: 0 auto;
+        display: flex;
+    }
+
+    #go-to-beginning {
+        margin-left: auto;
+    }
+
+    #go-to-beginning i {
+        display: none;
+    }
+
+    .telegram-post {
+        border: 2px solid transparent;
+        transition: border-color 0.3s;
+    }
+
+    .telegram-post:hover {
+        border-color: #00ff00;
+    }
+</style>
+</head>
+<body>
+<div id="telegram-posts"></div>
+<div id="navigation-buttons">
+    <button class="load-more-button" onclick="loadFirstPosts()">Начало</button>
+    <div id="load-more">
+        <button class="load-more-button" onclick="loadMorePosts()">Еще</button>
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    var numPostsToShow = 5; // количество постов для показа сначала
-    var increment = 5; // количество постов для показа при прокрутке
+let posts = [
+'nexta_live/73636',
+'chervethread_2ch/64',
+'nexta_live/74200',
+'mar_lik/38023',
+'chervethread_2ch/57',
+'pravyvzgliad/18659',
+'chervethread_2ch/54',
+'nexta_live/74103',
+'chervethread_2ch/53',
+'nexta_live/74102',
+'nexta_live/74099',
+'nexta_live/74083',
+'nexta_live/74070',
+'oko18_channel/8183',
+'nexta_live/73801',
+'nexta_live/73797',
+'nexta_live/73784',
+'nexta_live/73748',
+'nexta_live/73707',
+'nexta_live/73688',
+'nexta_live/72153',
+'chervethread_2ch/62'
+];
 
-    $('.post').hide().slice(0, numPostsToShow).show(); // скрываем все посты, кроме первых numPostsToShow
+let currentPage = 0;
+let postsPerPage = 5;
+let currentPostIndex = 0;
 
-    $(window).scroll(function() {
-        if ($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
-            $('.post:hidden').slice(0, increment).slideDown(); // показываем следующие increment постов
-        }
-    });
+function displayPosts() {
+    let end = currentPostIndex + postsPerPage;
+    if (end >= posts.length) {
+        end = posts.length;
+    }
+
+    for (let i = currentPostIndex; i < end; i++) {
+        let script = document.createElement('script');
+        script.src = `https://telegram.org/js/telegram-widget.js?22`;
+        script.setAttribute('data-telegram-post', posts[i]);
+        script.setAttribute('data-width', '100%');
+        script.classList.add('telegram-post');
+        document.getElementById('telegram-posts').appendChild(script);
+    }
+
+    if (end < posts.length) {
+        document.getElementById('navigation-buttons').style.display = 'flex';
+    } else {
+        document.getElementById('navigation-buttons').style.display = 'none';
+    }
+}
+
+function loadMorePosts() {
+    currentPostIndex += postsPerPage;
+    currentPage++;
+    document.getElementById('telegram-posts').innerHTML = '';
+    displayPosts();
+}
+
+function loadFirstPosts() {
+    currentPage = 0;
+    currentPostIndex = 0;
+    document.getElementById('telegram-posts').innerHTML = '';
+    displayPosts();
+}
+
+displayPosts();
+
+NeonBorder.init();
 </script>
+</body>
+</html>
