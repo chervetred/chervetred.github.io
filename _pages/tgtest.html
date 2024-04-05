@@ -5,7 +5,6 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +16,13 @@ image:
 <script src="https://cdn.jsdelivr.net/npm/neon-border@1.0.0/dist/neon-border.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
+    body {
+        background-image: url('https://www.kairoscanada.org/wp-content/uploads/2022/02/peace4ukraine-blog-scaled.jpg');
+        background-size: cover;
+        background-position: center left;
+        color: white;
+    }
+
     .load-more-button {
         background-color: #fdefe6;
         color: black;
@@ -24,30 +30,12 @@ image:
         border: 2px solid #fdefe6;
         cursor: pointer;
         border-radius: 20px;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, color 0.3s;
     }
+
     .load-more-button:hover {
-        background-color: #ffd700;
-        color: white;
-    }
-
-    #navigation-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px;
-    }
-
-    #load-more {
-        margin: 0 auto;
-        display: flex;
-    }
-
-    #go-to-beginning {
-        margin-left: auto;
-    }
-
-    #go-to-beginning i {
-        display: none;
+        background-color: #e0e0e0;
+        color: #333;
     }
 
     .telegram-post {
@@ -133,16 +121,6 @@ function loadFirstPosts() {
 displayPosts();
 
 NeonBorder.init();
-</script>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'GA_TRACKING_ID');
 </script>
 </body>
 </html>
