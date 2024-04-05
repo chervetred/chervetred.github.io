@@ -45,7 +45,7 @@ menu:
 #       url: /peru/
 # ----------------------------------
 
-layout_home_page: true # Homepage layout ( two layout is available, you can set the another layout by change the value of layout_home_page "true" to "false")
+layout_home_page: false # Homepage layout ( two layout is available, you can set the another layout by change the value of layout_home_page "true" to "false")
 
 featured-post-slider: false # You can enable or disable the featured-post-slider using true or false values.
 
