@@ -5,21 +5,29 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-Вот ваш обновленный код с подключением необходимых библиотек из CDN:
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Новости Скотоублюдии</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!-- Подключаем jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .load-more-button {
+        background-color: red;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
 <div id="telegram-posts"></div>
 <div id="load-more" style="display: none;">
-    <button onclick="loadMorePosts()">Загрузить следующие</button>
+    <button class="load-more-button" onclick="loadMorePosts()">Загрузить следующие <i class="fas fa-arrow-down"></i></button>
 </div>
 
 <script>
@@ -77,6 +85,4 @@ displayPosts();
 </script>
 </body>
 </html>
-
-
-Теперь библиотека jQuery подключена, чтобы обеспечить правильную работу скрипта, и скрипт для работы с Telegram вставлен из CDN. Все это поможет вашему скрипту работать так, как задумано.
+</html>
