@@ -11,14 +11,14 @@ image:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Новости Скотоублюдии</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/libs/jquery/3.6.0/jquery.min.js"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
     .load-more-button {
-        background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
+        background-color: red;
         color: white;
-        padding: 10px;
+        padding: 10px 20px;
         border: none;
         cursor: pointer;
         opacity: 0.7;
@@ -27,14 +27,28 @@ image:
     .load-more-button:hover {
         opacity: 1;
     }
+
+    #navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+    }
+
+    #load-more {
+        margin: 0 auto;
+    }
+
+    #go-to-beginning {
+        margin-left: auto;
+    }
 </style>
 </head>
 <body>
 <div id="telegram-posts"></div>
 <div id="navigation-buttons">
     <button class="load-more-button" onclick="loadPreviousPosts()"><i class="fas fa-arrow-left"></i> Назад</button>
-    <button class="load-more-button" onclick="loadFirstPosts()"><i class="fas fa-angle-double-left"></i> В начало</button>
-    <button class="load-more-button" onclick="loadMorePosts()">Загрузить следующие <i class="fas fa-arrow-down"></i></button>
+    <button id="load-more" class="load-more-button" onclick="loadMorePosts()">Загрузить следующие <i class="fas fa-arrow-down"></i></button>
+    <button id="go-to-beginning" class="load-more-button" onclick="loadFirstPosts()">В начало <i class="fas fa-angle-double-left"></i></button>
 </div>
 
 <script>
@@ -61,15 +75,15 @@ let posts = [
 
 let currentPage = 0;
 let postsPerPage = 5;
+let currentPostIndex = 0;
 
 function displayPosts() {
-    let start = currentPage * postsPerPage;
-    let end = start + postsPerPage;
+    let end = currentPostIndex + postsPerPage;
     if (end >= posts.length) {
         end = posts.length;
     }
 
-    for (let i = start; i < end; i++) {
+    for (let i = currentPostIndex; i < end; i++) {
         let script = document.createElement('script');
         script.src = `https://telegram.org/js/telegram-widget.js?22`;
         script.setAttribute('data-telegram-post', posts[i]);
@@ -79,25 +93,32 @@ function displayPosts() {
 
     if (end < posts.length) {
         document.getElementById('navigation-buttons').style.display = 'flex';
+    } else {
+        document.getElementById('navigation-buttons').style.display = 'none';
     }
 }
 
 function loadMorePosts() {
+    currentPostIndex += postsPerPage;
     currentPage++;
     document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
 }
 
 function loadPreviousPosts() {
-    if (currentPage > 0) {
-        currentPage--;
-        document.getElementById('telegram-posts').innerHTML = '';
-        displayPosts();
+    if (currentPostIndex - postsPerPage < 0) {
+        return;
     }
+
+    currentPostIndex -= postsPerPage;
+    currentPage--;
+    document.getElementById('telegram-posts').innerHTML = '';
+    displayPosts();
 }
 
 function loadFirstPosts() {
     currentPage = 0;
+    currentPostIndex = 0;
     document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
 }
