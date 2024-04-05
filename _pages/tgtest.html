@@ -5,6 +5,7 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
+Вот ваш обновленный код с подключением необходимых библиотек из CDN:
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +13,8 @@ image:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Новости Скотоублюдии</title>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="pravyvzgliad/18659" data-width="100%"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!-- Подключаем jQuery -->
+<script async src="https://telegram.org/js/telegram-widget.js?22"></script>
 </head>
 <body>
 <div id="telegram-posts"></div>
@@ -46,30 +48,30 @@ let currentPage = 0;
 let postsPerPage = 5;
 
 function displayPosts() {
-    for (let i = currentPage * postsPerPage; i < (currentPage + 1) * postsPerPage; i++) {
-        if (posts[i]) {
-            let script = document.createElement('script');
-            script.src = `https://telegram.org/js/telegram-widget.js?22`;
-            script.setAttribute('data-telegram-post', posts[i]);
-            script.setAttribute('data-width', '100%');
-            document.getElementById('telegram-posts').appendChild(script);
-        }
+    let start = currentPage * postsPerPage;
+    let end = start + postsPerPage;
+    if (end >= posts.length) {
+        end = posts.length;
     }
-    currentPage++;
+
+    for (let i = start; i < end; i++) {
+        let script = document.createElement('script');
+        script.src = `https://telegram.org/js/telegram-widget.js?22`;
+        script.setAttribute('data-telegram-post', posts[i]);
+        script.setAttribute('data-width', '100%');
+        document.getElementById('telegram-posts').appendChild(script);
+    }
+
+    if (end < posts.length) {
+        document.getElementById('load-more').style.display = 'block';
+    }
 }
 
 function loadMorePosts() {
+    currentPage++;
+    document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
-    if (currentPage * postsPerPage >= posts.length) {
-        document.getElementById('load-more').style.display = 'none';
-    }
 }
-
-window.addEventListener('scroll', function() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 1000) {
-        loadMorePosts();
-    }
-});
 
 displayPosts();
 </script>
@@ -77,4 +79,4 @@ displayPosts();
 </html>
 
 
-Этот код позволит загружать посты Telegram по мере прокрутки страницы. Когда пользователь достигнет 5 постов, появится кнопка "Загрузить следующие", позволяющая подгрузить дополнительные сообщения. С помощью данного скрипта вы сможете реализовать функционал динамической загрузки постов на вашей странице.
+Теперь библиотека jQuery подключена, чтобы обеспечить правильную работу скрипта, и скрипт для работы с Telegram вставлен из CDN. Все это поможет вашему скрипту работать так, как задумано.
