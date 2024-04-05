@@ -16,17 +16,24 @@ image:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
     .load-more-button {
-        background-color: red;
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
         color: white;
         padding: 10px;
         border: none;
         cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+    .load-more-button:hover {
+        opacity: 1;
     }
 </style>
 </head>
 <body>
 <div id="telegram-posts"></div>
-<div id="load-more" style="display: none;">
+<div id="navigation-buttons">
+    <button class="load-more-button" onclick="loadPreviousPosts()"><i class="fas fa-arrow-left"></i> Назад</button>
+    <button class="load-more-button" onclick="loadFirstPosts()"><i class="fas fa-angle-double-left"></i> В начало</button>
     <button class="load-more-button" onclick="loadMorePosts()">Загрузить следующие <i class="fas fa-arrow-down"></i></button>
 </div>
 
@@ -71,7 +78,7 @@ function displayPosts() {
     }
 
     if (end < posts.length) {
-        document.getElementById('load-more').style.display = 'block';
+        document.getElementById('navigation-buttons').style.display = 'flex';
     }
 }
 
@@ -81,8 +88,21 @@ function loadMorePosts() {
     displayPosts();
 }
 
+function loadPreviousPosts() {
+    if (currentPage > 0) {
+        currentPage--;
+        document.getElementById('telegram-posts').innerHTML = '';
+        displayPosts();
+    }
+}
+
+function loadFirstPosts() {
+    currentPage = 0;
+    document.getElementById('telegram-posts').innerHTML = '';
+    displayPosts();
+}
+
 displayPosts();
 </script>
 </body>
-</html>
 </html>
