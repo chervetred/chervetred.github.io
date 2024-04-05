@@ -97,7 +97,7 @@ let posts = [
 'chervethread_2ch/62'
 ];
 
-let currentPage = 0;
+let currentPage = 10;
 let postsPerPage = 5;
 let currentPostIndex = 0;
 
@@ -117,9 +117,9 @@ function displayPosts() {
     }
 
     if (end < posts.length) {
-        document.getElementById('navigation-buttons').style.display = 'flex';
+        class="load-more-button" onclick="loadMorePosts()" = 'flex';
     } else {
-        document.getElementById('navigation-buttons').style.display = 'none';
+        class="load-more-button" onclick="loadMorePosts()" = 'none';
     }
 }
 
