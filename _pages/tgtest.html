@@ -101,15 +101,6 @@ function displayPosts() {
     } else {
         document.getElementById('navigation-buttons').style.display = 'none';
     }
-
-    if (currentPostIndex > 0 && !document.getElementById('back-button')) {
-        let backButton = document.createElement('button');
-        backButton.id = 'back-button';
-        backButton.classList.add('load-more-button');
-        backButton.innerText = 'Назад';
-        backButton.onclick = loadBackPosts;
-        document.querySelector('.button-container').insertBefore(backButton, document.querySelector('.button-container').children[0]);
-    }
 }
 
 function loadMorePosts() {
