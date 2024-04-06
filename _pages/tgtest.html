@@ -49,18 +49,13 @@ image:
     }
 
     .telegram-post {
-        border: 2px solid transparent;
-        transition: border-color 0.3s;
+        margin-bottom: 20px;
     }
 
-    .telegram-post:hover {
-        border-color: #00ff00;
-    }
-    
     #telegram-posts {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-gap: 20px;
     }
 </style>
 </head>
@@ -75,7 +70,7 @@ image:
 
 <script>
 let posts = [
-'nexta_live/74297',   
+'nexta_live/74297',  
 'chervethread_2ch/74',
 'chervethread_2ch/72',
 'chervethread_2ch/73',
@@ -86,7 +81,7 @@ let posts = [
 'nexta_live/74230',
 'nexta_live/74247',
 'chervethread_2ch/70',
-'chervethread_2ch/66',      
+'chervethread_2ch/66',  
 'nexta_live/73636',
 'nexta_live/74200',
 'mar_lik/38023',
@@ -110,7 +105,7 @@ let posts = [
 'chervethread_2ch/62'
 ];
 
-let msnry;
+let masonryGrid;
 let currentPage = 0;
 let postsPerPage = 10;
 let currentPostIndex = 0;
@@ -145,7 +140,7 @@ function loadMorePosts() {
     document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
     setTimeout(function() {
-        msnry.layout();
+        masonryGrid.layout();
     }, 1000);
 }
 
@@ -155,12 +150,12 @@ function loadFirstPosts() {
     document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
     setTimeout(function() {
-        msnry.layout();
+        masonryGrid.layout();
     }, 1000);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    msnry = new Masonry('#telegram-posts', {
+    masonryGrid = new Masonry('#telegram-posts', {
         itemSelector: '.telegram-post',
         columnWidth: 300,
         horizontalOrder: true,
