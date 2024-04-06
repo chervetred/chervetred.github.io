@@ -1,30 +1,8 @@
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .pagination {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .page-link {
-      border-radius: 50px;
-      background-color: #fdefe6;
-      transition: background-color 0.3s;
-      margin: 0 5px;
-    }
-
-    .page-link:hover {
-      background-color: #f9ccb5;
-    }
-  </style>
-</head>
-
 {% if paginator.total_pages > 1 %}
 <div class="row">
   <div class="col-12">
     <nav>
-      <ul class="pagination">
+      <ul class="pagination justify-content-center align-items-center">
         <li class="page-item">
           {% if paginator.previous_page %}
           <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Назад</a>
