@@ -1,0 +1,165 @@
+---
+layout: page
+title: Новости Скотоублюдии
+permalink: /111/
+keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
+image: 
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Червепедия - Новости Скотоублюдии</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script async src="https://telegram.org/js/telegram-widget.js?22"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .load-more-button {
+        background-color: #fdefe6;
+        color: black;
+        padding: 10px 20px;
+        border: 2px solid #fdefe6;
+        border-radius: 50px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .load-more-button:hover {
+        background-color: #f9ccb5;
+        color: black;
+    }
+
+    #navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+    }
+
+    #load-more {
+        display: flex;
+    }
+
+    .telegram-post {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    #telegram-posts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 20px;
+        margin: 20px;
+    }
+</style>
+</head>
+<body>
+<div id="telegram-posts" class="masonry"></div>
+<div id="navigation-buttons">
+    <button class="load-more-button" onclick="loadFirstPosts()">&laquo; Назад</button>
+    <div id="load-more">
+        <button class="load-more-button" onclick="loadMorePosts()">Вперед &raquo;</button>
+    </div>
+</div>
+
+<footer>Ваш футер здесь</footer>
+
+<script>
+let posts = [
+'nexta_live/74297',  
+'chervethread_2ch/74',
+'chervethread_2ch/72',
+'chervethread_2ch/73',
+'nexta_live/74285',
+'chervethread_2ch/64',
+'chervethread_2ch/65',
+'chervethread_2ch/71',
+'nexta_live/74230',
+'nexta_live/74247',
+'chervethread_2ch/70',
+'chervethread_2ch/66',  
+'nexta_live/73636',
+'nexta_live/74200',
+'mar_lik/38023',
+'chervethread_2ch/57',
+'pravyvzgliad/18659',
+'chervethread_2ch/54',
+'nexta_live/74103',
+'chervethread_2ch/53',
+'nexta_live/74102',
+'nexta_live/74099',
+'nexta_live/74083',
+'nexta_live/74070',
+'oko18_channel/8183',
+'nexta_live/73801',
+'nexta_live/73797',
+'nexta_live/73784',
+'nexta_live/73748',
+'nexta_live/73707',
+'nexta_live/73688',
+'nexta_live/72153',
+'chervethread_2ch/62'
+];
+
+let masonryGrid;
+let currentPage = 0;
+let postsPerPage = 10;
+let currentPostIndex = 0;
+
+function displayPosts() {
+    let end = currentPostIndex + postsPerPage;
+    if (end >= posts.length) {
+        end = posts.length;
+    }
+
+    for (let i = currentPostIndex; i < end; i++) {
+        let postDiv = document.createElement('div');
+        postDiv.classList.add('telegram-post');
+        let script = document.createElement('script');
+        script.src = `https://telegram.org/js/telegram-widget.js?22`;
+        script.setAttribute('data-telegram-post', posts[i]);
+        script.setAttribute('data-width', '100%');
+        postDiv.appendChild(script);
+        document.getElementById('telegram-posts').appendChild(postDiv);
+    }
+
+    if (end < posts.length) {
+        document.getElementById('navigation-buttons').style.display = 'flex';
+    } else {
+        document.getElementById('navigation-buttons').style.display = 'none';
+    }
+}
+
+function loadMorePosts() {
+    currentPostIndex += postsPerPage;
+    currentPage++;
+    document.getElementById('telegram-posts').innerHTML = '';
+    displayPosts();
+    setTimeout(function() {
+        masonryGrid.layout();
+    }, 1000);
+}
+
+function loadFirstPosts() {
+    currentPage = 0;
+    currentPostIndex = 0;
+    document.getElementById('telegram-posts').innerHTML = '';
+    displayPosts();
+    setTimeout(function() {
+        masonryGrid.layout();
+    }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    masonryGrid = new Masonry('#telegram-posts', {
+        itemSelector: '.telegram-post',
+        columnWidth: 300,
+        horizontalOrder: true,
+        fitWidth: true
+    });
+    displayPosts();
+});
+</script>
+
+</body>
+</html>
