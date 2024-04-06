@@ -5,26 +5,13 @@
       <ul class="pagination justify-content-center align-items-center">
         <li class="page-item">
           {% if paginator.previous_page %}
-          <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; назад</a>
+          <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Назад</a>
           {% endif %}
         </li>
         
-        {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-        <li class="page-item active">
-          <span class="page-link">{{page}}</span>
-        </li>
-        {% elsif page == 1 %}
-          <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
-        {% else %}
-          <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-          </li>
-        {% endif %}
-        {% endfor %}
-      
         <li class="page-item">
           {% if paginator.next_page %}
-          <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">вперёд &raquo;</a>
+          <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Вперед &raquo;</a>
           {% endif %}
         </li>
       </ul>
