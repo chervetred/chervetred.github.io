@@ -1,20 +1,20 @@
 ---
 layout: page
 title: Новости Скотоублюдии
-permalink: /111/
+permalink: /russia_news/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Новости Скотоублюдии</title>
+<title>Червепедия - Новости Скотоублюдии</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
-<script src="https://cdn.jsdelivr.net/npm/neon-border@1.0.0/dist/neon-border.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
     .load-more-button {
@@ -22,13 +22,12 @@ image:
         color: black;
         padding: 10px 20px;
         border: 2px solid #fdefe6;
-        cursor: pointer;
         border-radius: 20px;
         transition: background-color 0.3s;
     }
     .load-more-button:hover {
-        background-color: #ffd700;
-        color: white;
+        background-color: #f9ccb5;
+        color: black;
     }
 
     #navigation-buttons {
@@ -53,26 +52,49 @@ image:
     .telegram-post {
         border: 2px solid transparent;
         transition: border-color 0.3s;
+        width: 100%;
     }
 
     .telegram-post:hover {
         border-color: #00ff00;
     }
+    
+    #telegram-posts {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
 </style>
 </head>
 <body>
-<div id="telegram-posts"></div>
+<div id="telegram-posts" class="masonry"></div>
 <div id="navigation-buttons">
-    <button class="load-more-button" onclick="loadFirstPosts()">В начало</button>
+    <button class="load-more-button" onclick="loadFirstPosts()">Начало</button>
     <div id="load-more">
-        <button class="load-more-button" onclick="loadMorePosts()">Загрузить следующие</button>
+        <button class="load-more-button" onclick="loadMorePosts()">Еще</button>
     </div>
 </div>
 
 <script>
 let posts = [
+    'nexta_live/74297',
+    'chervethread_2ch/74',
+    'chervethread_2ch/72',
+    'chervethread_2ch/73',
+    'nexta_live/74285',
+    'chervethread_2ch/64',
+    'chervethread_2ch/65',
+    'chervethread_2ch/71',
+    'nexta_live/74230',
+    'nexta_live/74247',
+    'chervethread_2ch/70',
+    'chervethread_2ch/66',
     'nexta_live/73636',
-    'chervethread_2ch/56',
+    'nexta_live/74200',
+    'mar_lik/38023',
+    'chervethread_2ch/57',
+    'pravyvzgliad/18659',
     'chervethread_2ch/54',
     'nexta_live/74103',
     'chervethread_2ch/53',
@@ -87,11 +109,13 @@ let posts = [
     'nexta_live/73748',
     'nexta_live/73707',
     'nexta_live/73688',
-    'nexta_live/72153'
+    'nexta_live/72153',
+    'chervethread_2ch/62'
 ];
 
+let msnry;
 let currentPage = 0;
-let postsPerPage = 5;
+let postsPerPage = 10;
 let currentPostIndex = 0;
 
 function displayPosts() {
@@ -101,12 +125,14 @@ function displayPosts() {
     }
 
     for (let i = currentPostIndex; i < end; i++) {
+        let postDiv = document.createElement('div');
+        postDiv.classList.add('telegram-post');
         let script = document.createElement('script');
         script.src = `https://telegram.org/js/telegram-widget.js?22`;
         script.setAttribute('data-telegram-post', posts[i]);
         script.setAttribute('data-width', '100%');
-        script.classList.add('telegram-post');
-        document.getElementById('telegram-posts').appendChild(script);
+        postDiv.appendChild(script);
+        document.getElementById('telegram-posts').appendChild(postDiv);
     }
 
     if (end < posts.length) {
@@ -121,6 +147,9 @@ function loadMorePosts() {
     currentPage++;
     document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
+    setTimeout(function() {
+        msnry.layout();
+    }, 1000);
 }
 
 function loadFirstPosts() {
@@ -128,13 +157,21 @@ function loadFirstPosts() {
     currentPostIndex = 0;
     document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
+    setTimeout(function() {
+        msnry.layout();
+    }, 1000);
 }
 
-displayPosts();
-
-NeonBorder.init();
+document.addEventListener('DOMContentLoaded', function() {
+    msnry = new Masonry('#telegram-posts', {
+        itemSelector: '.telegram-post',
+        columnWidth: 300,
+        horizontalOrder: true,
+        fitWidth: true
+    });
+    displayPosts();
+});
 </script>
 </body>
 </html>
-
-
+```
