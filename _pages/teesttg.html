@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Новости Скотоублюдии
-permalink: /111/
+permalink: /russia_news/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-<p style="font-size: 30px;"><h3 class="font-weight-light"></h3>Хроники вставания с колен народа-гноя</p> 
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -15,7 +15,6 @@ image:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="https://unpkg.com/tile.css/dist/tile.min.css">
 <style>
     .load-more-button {
         background-color: #fdefe6;
@@ -28,6 +27,20 @@ image:
     .load-more-button:hover {
         background-color: #f9ccb5;
         color: black;
+    }
+
+    .telegram-post {
+        width: 48%;
+        margin: 1%;
+        float: left;
+    }
+
+    @media screen and (max-width: 600px) {
+        .telegram-post {
+            width: 100%;
+            margin: 0;
+            float: none;
+        }
     }
 
     #navigation-buttons {
@@ -47,23 +60,6 @@ image:
 
     #go-to-beginning i {
         display: none;
-    }
-
-    .telegram-post {
-        border: 2px solid transparent;
-        transition: border-color 0.3s;
-        display: inline-block;
-        margin: 10px;
-        padding: 10px;
-        border-radius: 10px;
-        background-color: #f7f7f7;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 300px;
-        text-align: center;
-    }
-
-    .telegram-post:hover {
-        border-color: #00ff00;
     }
 </style>
 </head>
@@ -123,18 +119,16 @@ function displayPosts() {
         end = posts.length;
     }
 
+    const postsContainer = document.getElementById('telegram-posts');
+    postsContainer.innerHTML = ''; // Очищаем контейнер
+
     for (let i = currentPostIndex; i < end; i++) {
         let script = document.createElement('script');
         script.src = `https://telegram.org/js/telegram-widget.js?22`;
         script.setAttribute('data-telegram-post', posts[i]);
         script.setAttribute('data-width', '100%');
         script.classList.add('telegram-post');
-        
-        let tile = document.createElement('div');
-        tile.classList.add('telegram-tile');
-        tile.appendChild(script);
-        
-        document.getElementById('telegram-posts').appendChild(tile);
+        postsContainer.appendChild(script);
     }
 
     if (end < posts.length) {
@@ -147,14 +141,12 @@ function displayPosts() {
 function loadMorePosts() {
     currentPostIndex += postsPerPage;
     currentPage++;
-    document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
 }
 
 function loadFirstPosts() {
     currentPage = 0;
     currentPostIndex = 0;
-    document.getElementById('telegram-posts').innerHTML = '';
     displayPosts();
 }
 
