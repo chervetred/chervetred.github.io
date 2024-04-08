@@ -2,19 +2,52 @@
 layout: default
 ---
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Blog Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hover.css/css/hover-min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .post-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .post-container:hover {
+      transform: scale(1.1);
+    }
+    
+    .post-image {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s;
+    }
+    
+    .parallax {
+    	transition: transform 0.3s;
+    }
+    
+    .parallax:hover {
+    	transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
 {% if site.layout_home_page == true %}
 {% if site.featured-post-slider == true %}
-<!-- featured post -->
-<section
+<section>
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
-  
   <div class="container-fluid p-sm-0">
     <div class="row featured-post-slider">
       {% for post in site.posts %}
       {% if post.featured == true %}
       <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
-        <article class="card bg-dark text-center text-white border-0 rounded-0">
-          <img class="card-img rounded-0 img-fluid w-100 card-img" src="{{post.image | relative_url}}" alt="{{post.title}}">
+        <article class="card bg-dark text-center text-white border-0 rounded-0 post-container">
+          <img class="card-img rounded-0 img-fluid w-100 post-image parallax" src="{{post.image | relative_url}}" alt="{{post.title}}">
           <div class="card-img-overlay">
             <div class="card-content">
               {% if post %}
@@ -36,18 +69,16 @@ layout: default
     </div>
   </div>
 </section>
-<!-- /featured post -->
 {% endif %}
 
-<!-- blog post -->
 <section class="section">
   <div class="container">
     <div class="row masonry-container">
       {% if site.posts.size > 0 %}
       {% for post in paginator.posts %}
       <div class="col-lg-4 col-sm-6 mb-5">
-        <article class="text-center card">
-          <img class="img-fluid mb-4 card-img" src="{{post.image | relative_url}}" alt="{{post.title}}">
+        <article class="text-center">
+          <img class="img-fluid mb-4 post-image parallax" src="{{post.image | relative_url}}" alt="{{post.title}}">
           {% if post %}
             {% assign categories = post.categories %}
           {% else %}
@@ -67,13 +98,11 @@ layout: default
     {% include pagination.html %}
   </div>
 </section>
-<!-- /blog post -->
 
 {% include instagram.html %}
 
 {% else %}
 
-<!-- dividers -->
 <div class="dividers">
   <div class="divider"></div>
   <div class="divider"></div>
@@ -81,54 +110,15 @@ layout: default
   <div class="divider"></div>
 </div>
 
-<!-- hero area -->
-<section class="hero-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 align-self-end">
-        <h1 class="mb-0">Добро  пожаловать. Снова.</h1>
-        <h2 class="mb-100 title-border-lg">на Червепедию.</i></h2>
-        <p class="mb-80 mr-5">{{site.hero.hero-subtitle}}</p>
-        <span class="font-secondary text-dark mr-3 mr-sm-5">Follow</span>
-        <ul class="list-inline d-inline-block mb-5">
-          {% for social in site.social %}
-          <li class="list-inline-item mx-3"><a href="{{ social.link }}" class="text-dark"><i class="{{ social.icon }}"></i></a></li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="col-lg-6 text-right">
-        <img class="img-fluid" src="{{site.hero.hero-banner | relative_url }}" alt="banner-image">
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /hero area -->
-
-<style>
-  .card {
-    border: 2px solid transparent;
-    transition: transform 0.3s;
-  }
-  .card:hover {
-    transform: scale(1.1);
-  }
-</style>
+</body>
+</html>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var cardImages = document.querySelectorAll('.card-img');
-    cardImages.forEach(function(image) {
-      image.addEventListener('mousemove', function(e) {
-        var screenWidth = window.innerWidth;
-        var screenHeight = window.innerHeight;
-        var offsetX = 0.5 - e.pageX / screenWidth;
-        var offsetY = 0.5 - e.pageY / screenHeight;
-        var transform = 'translate('+ offsetX * 20 +'px,'+ offsetY * 20 +'px)';
-        image.style.transform = transform;
-      });
-      image.addEventListener('mouseleave', function() {
-        image.style.transform = 'none';
-      });
+  $(document).ready(function() {
+    $('.post-container').on('mouseenter', function() {
+      $(this).find('.post-image').addClass('hvr-buzz');
+    }).on('mouseleave', function() {
+      $(this).find('.post-image').removeClass('hvr-buzz');
     });
   });
 </script>
