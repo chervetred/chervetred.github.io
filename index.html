@@ -5,15 +5,15 @@ layout: default
 {% if site.layout_home_page == true %}
 {% if site.featured-post-slider == true %}
 <!-- featured post -->
-<section
+<section>
 	<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
 	
   <div class="container-fluid p-sm-0">
     <div class="row featured-post-slider">
       {% for post in site.posts %}
       {% if post.featured == true %}
-      <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
-        <article class="card bg-dark text-center text-white border-0 rounded-0 article">
+      <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1 post">
+        <article class="card bg-dark text-center text-white border-0 rounded-0">
           <img class="card-img rounded-0 img-fluid w-100" src="{{post.image | relative_url}}" alt="{{post.title}}">
           <div class="card-img-overlay">
             <div class="card-content">
@@ -37,4 +37,50 @@ layout: default
   </div>
 </section>
 <!-- /featured post -->
+{% endif %}
+
+<!-- blog post -->
+<section class="section">
+  <div class="container">
+    <div class="row masonry-container">
+			{% if site.posts.size > 0 %}
+			{% for post in paginator.posts %}
+      <div class="col-lg-4 col-sm-6 mb-5 post">
+        <article class="text-center">
+					<img class="img-fluid mb-4" src="{{post.image | relative_url}}" alt="{{post.title}}">
+					{% if post %}
+						{% assign categories = post.categories %}
+					{% else %}
+					{% assign categories = page.categories %}
+					{% endif %}
+					{% for category in post.categories %}
+          <a class="d-block mb-3 text-dark text-uppercase" href="{{ 'category/' | relative_url }}{{ category | slugify }}">{{ category }}</a>
+          {% endfor %}
+          <h4 class="title-border"><a class="text-dark" href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a></h4>
+          <p>{{ post.content | strip_html | truncatewords: 35 }}</p>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-transparent">Читать</a>
+        </article>
+      </div>
+			{% endfor %}
+			{% endif %}
+    </div>
+    {% include pagination.html %}
+  </div>
+</section>
+<!-- /blog post -->
+
+{% include instagram.html %}
+
+{% else %}
+
+<!-- hero area -->
+<!-- ... your existing hero area code ... -->
+<!-- /hero area -->
+
+<!-- blog post -->
+<!-- ... your existing blog post code ... -->
+<!-- /blog post -->
+
+{% include instagram.html %}
+
 {% endif %}
