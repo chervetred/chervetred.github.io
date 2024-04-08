@@ -6,15 +6,15 @@ layout: default
 {% if site.featured-post-slider == true %}
 <!-- featured post -->
 <section
-	<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
-	
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+  
   <div class="container-fluid p-sm-0">
     <div class="row featured-post-slider">
       {% for post in site.posts %}
       {% if post.featured == true %}
       <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
         <article class="card bg-dark text-center text-white border-0 rounded-0">
-          <img class="card-img rounded-0 img-fluid w-100" src="{{post.image | relative_url}}" alt="{{post.title}}">
+          <img class="card-img rounded-0 img-fluid w-100 card-img" src="{{post.image | relative_url}}" alt="{{post.title}}">
           <div class="card-img-overlay">
             <div class="card-content">
               {% if post %}
@@ -43,17 +43,17 @@ layout: default
 <section class="section">
   <div class="container">
     <div class="row masonry-container">
-			{% if site.posts.size > 0 %}
-			{% for post in paginator.posts %}
+      {% if site.posts.size > 0 %}
+      {% for post in paginator.posts %}
       <div class="col-lg-4 col-sm-6 mb-5">
-        <article class="text-center">
-					<img class="img-fluid mb-4" src="{{post.image | relative_url}}" alt="{{post.title}}">
-					{% if post %}
-						{% assign categories = post.categories %}
-					{% else %}
-					{% assign categories = page.categories %}
-					{% endif %}
-					{% for category in post.categories %}
+        <article class="text-center card">
+          <img class="img-fluid mb-4 card-img" src="{{post.image | relative_url}}" alt="{{post.title}}">
+          {% if post %}
+            {% assign categories = post.categories %}
+          {% else %}
+          {% assign categories = page.categories %}
+          {% endif %}
+          {% for category in post.categories %}
           <a class="d-block mb-3 text-dark text-uppercase" href="{{ 'category/' | relative_url }}{{ category | slugify }}">{{ category }}</a>
           {% endfor %}
           <h4 class="title-border"><a class="text-dark" href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a></h4>
@@ -61,8 +61,8 @@ layout: default
           <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-transparent">Читать</a>
         </article>
       </div>
-			{% endfor %}
-			{% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
     {% include pagination.html %}
   </div>
@@ -104,42 +104,31 @@ layout: default
 </section>
 <!-- /hero area -->
 
-<!-- blog post -->
-<section class="section">
-  <div class="container">
-    <div class="row">
-      {% if site.posts.size > 0 %}
-      {% for post in paginator.posts %}
-      {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-      {% if thecycle == 'odd' %}
-        {% assign class = '' %}
-      {% else %}
-        {% assign class = 'article-right' %}
-      {% endif %}
-      <div class="col-12 mb-100">
-        <article data-file="{{ post.url | prepend: site.baseurl }}" data-target="article" class="article-full-width {{class}}">
-          <div class="post-image">
-            <img class="img-fluid" src="{{post.image | relative_url}}" alt="{{post.title}}">
-          </div>
-          <div class="post-content">
-            <ul class="list-inline d-flex justify-content-between border-bottom post-meta pb-2 mb-4">
-              <li class="list-inline-item"><i class="ti-calendar mr-2"></i>{{post.date | date: '%b %d, %Y'}}</li>
-              <li class="list-inline-item"><i class="ti-alarm-clock mr-2"></i><span class="eta"></span> read</li>
-            </ul>
-            <h4 class="mb-4"><a href="{{ post.url | prepend: site.baseurl }}" class="text-dark">{{post.title}}</a></h4>
-            <p class="mb-0 post-summary">{{ post.content | strip_html | truncatewords: 35 }}</p>
-            <a class="btn btn-transparent mb-4" href="{{ post.url | prepend: site.baseurl }}">Читать...</a>
-          </div>
-        </article>
-      </div>
-      {% endfor %}
-			{% endif %}
-    </div>
-    {% include pagination.html %}
-  </div>
-</section>
-<!-- /blog post -->
+<style>
+  .card {
+    border: 2px solid transparent;
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: scale(1.1);
+  }
+</style>
 
-{% include instagram.html %}
-
-{% endif %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var cardImages = document.querySelectorAll('.card-img');
+    cardImages.forEach(function(image) {
+      image.addEventListener('mousemove', function(e) {
+        var screenWidth = window.innerWidth;
+        var screenHeight = window.innerHeight;
+        var offsetX = 0.5 - e.pageX / screenWidth;
+        var offsetY = 0.5 - e.pageY / screenHeight;
+        var transform = 'translate('+ offsetX * 20 +'px,'+ offsetY * 20 +'px)';
+        image.style.transform = transform;
+      });
+      image.addEventListener('mouseleave', function() {
+        image.style.transform = 'none';
+      });
+    });
+  });
+</script>
