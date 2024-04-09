@@ -5,7 +5,6 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -14,81 +13,134 @@ image:
 <title>Червепедия - Новости Скотоублюдии</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
     #telegram-posts {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        overflow: hidden;
+    }
+    .telegram-post {
+        width: 100%;
     }
 </style>
 </head>
 <body>
-<div class="carousel">
-    <div id="telegram-posts">
-        <!-- Posts will be dynamically loaded here -->
-    </div>
+<div id="telegram-posts" class="slider"></div>
+<div id="navigation-buttons">
+    <button class="load-more-button" onclick="loadFirstPosts()">Начало</button>
+    <div id="go-to-beginning"></div>
 </div>
-<button class="load-more-button left-arrow" onclick="loadPreviousPosts()"><i class="fas fa-arrow-left"></i></button>
-<button class="load-more-button right-arrow" onclick="loadNextPosts()"><i class="fas fa-arrow-right"></i></button>
 
 <script>
+
+$(document).ready(function(){
+    $('.slider').slick({
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: '<button id="prevBtn" class="load-more-button left"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button id="nextBtn" class="load-more-button right"><i class="fas fa-chevron-right"></i></button>'
+    });
+});
+
 let posts = [
-    'chervethread_2ch/77',
-    'chervethread_2ch/92',
-    // Другие посты не включены для краткости
-    'nexta_live/72153',
-    'chervethread_2ch/62'
+'chervethread_2ch/77',
+'chervethread_2ch/92',
+'chervethread_2ch/93',
+'chervethread_2ch/106',
+'PolitCircus/14620',
+'PolitCircus/14623',
+'PolitCircus/14625',
+'PolitCircus/14633',
+'PolitCircus/14635',
+'PolitCircus/14636',
+'nexta_live/74497',
+'nexta_live/74494',
+'nexta_live/74488',
+'nexta_live/74428',
+'nexta_live/74407',
+'PolitCircus/14604',
+'PolitCircus/14612',
+'nexta_live/74394',
+'nexta_live/74390',
+'nexta_live/74367', 
+'nexta_live/74346', 
+'nexta_live/74337', 
+'chervethread_2ch/76', 
+ 'nexta_live/74333',   
+'klirik_sergio/51984',     
+'klirik_sergio/51989', 
+'nexta_live/74332', 
+'nexta_live/74297',   
+'chervethread_2ch/74',
+'chervethread_2ch/72',
+'chervethread_2ch/73',
+'nexta_live/74285',
+'chervethread_2ch/64',
+'chervethread_2ch/65',
+'chervethread_2ch/71',
+'nexta_live/74230',
+'nexta_live/74247',
+'chervethread_2ch/70',
+'chervethread_2ch/66',      
+'nexta_live/73636',
+'nexta_live/74200',
+'mar_lik/38023',
+'chervethread_2ch/57',
+'pravyvzgliad/18659',
+'chervethread_2ch/54',
+'nexta_live/74103',
+'chervethread_2ch/53',
+'nexta_live/74102',
+'nexta_live/74099',
+'nexta_live/74083',
+'nexta_live/74070',
+'oko18_channel/8183',
+'nexta_live/73801',
+'nexta_live/73797',
+'nexta_live/73784',
+'nexta_live/73748',
+'nexta_live/73707',
+'nexta_live/73688',
+'nexta_live/72153',
+'chervethread_2ch/62'
 ];
 
-let currentPostIndex = 0;
-
-function displayPosts(startIndex) {
-    let end = startIndex + 1;
-    for (let i = startIndex; i < end && i < posts.length; i++) {
+function displayPosts() {
+    posts.forEach(post => {
         let script = document.createElement('script');
         script.src = `https://telegram.org/js/telegram-widget.js?22`;
-        script.setAttribute('data-telegram-post', posts[i]);
+        script.setAttribute('data-telegram-post', post);
         script.setAttribute('data-width', '100%');
         script.classList.add('telegram-post');
         document.getElementById('telegram-posts').appendChild(script);
-    }
-}
-
-$(document).ready(function(){
-    $('.carousel').slick({
-        infinite: false,
-        speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1
     });
-    
-    displayPosts(currentPostIndex);
-});
-
-function loadNextPosts() {
-    currentPostIndex++;
-    if (currentPostIndex >= posts.length) {
-        currentPostIndex = posts.length - 1;
-    }
-    $('.carousel').slick('slickNext');
 }
 
-function loadPreviousPosts() {
-    currentPostIndex--;
-    if (currentPostIndex < 0) {
-        currentPostIndex = 0;
-    }
-    $('.carousel').slick('slickPrev');
+function loadFirstPosts() {
+    currentPostIndex = 0;
+    $('.slider').slick('unslick');
+    displayPosts();
+    $('.slider').slick({
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: '<button id="prevBtn" class="load-more-button left"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button id="nextBtn" class="load-more-button right"><i class="fas fa-chevron-right"></i></button>'
+    });
 }
+
+function loadMorePosts() {
+    currentPostIndex += postsPerPage;
+    displayPosts();
+    $('.slider').slick('refresh');
+}
+
+displayPosts();
+
 </script>
-
 </body>
 </html>
-
-
-Этот код представляет галерею с гладким переключением постов без предварительной загрузки, стрелки слева и справа от постов для навигации, а также подключает необходимые библиотеки из облачных источников для реализации функционала. Надеюсь, этот вариант подходит для вашего проекта!
-
-
