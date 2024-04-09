@@ -12,147 +12,74 @@ image:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Червепедия - Новости Скотоублюдии</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
-    .load-more-button {
-        background-color: #fdefe6;
+    #telegram-posts {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .slick-slide {
+        text-align: center;
         color: black;
-        padding: 10px 20px;
+        background: #fdefe6;
         border: 2px solid #fdefe6;
-        border-radius: 20px;
-        transition: background-color 0.3s;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 5px;
     }
-    .load-more-button:hover {
-        background-color: #f9ccb5;
-        color: black;
-    }
-    #navigation-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px;
-    }
-    .navigation-arrows {
+
+    .slick-prev, .slick-next {
+        font-size: 30px;
+        color: #fdefe6;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 1;
         cursor: pointer;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px 15px;
+        border-radius: 50%;
     }
-    #arrow-left {
-        left: 0;
-        z-index: 1;
+
+    .slick-prev {
+        left: -40px;
     }
-    #arrow-right {
-        right: 0;
-        z-index: 1;
+
+    .slick-next {
+        right: -40px;
     }
 
 </style>
 </head>
 <body>
-<div id="telegram-posts"></div>
-<div id="navigation-buttons">
-    <div id="arrow-left" class="navigation-arrows" onclick="loadPreviousPosts()"><i class="fas fa-arrow-left"></i></div>
-    <div id="arrow-right" class="navigation-arrows" onclick="loadNextPosts()"><i class="fas fa-arrow-right"></i></div>
+<div id="telegram-posts">
+    <div>chervethread_2ch/77</div>
+    <div>chervethread_2ch/92</div>
+    <div>chervethread_2ch/93</div>
+    <div>chervethread_2ch/106</div>
+    <div>PolitCircus/14620</div>
+    <div>PolitCircus/14623</div>
+    <div>PolitCircus/14625</div>
+    <div>PolitCircus/14633</div>
+    <div>PolitCircus/14635</div>
 </div>
 
 <script>
-let posts = [
-'chervethread_2ch/77',
-'chervethread_2ch/92',
-'chervethread_2ch/93',
-'chervethread_2ch/106',
-'PolitCircus/14620',
-'PolitCircus/14623',
-'PolitCircus/14625',
-'PolitCircus/14633',
-'PolitCircus/14635',
-'PolitCircus/14636',
-'nexta_live/74497',
-'nexta_live/74494',
-'nexta_live/74488',
-'nexta_live/74428',
-'nexta_live/74407',
-'PolitCircus/14604',
-'PolitCircus/14612',
-'nexta_live/74394',
-'nexta_live/74390',
-'nexta_live/74367', 
-'nexta_live/74346', 
-'nexta_live/74337', 
-'chervethread_2ch/76', 
- 'nexta_live/74333',   
-'klirik_sergio/51984',     
-'klirik_sergio/51989', 
-'nexta_live/74332', 
-'nexta_live/74297',   
-'chervethread_2ch/74',
-'chervethread_2ch/72',
-'chervethread_2ch/73',
-'nexta_live/74285',
-'chervethread_2ch/64',
-'chervethread_2ch/65',
-'chervethread_2ch/71',
-'nexta_live/74230',
-'nexta_live/74247',
-'chervethread_2ch/70',
-'chervethread_2ch/66',      
-'nexta_live/73636',
-'nexta_live/74200',
-'mar_lik/38023',
-'chervethread_2ch/57',
-'pravyvzgliad/18659',
-'chervethread_2ch/54',
-'nexta_live/74103',
-'chervethread_2ch/53',
-'nexta_live/74102',
-'nexta_live/74099',
-'nexta_live/74083',
-'nexta_live/74070',
-'oko18_channel/8183',
-'nexta_live/73801',
-'nexta_live/73797',
-'nexta_live/73784',
-'nexta_live/73748',
-'nexta_live/73707',
-'nexta_live/73688',
-'nexta_live/72153',
-'chervethread_2ch/62'
-];
-
-let currentPostIndex = 0;
-const postsPerPage = 1;
-
-function displayPosts() {
-    let script = document.createElement('script');
-    script.src = `https://telegram.org/js/telegram-widget.js?22`;
-    script.setAttribute('data-telegram-post', posts[currentPostIndex]);
-    script.setAttribute('data-width', '100%');
-    script.classList.add('telegram-post');
-    document.getElementById('telegram-posts').appendChild(script);
-}
-
-function loadNextPosts() {
-    currentPostIndex++;
-    if (currentPostIndex < posts.length) {
-        document.getElementById('telegram-posts').innerHTML = '';
-        displayPosts();
-    } else {
-        currentPostIndex = posts.length - 1;
-    }
-}
-
-function loadPreviousPosts() {
-    currentPostIndex--;
-    if (currentPostIndex >= 0) {
-        document.getElementById('telegram-posts').innerHTML = '';
-        displayPosts();
-    } else {
-        currentPostIndex = 0;
-    }
-}
-
-displayPosts();
+$(document).ready(function(){
+    $('#telegram-posts').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      dots: true,
+      prevArrow: '<i class="fas fa-chevron-left slick-prev"></i>',
+      nextArrow: '<i class="fas fa-chevron-right slick-next"></i>'
+    });
+});
 </script>
 </body>
 </html>
