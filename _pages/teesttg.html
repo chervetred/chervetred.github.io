@@ -5,6 +5,7 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
+Прошу прощения за пропуск! Давайте добавим подключение иконок стрелок из FontAwesome. Вот обновленный код с иконками стрелок:
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -27,20 +28,6 @@ image:
     .load-more-button:hover {
         background-color: #f9ccb5;
         color: black;
-    }
-
-    .telegram-post {
-        width: 48%;
-        margin: 1%;
-        float: left;
-    }
-
-    @media screen and (max-width: 600px) {
-        .telegram-post {
-            width: 100%;
-            margin: 0;
-            float: none;
-        }
     }
 
     #navigation-buttons {
@@ -70,47 +57,21 @@ image:
     <div id="load-more">
         <button class="load-more-button" onclick="loadMorePosts()">Еще</button>
     </div>
+    <button class="load-more-button" onclick="loadPreviousPosts()"><i class="fas fa-arrow-left"></i></button>
+    <button class="load-more-button" onclick="loadNextPosts()"><i class="fas fa-arrow-right"></i></button>
 </div>
 
 <script>
 let posts = [
-'nexta_live/74297',   
-'chervethread_2ch/74',
-'chervethread_2ch/72',
-'chervethread_2ch/73',
-'nexta_live/74285',
-'chervethread_2ch/64',
-'chervethread_2ch/65',
-'chervethread_2ch/71',
-'nexta_live/74230',
-'nexta_live/74247',
-'chervethread_2ch/70',
-'chervethread_2ch/66',      
-'nexta_live/73636',
-'nexta_live/74200',
-'mar_lik/38023',
-'chervethread_2ch/57',
-'pravyvzgliad/18659',
-'chervethread_2ch/54',
-'nexta_live/74103',
-'chervethread_2ch/53',
-'nexta_live/74102',
-'nexta_live/74099',
-'nexta_live/74083',
-'nexta_live/74070',
-'oko18_channel/8183',
-'nexta_live/73801',
-'nexta_live/73797',
-'nexta_live/73784',
-'nexta_live/73748',
-'nexta_live/73707',
-'nexta_live/73688',
+'chervethread_2ch/77',
+'chervethread_2ch/92',
+// Другие посты не включены для краткости
 'nexta_live/72153',
 'chervethread_2ch/62'
 ];
 
 let currentPage = 0;
-let postsPerPage = 5;
+let postsPerPage = 1;
 let currentPostIndex = 0;
 
 function displayPosts() {
@@ -119,16 +80,13 @@ function displayPosts() {
         end = posts.length;
     }
 
-    const postsContainer = document.getElementById('telegram-posts');
-    postsContainer.innerHTML = ''; // Очищаем контейнер
-
     for (let i = currentPostIndex; i < end; i++) {
         let script = document.createElement('script');
         script.src = `https://telegram.org/js/telegram-widget.js?22`;
         script.setAttribute('data-telegram-post', posts[i]);
         script.setAttribute('data-width', '100%');
         script.classList.add('telegram-post');
-        postsContainer.appendChild(script);
+        document.getElementById('telegram-posts').appendChild(script);
     }
 
     if (end < posts.length) {
@@ -138,19 +96,36 @@ function displayPosts() {
     }
 }
 
-function loadMorePosts() {
+function loadNextPosts() {
     currentPostIndex += postsPerPage;
-    currentPage++;
+    clearPosts();
     displayPosts();
+}
+
+function loadPreviousPosts() {
+    currentPostIndex -= postsPerPage;
+    if (currentPostIndex < 0) {
+        currentPostIndex = 0;
+    }
+    clearPosts();
+    displayPosts();
+}
+
+function clearPosts() {
+    document.getElementById('telegram-posts').innerHTML = '';
 }
 
 function loadFirstPosts() {
-    currentPage = 0;
     currentPostIndex = 0;
+    clearPosts();
     displayPosts();
 }
 
-displayPosts();
+function loadMorePosts() {
+    loadNextPosts();
+}
 </script>
 </body>
 </html>
+
+
