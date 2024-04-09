@@ -10,7 +10,7 @@ image:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Черведия - Новости Скотоублюдии</title>
+<title>Червепедия - Новости Скотоублюдии</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -27,47 +27,33 @@ image:
         background-color: #f9ccb5;
         color: black;
     }
-
     #navigation-buttons {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
         margin: 20px;
     }
-
-    #load-more {
-        display: flex;
+    .navigation-arrows {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+    #arrow-left {
+        left: 0;
+        z-index: 1;
+    }
+    #arrow-right {
+        right: 0;
+        z-index: 1;
     }
 
-    #go-to-beginning i, #go-to-end i {
-        display: none;
-    }
-
-    .post-container {
-        display: none;
-    }
-
-    .visible {
-        display: block;
-    }
-
-    .post-navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 20px 0;
-    }
 </style>
 </head>
 <body>
 <div id="telegram-posts"></div>
 <div id="navigation-buttons">
-    <div id="go-to-beginning" class="post-navigation">
-        <i id="left-arrow" class="fas fa-arrow-left"></i>
-    </div>
-    <div id="go-to-end" class="post-navigation">
-        <i id="right-arrow" class="fas fa-arrow-right"></i>
-    </div>
+    <div id="arrow-left" class="navigation-arrows" onclick="loadPreviousPosts()"><i class="fas fa-arrow-left"></i></div>
+    <div id="arrow-right" class="navigation-arrows" onclick="loadNextPosts()"><i class="fas fa-arrow-right"></i></div>
 </div>
 
 <script>
@@ -134,56 +120,39 @@ let posts = [
 'chervethread_2ch/62'
 ];
 
-let currentPage = 0;
-let postsPerPage = 1;
 let currentPostIndex = 0;
+const postsPerPage = 1;
 
 function displayPosts() {
-    let end = currentPostIndex + postsPerPage;
-    if (end >= posts.length) {
-        end = posts.length;
-    }
+    let script = document.createElement('script');
+    script.src = `https://telegram.org/js/telegram-widget.js?22`;
+    script.setAttribute('data-telegram-post', posts[currentPostIndex]);
+    script.setAttribute('data-width', '100%');
+    script.classList.add('telegram-post');
+    document.getElementById('telegram-posts').appendChild(script);
+}
 
-    for (let i = 0; i < posts.length; i++) {
-        let postContainer = document.createElement('div');
-        postContainer.className = 'post-container';
-        if (i >= currentPostIndex && i < end) {
-            postContainer.className += ' visible';
-            postContainer.innerHTML = `<iframe src="https://t.me/${posts[i]}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="width: 100%; height: 600px;"></iframe>`;
-        }
-        document.getElementById('telegram-posts').appendChild(postContainer);
+function loadNextPosts() {
+    currentPostIndex++;
+    if (currentPostIndex < posts.length) {
+        document.getElementById('telegram-posts').innerHTML = '';
+        displayPosts();
+    } else {
+        currentPostIndex = posts.length - 1;
     }
 }
 
-function loadFirstPosts() {
-    currentPostIndex = 0;
-    document.getElementById('telegram-posts').innerHTML = '';
-    displayPosts();
-}
-
-function loadMorePosts() {
-    currentPostIndex += postsPerPage;
-    document.getElementById('telegram-posts').innerHTML = '';
-    displayPosts();
+function loadPreviousPosts() {
+    currentPostIndex--;
+    if (currentPostIndex >= 0) {
+        document.getElementById('telegram-posts').innerHTML = '';
+        displayPosts();
+    } else {
+        currentPostIndex = 0;
+    }
 }
 
 displayPosts();
-
-document.getElementById('left-arrow').addEventListener('click', function() {
-    if (currentPostIndex > 0) {
-        currentPostIndex--;
-        document.getElementById('telegram-posts').innerHTML = '';
-        displayPosts();
-    }
-});
-
-document.getElementById('right-arrow').addEventListener('click', function() {
-    if (currentPostIndex + postsPerPage < posts.length) {
-        currentPostIndex++;
-        document.getElementById('telegram-posts').innerHTML = '';
-        displayPosts();
-    }
-});
 </script>
 </body>
 </html>
