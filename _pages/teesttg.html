@@ -28,40 +28,47 @@ image:
     }
 
     #navigation-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px;
-    }
-
-    #load-more {
-        margin: 0 auto;
-        display: flex;
-    }
-
-    .navigation-arrow {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 30px;
-        color: black;
-        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
 
     #left-arrow {
-        left: 10px;
-        display: none;
+        position: absolute;
+        left: 15px;
+        z-index: 1;
+        cursor: pointer;
     }
 
     #right-arrow {
-        right: 10px;
+        position: absolute;
+        right: 15px;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    #telegram-posts-container {
+        margin: 0 auto;
+        padding: 20px;
+        max-width: 800px;
+        border: 1px solid #ccc;
+    }
+
+    #telegram-posts {
+        margin: 20px 0;
     }
 </style>
 </head>
 <body>
-<div id="telegram-posts"></div>
-<div id="navigation-buttons">
-    <div id="left-arrow" class="navigation-arrow"><i class="fas fa-arrow-left"></i></div>
-    <div id="right-arrow" class="navigation-arrow"><i class="fas fa-arrow-right"></i></div>
+<div id="telegram-posts-container">
+    <div id="navigation-buttons">
+        <div id="left-arrow" class="navigation-arrow"><i class="fas fa-arrow-left"></i></div>
+        <div id="right-arrow" class="navigation-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div id="telegram-posts"></div>
 </div>
 
 <script>
@@ -146,25 +153,13 @@ function displayPosts() {
         script.classList.add('telegram-post');
         document.getElementById('telegram-posts').appendChild(script);
     }
-} 
+}
 
 function loadNextPost() {
     if (currentPostIndex + 1 < posts.length) {
         currentPostIndex++;
         document.getElementById('telegram-posts').innerHTML = '';
         displayPosts();
-    }
-
-    if (currentPostIndex > 0) {
-        document.getElementById('left-arrow').style.display = 'block';
-    } else {
-        document.getElementById('left-arrow').style.display = 'none';
-    }
-
-    if (currentPostIndex + 1 >= posts.length) {
-        document.getElementById('right-arrow').style.display = 'none';
-    } else {
-        document.getElementById('right-arrow').style.display = 'block';
     }
 }
 
@@ -175,17 +170,6 @@ function loadPreviousPost() {
         displayPosts();
     }
 
-    if (currentPostIndex > 0) {
-        document.getElementById('left-arrow').style.display = 'block';
-    } else {
-        document.getElementById('left-arrow').style.display = 'none';
-    }
-
-    if (currentPostIndex + 1 < posts.length) {
-        document.getElementById('right-arrow').style.display = 'block';
-    } else {
-        document.getElementById('right-arrow').style.display = 'none';
-    }
 }
 
 displayPosts();
@@ -193,3 +177,4 @@ document.getElementById('right-arrow').addEventListener('click', loadNextPost);
 document.getElementById('left-arrow').addEventListener('click', loadPreviousPost);
 </script>
 </body>
+</html>
