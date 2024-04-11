@@ -5,7 +5,7 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-Для модификации кода и удаления кнопок "еще" и "начало", а также добавления функционала переключения постов Телеграм как галереи карусель, я предложу следующий готовый код:
+Для реализации функционала переключения постов телеграм как галереи карусели исключим лишние элементы из кода, добавим необходимые библиотеки и скрипты. Вот ваш готовый код:
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -14,39 +14,18 @@ image:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Червепедия - Новости Скотоублюдии</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
-    .load-more-button {
-        background-color: #fdefe6;
-        color: black;
-        padding: 10px 20px;
-        border: 2px solid #fdefe6;
-        border-radius: 20px;
-        transition: background-color 0.3s;
-    }
-    .load-more-button:hover {
-        background-color: #f9ccb5;
-        color: black;
-    }
-
     .telegram-post {
-        display: none;
-    }
-
-    #navigation-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px;
+        outline: none;
     }
 </style>
 </head>
 <body>
-<div id="telegram-posts"></div>
-<div id="navigation-buttons">
-    <button class="load-more-button" onclick="showPreviousPosts()">Предыдущий</button>
-    <button class="load-more-button" onclick="showNextPosts()">Следующий</button>
-</div>
+<div id="telegram-posts" class="carousel"></div>
 
 <script>
 let posts = [
@@ -112,39 +91,29 @@ let posts = [
 'chervethread_2ch/62'
 ];
 
-let currentPage = 0;
-let postsPerPage = 1;
 let currentPostIndex = 0;
 
 function displayPosts() {
-    let script = document.createElement('script');
-    script.src = `https://telegram.org/js/telegram-widget.js?22`;
-    script.setAttribute('data-telegram-post', posts[currentPostIndex]);
-    script.setAttribute('data-width', '100%');
-    script.classList.add('telegram-post');
-    document.getElementById('telegram-posts').appendChild(script);
+    posts.forEach(post => {
+        let script = document.createElement('script');
+        script.src = `https://telegram.org/js/telegram-widget.js?22`;
+        script.setAttribute('data-telegram-post', post);
+        script.setAttribute('data-width', '100%');
+        script.classList.add('telegram-post');
+        document.getElementById('telegram-posts').appendChild(script);
+    });
 
-    if (currentPage === 0) {
-        document.querySelectorAll('.telegram-post')[0].style.display = 'block';
-    }
-}
-
-function showNextPosts() {
-    if (currentPostIndex < posts.length - 1) {
-        document.querySelectorAll('.telegram-post')[currentPostIndex].style.display = 'none';
-        currentPostIndex++;
-        document.querySelectorAll('.telegram-post')[currentPostIndex].style.display = 'block';
-        currentPage++;
-    }
-}
-
-function showPreviousPosts() {
-    if (currentPostIndex > 0) {
-        document.querySelectorAll('.telegram-post')[currentPostIndex].style.display = 'none';
-        currentPostIndex--;
-        document.querySelectorAll('.telegram-post')[currentPostIndex].style.display = 'block';
-        currentPage--;
-    }
+    $('.carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true,
+        appendDots: $('.navigation-buttons'),
+        prevArrow: '<button class="slick-prev"></button>',
+        nextArrow: '<button class="slick-next"></button>'
+    });
 }
 
 displayPosts();
@@ -153,4 +122,4 @@ displayPosts();
 </html>
 
 
-Этот код убирает кнопки "еще" и "начало", а также добавляет функционал переключения постов Телеграм как галереи карусель. При загрузке страницы отображается один пост, и можно переключаться между ними кнопками "Предыдущий" и "Следующий". Каждый пост будет показываться по одному на странице.
+Этот код убирает кнопки "Начало" и "Еще" и заменяет обычное отображение постов на карусель с помощью библиотеки Slick. Теперь посты будут переключаться как в галерее карусели.
