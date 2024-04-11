@@ -5,7 +5,7 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-Для реализации карусели с постами из Telegram и управления ей включим необходимые библиотеки прямо в код. Вот обновленный код с включенным jQuery и всеми необходимыми библиотеками:
+Чтобы добавить указанные посты в карусель, вам нужно добавить их в массив `posts`. Вот обновленный код с добавленными постами:
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,67 @@ image:
       "74594",
       "74593",
       "74592",
-      "74591"
+      "74591",
+      "chervethread_2ch/77",
+      "chervethread_2ch/92",
+      "chervethread_2ch/93",
+      "chervethread_2ch/106",
+      "PolitCircus/14620",
+      "PolitCircus/14623",
+      "PolitCircus/14625",
+      "PolitCircus/14633",
+      "PolitCircus/14635",
+      "PolitCircus/14636",
+      "nexta_live/74497",
+      "nexta_live/74494",
+      "nexta_live/74488",
+      "nexta_live/74428",
+      "nexta_live/74407",
+      "PolitCircus/14604",
+      "PolitCircus/14612",
+      "nexta_live/74394",
+      "nexta_live/74390",
+      "nexta_live/74367",
+      "nexta_live/74346",
+      "nexta_live/74337",
+      "chervethread_2ch/76",
+      "nexta_live/74333",
+      "klirik_sergio/51984",
+      "klirik_sergio/51989",
+      "nexta_live/74332",
+      "nexta_live/74297",
+      "chervethread_2ch/74",
+      "chervethread_2ch/72",
+      "chervethread_2ch/73",
+      "nexta_live/74285",
+      "chervethread_2ch/64",
+      "chervethread_2ch/65",
+      "chervethread_2ch/71",
+      "nexta_live/74230",
+      "nexta_live/74247",
+      "chervethread_2ch/70",
+      "chervethread_2ch/66",
+      "nexta_live/73636",
+      "nexta_live/74200",
+      "mar_lik/38023",
+      "chervethread_2ch/57",
+      "pravyvzgliad/18659",
+      "chervethread_2ch/54",
+      "nexta_live/74103",
+      "chervethread_2ch/53",
+      "nexta_live/74102",
+      "nexta_live/74099",
+      "nexta_live/74083",
+      "nexta_live/74070",
+      "oko18_channel/8183",
+      "nexta_live/73801",
+      "nexta_live/73797",
+      "nexta_live/73784",
+      "nexta_live/73748",
+      "nexta_live/73707",
+      "nexta_live/73688",
+      "nexta_live/72153",
+      "chervethread_2ch/62"
     ];
 
     var currentIndex = 0;
@@ -36,7 +96,7 @@ image:
       var script = document.createElement('script');
       script.async = true;
       script.src = "https://telegram.org/js/telegram-widget.js?22";
-      script.setAttribute('data-telegram-post', "nexta_live/" + post);
+      script.setAttribute('data-telegram-post', post);
       script.setAttribute('data-width', '100%');
       document.getElementById('telegram-posts').innerHTML = '';
       document.getElementById('telegram-posts').appendChild(script);
@@ -60,5 +120,6 @@ image:
   </script>
 </body>
 </html>
+
 
 
