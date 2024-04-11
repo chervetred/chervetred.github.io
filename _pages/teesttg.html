@@ -5,9 +5,60 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script>
+Для реализации карусели с постами из Telegram и управления ей включим необходимые библиотеки прямо в код. Вот обновленный код с включенным jQuery и всеми необходимыми библиотеками:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Новости Скотоублюдии</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <div class="carousel">
+    <div id="telegram-posts"></div>
+    <button id="prevBtn">Назад</button>
+    <button id="nextBtn">Вперед</button>
+  </div>
+
+  <script>
+    var posts = [
+      "74596",
+      "74594",
+      "74593",
+      "74592",
+      "74591"
+    ];
+
+    var currentIndex = 0;
+
+    function showPost(index) {
+      var post = posts[index];
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = "https://telegram.org/js/telegram-widget.js?22";
+      script.setAttribute('data-telegram-post', "nexta_live/" + post);
+      script.setAttribute('data-width', '100%');
+      document.getElementById('telegram-posts').innerHTML = '';
+      document.getElementById('telegram-posts').appendChild(script);
+    }
+
+    showPost(currentIndex);
+
+    $('#prevBtn').click(function() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showPost(currentIndex);
+      }
+    });
+
+    $('#nextBtn').click(function() {
+      if (currentIndex < posts.length - 1) {
+        currentIndex++;
+        showPost(currentIndex);
+      }
+    });
+  </script>
+</body>
 </html>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script>
+
+
