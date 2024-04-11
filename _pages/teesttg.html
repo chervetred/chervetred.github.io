@@ -5,10 +5,7 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-Извините за недоразумение. Вот полный список всех постов для вашего кода:
-
-Для того чтобы отображать посты как виджеты, вам нужно использовать соответствующие виджеты соцсетей или плагины для отображения контента социальных сетей на веб-странице. Вот пример использования виджета для отображения постов Telegram на веб-странице:
-
+<p style="font-size: 30px;"><h3 class="font-weight-light"></h3>Хроники вставания с колен народа-гноя</p> 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,68 +13,140 @@ image:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Червепедия - Новости Скотоублюдии</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<script async src="https://telegram.org/js/telegram-widget.js?22"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
-    #telegram-posts {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .slick-slide {
-        text-align: center;
+    .load-more-button {
+        background-color: #fdefe6;
         color: black;
-        background: #fdefe6;
+        padding: 10px 20px;
         border: 2px solid #fdefe6;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 5px;
+        border-radius: 20px;
+        transition: background-color 0.3s;
+    }
+    .load-more-button:hover {
+        background-color: #f9ccb5;
+        color: black;
     }
 
-    .slick-prev, .slick-next {
-        font-size: 30px;
-        color: #fdefe6;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-        cursor: pointer;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 10px 15px;
-        border-radius: 50%;
+    #navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
     }
 
-    .slick-prev {
-        left: -40px;
+    #load-more {
+        margin: 0 auto;
+        display: flex;
     }
 
-    .slick-next {
-        right: -40px;
+    #go-to-beginning {
+        margin-left: auto;
     }
 
+    #go-to-beginning i {
+        display: none;
+    }
 </style>
 </head>
 <body>
-<div id="telegram-posts">
-    <!-- Вставьте здесь код для отображения виджетов постов Telegram -->
+<div id="telegram-posts"></div>
+<div id="navigation-buttons">
+    <button class="load-more-button" onclick="loadMorePosts()">Еще</button>
 </div>
 
 <script>
-$(document).ready(function(){
-    $('#telegram-posts').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      dots: true,
-      prevArrow: '<i class="fas fa-chevron-left slick-prev"></i>',
-      nextArrow: '<i class="fas fa-chevron-right slick-next"></i>'
-    });
-});
+let posts = [
+'chervethread_2ch/77',
+'chervethread_2ch/92',
+'chervethread_2ch/93',
+'chervethread_2ch/106',
+'PolitCircus/14620',
+'PolitCircus/14623',
+'PolitCircus/14625',
+'PolitCircus/14633',
+'PolitCircus/14635',
+'PolitCircus/14636',
+'nexta_live/74497',
+'nexta_live/74494',
+'nexta_live/74488',
+'nexta_live/74428',
+'nexta_live/74407',
+'PolitCircus/14604',
+'PolitCircus/14612',
+'nexta_live/74394',
+'nexta_live/74390',
+'nexta_live/74367', 
+'nexta_live/74346', 
+'nexta_live/74337', 
+'chervethread_2ch/76', 
+ 'nexta_live/74333',   
+'klirik_sergio/51984',     
+'klirik_sergio/51989', 
+'nexta_live/74332', 
+'nexta_live/74297',   
+'chervethread_2ch/74',
+'chervethread_2ch/72',
+'chervethread_2ch/73',
+'nexta_live/74285',
+'chervethread_2ch/64',
+'chervethread_2ch/65',
+'chervethread_2ch/71',
+'nexta_live/74230',
+'nexta_live/74247',
+'chervethread_2ch/70',
+'chervethread_2ch/66',      
+'nexta_live/73636',
+'nexta_live/74200',
+'mar_lik/38023',
+'chervethread_2ch/57',
+'pravyvzgliad/18659',
+'chervethread_2ch/54',
+'nexta_live/74103',
+'chervethread_2ch/53',
+'nexta_live/74102',
+'nexta_live/74099',
+'nexta_live/74083',
+'nexta_live/74070',
+'oko18_channel/8183',
+'nexta_live/73801',
+'nexta_live/73797',
+'nexta_live/73784',
+'nexta_live/73748',
+'nexta_live/73707',
+'nexta_live/73688',
+'nexta_live/72153',
+'chervethread_2ch/62'
+];
+
+let currentPage = 0;
+let postsPerPage = 10;
+let currentPostIndex = 0;
+
+function displayPosts() {
+    let end = currentPostIndex + postsPerPage;
+    if (end >= posts.length) {
+        end = posts.length;
+    }
+
+    for (let i = currentPostIndex; i < end; i++) {
+        let script = document.createElement('script');
+        script.src = `https://telegram.org/js/telegram-widget.js?22`;
+        script.setAttribute('data-telegram-post', posts[i]);
+        script.setAttribute('data-width', '100%');
+        script.classList.add('telegram-post');
+        document.getElementById('telegram-posts').appendChild(script);
+    }
+
+    if (end < posts.length) {
+        document.getElementById('navigation-buttons').style.display = 'flex';
+    } else {
+        document.getElementById('navigation-buttons').style.display = 'none';
+    }
+}
+
+function loadMorePosts() {
+    currentPostIndex += postsPerPage;
+    displayPosts();
+}
 </script>
-</body>
-</html>
-
-
-Для добавления виджетов постов Telegram на вашу веб-страницу, вам нужно использовать специальный код предоставленный Telegram или выполнить подключение через плагины, которые поддерживают отображение постов Telegram.
