@@ -1,11 +1,14 @@
 ---
 layout: page
 title: Новости Скотоублюдии
-permalink: /russia_news/
+permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
 
+Чтобы разместить кнопки перелистывания слева и справа от контейнера с постами, и зафиксировать их по центру страницы, вам нужно модифицировать ваш код CSS и немного изменить скрипт slick-карусели. 
+
+Вот обновленный код для вас:
 
 <!DOCTYPE html>
 <html>
@@ -18,8 +21,6 @@ image:
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Добавляем ссылку на Slick Carousel JS файл -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!-- Добавляем ссылку на Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Стили для контейнера с каруселью */
         #telegram-posts {
@@ -27,25 +28,17 @@ image:
             margin: 0 auto;
             position: relative;
         }
-
+        
         /* Стили для кнопок перелистывания */
-        .prev-arrow, .next-arrow {
-            position: absolute;
+        .slick-prev, .slick-next {
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 30px; /* Задаем размер иконки */
-            color: #333; /* Цвет иконки */
-            cursor: pointer;
-            z-index: 1; /* Чтобы кнопки оставались поверх слайдов */
+            z-index: 999;
+            background: white;
         }
-
-        .prev-arrow {
-            left: 10px;
-        }
-
-        .next-arrow {
-            right: 10px;
-        }
+        .slick-prev { left: 0; }
+        .slick-next { right: 0; }
     </style>
 </head>
 <body>
@@ -56,25 +49,24 @@ image:
     <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script></div>
     <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script></div>
     <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script></div>
-    <button class="prev-arrow"><i class="fas fa-chevron-left"></i></button>
-    <button class="next-arrow"><i class="fas fa-chevron-right"></i></button>
 </div>
 
 <script>
 $(document).ready(function(){
     $('#telegram-posts').slick({
-        dots: false,
+        dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 1,
-        adaptiveHeight: true,
-        prevArrow: $('.prev-arrow'),
-        nextArrow: $('.next-arrow')
+        adaptiveHeight: true
     });
 });
 </script>
 
 </body>
 </html>
+
+
+Этот код позволит вам переместить кнопки перелистывания карусели на левый и правый края страницы, зафиксированные по центру. Теперь кнопки будут оставаться на месте и не прилипать к постам, они будут доступны для использования независимо от прокрутки карусели.
 
 
