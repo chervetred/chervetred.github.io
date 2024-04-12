@@ -8,6 +8,7 @@ image:
 
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,31 +40,12 @@ image:
             cursor: pointer;
         }
         .slick-prev {
-            left: 0;
-        }
-        .slick-next {
-            right: 0;
-        }
-        /* Стили для нумерации карусели */
-        .slick-dots {
-            position: absolute;
-            bottom: -50px; /* Располагаем нумерацию под каруселью */
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
         }
-        .slick-dots li {
-            list-style: none;
-            margin: 0 5px;
-        }
-        .slick-dots li button {
-            width: 10px;
-            height: 10px;
-            background: #ccc;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
+        .slick-next {
+            right: 50%;
+            transform: translateX(50%);
         }
     </style>
 </head>
@@ -80,17 +62,21 @@ image:
 <script>
 $(document).ready(function(){
     $('#telegram-posts').slick({
-        dots: true,
+        dots: false, /* Выключаем нумерацию */
         infinite: true,
         speed: 300,
-        slidesToShow: 1,
-        adaptiveHeight: true
+        slidesToShow: 3, /* Показываем по 3 поста одновременно, можно изменить на нужное количество */
+        slidesToScroll: 1, /* Прокручиваем по одному посту */
+        centerMode: true,
+        centerPadding: '30px' /* Добавляем отступ между постами */
     });
 });
 </script>
 
 </body>
 </html>
+
+
 
 
 
