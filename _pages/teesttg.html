@@ -5,6 +5,7 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
+Чтобы ваши посты из Telegram были идентифицируемы в контейнере следующим образом, нужно вставить скрипт для вывода каждого поста на основе списка `posts`. Ниже представлен обновленный HTML код с вашим списком постов:
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,7 @@ image:
             margin: 0 auto;
             position: relative;
         }
-        
+
         /* Стили для кнопок перелистывания */
         .slick-prev, .slick-next {
             position: fixed;
@@ -40,17 +41,86 @@ image:
 <body>
 
 <div id="telegram-posts">
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script></div>
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script></div>
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script></div>
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script></div>
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script></div>
+    <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
 </div>
 
 <script>
 $(document).ready(function(){
+    let posts = [
+         'chervethread_2ch/124',
+         'chervethread_2ch/123', 
+         'chervethread_2ch/122', 
+         'chervethread_2ch/120',
+         'chervethread_2ch/115',
+         'chervethread_2ch/112',  
+         'chervethread_2ch/77',
+         'chervethread_2ch/92',
+         'chervethread_2ch/93',
+         'chervethread_2ch/106',
+         'PolitCircus/14620',
+         'PolitCircus/14623',
+         'PolitCircus/14625',
+         'PolitCircus/14633',
+         'PolitCircus/14635',
+         'PolitCircus/14636',
+         'nexta_live/74497',
+         'nexta_live/74494',
+         'nexta_live/74488',
+         'nexta_live/74428',
+         'nexta_live/74407',
+         'PolitCircus/14604',
+         'PolitCircus/14612',
+         'nexta_live/74394',
+         'nexta_live/74390',
+         'nexta_live/74367',
+         'nexta_live/74346',
+         'nexta_live/74337',
+         'chervethread_2ch/76',
+         'nexta_live/74333',   
+         'klirik_sergio/51984',
+         'klirik_sergio/51989', 
+         'nexta_live/74332',
+         'nexta_live/74297',   
+         'chervethread_2ch/74',
+         'chervethread_2ch/72',
+         'chervethread_2ch/73',
+         'nexta_live/74285',
+         'chervethread_2ch/64',
+         'chervethread_2ch/65',
+         'chervethread_2ch/71',
+         'nexta_live/74230',
+         'nexta_live/74247',
+         'chervethread_2ch/70',
+         'chervethread_2ch/66',      
+         'nexta_live/73636',
+         'nexta_live/74200',
+         'mar_lik/38023',
+         'chervethread_2ch/57',
+         'pravyvzgliad/18659',
+         'chervethread_2ch/54',
+         'nexta_live/74103',
+         'chervethread_2ch/53',
+         'nexta_live/74102',
+         'nexta_live/74099',
+         'nexta_live/74083',
+         'nexta_live/74070',
+         'oko18_channel/8183',
+         'nexta_live/73801',
+         'nexta_live/73797',
+         'nexta_live/73784',
+         'nexta_live/73748',
+         'nexta_live/73707',
+         'nexta_live/73688',
+         'nexta_live/72153',
+         'chervethread_2ch/62'
+    ];
+
+    posts.forEach(post => {
+        $("#telegram-posts").append(`<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="${post}" data-width="100%"></script>`);
+    });
+
     $('#telegram-posts').slick({
-        dots: false, // отключаем точки слайдера
+        dots: false,
         infinite: true,
         speed: 300,
         slidesToShow: 1,
@@ -61,3 +131,6 @@ $(document).ready(function(){
 
 </body>
 </html>
+
+
+Теперь скрипт добавляет посты из вашего списка на страницу, используя Telegram Widget API, каждый пост будет отображаться в карусели без нумерации.
