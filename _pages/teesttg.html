@@ -8,74 +8,59 @@ image:
 
 
 
+Понял вас. Давайте использовать другую библиотеку для создания карусели. Вместо Slick Carousel, мы можем воспользоваться библиотекой Flickity, которая также обладает гибкими возможностями настройки карусели.
+
+Ниже приведен обновленный код с использованием библиотеки Flickity:
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Telegram Post Carousel</title>
-    <!-- Добавляем ссылку на стили Slick Carousel -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <!-- Добавляем ссылку на jQuery, которая необходима для Slick Carousel -->
+    <!-- Подключение стилей библиотеки Flickity -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
+    <!-- Подключение jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Добавляем ссылку на Slick Carousel JS файл -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- Подключение библиотеки Flickity -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.pkgd.min.js"></script>
     <style>
-        /* Стили для контейнера с каруселью */
-        #telegram-posts {
-            width: 80%;
-            margin: 0 auto;
-            position: relative; /* Добавляем позиционирование для кнопок */
+        body { font-family: sans-serif; }
+        /* Стили для карусели */
+        .carousel {
+          background: #EEE;
+          margin: 20px auto;
         }
-        /* Стили для кнопок перелистывания */
-        .slick-prev, .slick-next {
-            position: absolute;
-            bottom: -50px; /* Располагаем кнопки под каруселью */
-            width: 30px;
-            height: 30px;
-            background: #000;
-            color: #fff;
-            text-align: center;
-            line-height: 30px;
-            cursor: pointer;
-        }
-        .slick-prev {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .slick-next {
-            right: 50%;
-            transform: translateX(50%);
+        /* Стили для отдельного поста */
+        .carousel-cell {
+          width: calc(33.33% - 20px); /* Ширина поста с отступами */
+          margin-right: 10px;
+          height: auto;
+          padding: 10px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 5px;
         }
     </style>
 </head>
 <body>
-
-<div id="telegram-posts">
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script></div>
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script></div>
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script></div>
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script></div>
-    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script></div>
+<div class="carousel" data-flickity='{ "wrapAround": true, "pageDots": false, "cellAlign": "left" }'>
+    <div class="carousel-cell"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script></div>
+    <div class="carousel-cell"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script></div>
+    <div class="carousel-cell"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script></div>
+    <div class="carousel-cell"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script></div>
+    <div class="carousel-cell"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script></div>
 </div>
-
 <script>
-$(document).ready(function(){
-    $('#telegram-posts').slick({
-        dots: false, /* Выключаем нумерацию */
-        infinite: true,
-        speed: 300,
-        slidesToShow: 3, /* Показываем по 3 поста одновременно, можно изменить на нужное количество */
-        slidesToScroll: 1, /* Прокручиваем по одному посту */
-        centerMode: true,
-        centerPadding: '30px' /* Добавляем отступ между постами */
+    $('.carousel').flickity({
+      cellAlign: 'left',
+      contain: true
     });
-});
 </script>
-
 </body>
 </html>
 
+
+Этот код использует библиотеку Flickity для создания карусели с постами из телеграм. Надеюсь, это решение будет работать лучше для вашего проекта.
 
 
 
