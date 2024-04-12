@@ -6,46 +6,45 @@ keywords: червепедия, черветред, черветред - это,
 image: 
 ---
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Telegram Post Carousel</title>
+    <!-- Добавляем ссылку на стили Slick Carousel -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Добавляем ссылку на jQuery, которая необходима для Slick Carousel -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Добавляем ссылку на Slick Carousel JS файл -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- Добавляем ссылку на Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Стили для контейнера с каруселью */
         #telegram-posts {
             width: 80%;
             margin: 0 auto;
-            position: relative; /* Добавляем позицию для корректного позиционирования кнопок */
+            position: relative;
         }
 
-        .slick-prev, .slick-next {
+        /* Стили для кнопок перелистывания */
+        .prev-arrow, .next-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            z-index: 1;
+            font-size: 30px; /* Задаем размер иконки */
+            color: #333; /* Цвет иконки */
             cursor: pointer;
+            z-index: 1; /* Чтобы кнопки оставались поверх слайдов */
         }
 
-        .slick-prev {
+        .prev-arrow {
             left: 10px;
         }
 
-        .slick-next {
+        .next-arrow {
             right: 10px;
-        }
-
-        .slick-prev img,
-        .slick-next img {
-            width: 40px; /* Размер изображений стрелок */
-        }
-
-        .slick-dots {
-            position: relative;
-            text-align: center;
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -57,21 +56,20 @@ image:
     <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script></div>
     <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script></div>
     <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script></div>
-
-    <div class="slick-prev"><img src="https://link-to-your-cloud-storage/arrow-left.png" alt="Previous"></div>
-    <div class="slick-next"><img src="https://link-to-your-cloud-storage/arrow-right.png" alt="Next"></div>
-
-    <div class="slick-dots"></div>
+    <button class="prev-arrow"><i class="fas fa-chevron-left"></i></button>
+    <button class="next-arrow"><i class="fas fa-chevron-right"></i></button>
 </div>
 
 <script>
 $(document).ready(function(){
     $('#telegram-posts').slick({
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 300,
         slidesToShow: 1,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        prevArrow: $('.prev-arrow'),
+        nextArrow: $('.next-arrow')
     });
 });
 </script>
@@ -80,5 +78,3 @@ $(document).ready(function(){
 </html>
 
 
-
-Таким образом, вы создадите карусель постов с требуемым дизайном кнопок и нумерации.
