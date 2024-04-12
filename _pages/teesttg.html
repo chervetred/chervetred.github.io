@@ -1,120 +1,49 @@
 ---
 layout: page
 title: Новости Скотоублюдии
-permalink: /111/
+permalink: /russia_news/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Новости Скотоублюдии</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости Скотоублюдии</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/own-carousel.js/dist/own-carousel.css">
 </head>
 <body>
-  <div class="carousel">
-    <div id="telegram-posts"></div>
-    <button id="prevBtn">Назад</button>
-    <button id="nextBtn">Вперед</button>
-  </div>
+    <div id="telegram-carousel" class="own-carousel">
+        <div class="item">
+            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script>
+        </div>
+        <div class="item">
+            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script>
+        </div>
+        <div class="item">
+            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script>
+        </div>
+        <div class="item">
+            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script>
+        </div>
+        <div class="item">
+            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script>
+        </div>
+    </div>
 
-  <script>
-    var posts = [
-
-      "chervethread_2ch/77",
-      "chervethread_2ch/92",
-      "chervethread_2ch/93",
-      "chervethread_2ch/106",
-      "PolitCircus/14620",
-      "PolitCircus/14623",
-      "PolitCircus/14625",
-      "PolitCircus/14633",
-      "PolitCircus/14635",
-      "PolitCircus/14636",
-      "nexta_live/74497",
-      "nexta_live/74494",
-      "nexta_live/74488",
-      "nexta_live/74428",
-      "nexta_live/74407",
-      "PolitCircus/14604",
-      "PolitCircus/14612",
-      "nexta_live/74394",
-      "nexta_live/74390",
-      "nexta_live/74367",
-      "nexta_live/74346",
-      "nexta_live/74337",
-      "chervethread_2ch/76",
-      "nexta_live/74333",
-      "klirik_sergio/51984",
-      "klirik_sergio/51989",
-      "nexta_live/74332",
-      "nexta_live/74297",
-      "chervethread_2ch/74",
-      "chervethread_2ch/72",
-      "chervethread_2ch/73",
-      "nexta_live/74285",
-      "chervethread_2ch/64",
-      "chervethread_2ch/65",
-      "chervethread_2ch/71",
-      "nexta_live/74230",
-      "nexta_live/74247",
-      "chervethread_2ch/70",
-      "chervethread_2ch/66",
-      "nexta_live/73636",
-      "nexta_live/74200",
-      "mar_lik/38023",
-      "chervethread_2ch/57",
-      "pravyvzgliad/18659",
-      "chervethread_2ch/54",
-      "nexta_live/74103",
-      "chervethread_2ch/53",
-      "nexta_live/74102",
-      "nexta_live/74099",
-      "nexta_live/74083",
-      "nexta_live/74070",
-      "oko18_channel/8183",
-      "nexta_live/73801",
-      "nexta_live/73797",
-      "nexta_live/73784",
-      "nexta_live/73748",
-      "nexta_live/73707",
-      "nexta_live/73688",
-      "nexta_live/72153",
-      "chervethread_2ch/62"
-    ];
-
-    var currentIndex = 10;
-
-    function showPost(index) {
-      var post = posts[index];
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = "https://telegram.org/js/telegram-widget.js?22";
-      script.setAttribute('data-telegram-post', post);
-      script.setAttribute('data-width', '100%');
-      document.getElementById('telegram-posts').innerHTML = '';
-      document.getElementById('telegram-posts').appendChild(script);
-    }
-
-    showPost(currentIndex);
-
-    $('#prevBtn').click(function() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        showPost(currentIndex);
-      }
-    });
-
-    $('#nextBtn').click(function() {
-      if (currentIndex < posts.length - 1) {
-        currentIndex++;
-        showPost(currentIndex);
-      }
-    });
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/own-carousel.js/dist/own-carousel.js"></script>
+    <script>
+        const carousel = new OwnCarousel('#telegram-carousel', {
+            autoplay: true,
+            autoplayTimeout: 5000,
+            loop: true,
+            itemsPerPage: 1,
+            navigation: true,
+            pagination: true
+        });
+    </script>
 </body>
 </html>
-
-
 
