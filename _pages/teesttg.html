@@ -5,56 +5,74 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Telegram Post Carousel</title>
-    <!-- Подключение стилей библиотеки Swiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <!-- Подключение jQuery -->
+    <!-- Добавляем ссылку на стили Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Добавляем ссылку на jQuery, которая необходима для Slick Carousel -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Подключение библиотеки Swiper -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Добавляем ссылку на Slick Carousel JS файл -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <style>
-        body { font-family: sans-serif; }
-        /* Стили для карусели */
-        .swiper-container {
-          width: 80%;
-          margin: 20px auto;
+        /* Стили для контейнера с каруселью */
+        #telegram-posts {
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
         }
-        /* Стили для отдельного слайда */
-        .swiper-slide {
-          text-align: center;
-          font-size: 18px;
-          background: #fff;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          padding: 20px;
+        /* Стили для кнопок перелистывания */
+        .slick-prev, .slick-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .slick-prev {
+            left: -30px;
+        }
+        .slick-next {
+            right: -30px;
+        }
+        /* Стили для нумерации */
+        .slick-dots {
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
 </head>
+
 <body>
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script></div>
-        <div class="swiper-slide"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script></div>
-        <div class="swiper-slide"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script></div>
-        <div class="swiper-slide"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script></div>
-        <div class="swiper-slide"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script></div>
-    </div>
+
+<div id="telegram-posts">
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script></div>
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script></div>
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script></div>
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script></div>
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script></div>
 </div>
+
 <script>
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 3, /* Показываем 3 поста одновременно, можно изменить на нужное количество */
-        spaceBetween: 30, /* Добавляем расстояние между постами */
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+$(document).ready(function(){
+    $('#telegram-posts').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+        nextArrow: '<button type="button" class="slick-next">Next</button>'
     });
+});
 </script>
+
 </body>
 </html>
+
 
 
