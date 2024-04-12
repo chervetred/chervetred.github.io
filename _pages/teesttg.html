@@ -1,49 +1,55 @@
 ---
 layout: page
 title: Новости Скотоублюдии
-permalink: /russia_news/
+permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости Скотоублюдии</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/own-carousel.js/dist/own-carousel.css">
+    <title>Telegram Post Carousel</title>
+    <!-- Добавляем ссылку на стили Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Добавляем ссылку на jQuery, которая необходима для Slick Carousel -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Добавляем ссылку на Slick Carousel JS файл -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <style>
+        /* Стили для контейнера с каруселью */
+        #telegram-posts {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-    <div id="telegram-carousel" class="own-carousel">
-        <div class="item">
-            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script>
-        </div>
-        <div class="item">
-            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script>
-        </div>
-        <div class="item">
-            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script>
-        </div>
-        <div class="item">
-            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script>
-        </div>
-        <div class="item">
-            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script>
-        </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/own-carousel.js/dist/own-carousel.js"></script>
-    <script>
-        const carousel = new OwnCarousel('#telegram-carousel', {
-            autoplay: true,
-            autoplayTimeout: 5000,
-            loop: true,
-            itemsPerPage: 1,
-            navigation: true,
-            pagination: true
-        });
-    </script>
+<div id="telegram-posts">
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74596" data-width="100%"></script></div>
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74594" data-width="100%"></script></div>
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74593" data-width="100%"></script></div>
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74592" data-width="100%"></script></div>
+    <div><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="nexta_live/74591" data-width="100%"></script></div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('#telegram-posts').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+    });
+});
+</script>
+
 </body>
 </html>
+
+
+Просто скопируйте этот код, вставьте его в ваш HTML файл и откройте его в браузере. Вы увидите карусель с постами из телеграм, которые можно листать. Надеюсь, это поможет вам создать желаемый функционал на вашем сайте.
 
