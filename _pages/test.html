@@ -54,7 +54,7 @@ image:
     }
     /* Стили для миниатюрных изображений */
     .thumbnail-img {
-        width: 100%;
+        width: 100px; /* Ширина миниатюры */
         height: auto;
         cursor: pointer; /* Изменение курсора при наведении для указания на возможность клика */
     }
@@ -67,6 +67,7 @@ image:
         height: auto;
     }
 </style>
+</head>
 <body>
     <div class="container">
         <div class="sidebar-container">
@@ -84,32 +85,26 @@ image:
         </div>
 
 <div class="content">
-    <!-- Контент -->
-    <h2 id="category1" class="category-heading">Введение</h2>
-
-            <div class="modal fade" id="carouselModalCategory1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div id="carouselCategory1" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" class="d-block w-100" alt="Изображение 1">
-                                    </div>
-                                    <!-- Добавьте дополнительные изображения для карусели -->
-                                </div>
-                                <!-- Кнопки переключения -->
-                                <a class="carousel-control-prev" href="#carouselCategory1" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselCategory1" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
+            <!-- Контент -->
+            <h1 id="category1">Введение</h1>
+            <div class="carousel-container">
+                <!-- Карусель для категории "Введение" -->
+                <div id="carouselCategory1" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" class="d-block w-100" alt="Изображение 1">
                         </div>
+                        <!-- Добавьте дополнительные изображения для карусели -->
                     </div>
+                    <!-- Кнопки переключения -->
+                    <a class="carousel-control-prev" href="#carouselCategory1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselCategory1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
     
@@ -145,9 +140,11 @@ image:
     <p>Сообщения о пропавших без вести мирных жителях, в основном мужчинах, стали поступать к западу от Киева после вывода российских войск. Одна женщина в Махарове рассказала журналистам, что видела, как российские солдаты под дулом пистолета увели ее зятя из их дома, и с тех пор его никто не видел. Другой мужчина исчез в Шпаках (Львовская область) при попытке доставить бензин другу. Позже украинские войска нашли только его сгоревшую и изрешеченную пулями машину.</p>
         <p>5 июля Совет по правам человека заявил, что произвольные задержания гражданских лиц российскими оккупантами стали "широко распространенными".</p>
     <p>По состоянию на 15 мая 62 жертвы насильственных исчезновений (44 мужчины и 18 женщин) были освобождены российскими и связанными с Россией вооруженными группами. Чаще всего жертвы освобождались в результате "обмена пленными" между Россией и Украиной. По мнению УВКПЧ, такие обмены могли бы представлять собой случаи захвата заложников, что в условиях вооруженного конфликта приравнивается к военному преступлению.</p>
-</div>
+        </div>
+    </div>
 
-   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
