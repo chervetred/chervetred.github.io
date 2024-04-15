@@ -10,6 +10,7 @@ image:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fixed Sidebar</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
 body {
     margin: 0;
@@ -23,10 +24,18 @@ body {
     position: relative;
 }
 
-.sidebar {
-    position: sticky;
-    top: 20px;
+.sidebar-container {
     width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 20px;
+    overflow-y: auto;
+}
+
+.sidebar {
+    width: 100%;
     padding: 20px;
     background-color: #f9f9f9;
     border-right: 1px solid #ddd;
@@ -47,19 +56,27 @@ body {
 }
 
 .content {
-    flex: 1;
+    margin-left: 200px;
     padding: 20px;
-    overflow-y: auto;
     background-color: #fff;
-}
-
-.sidebar ul li.active a {
-    color: #007bff;
-    font-weight: bold;
 }
 </style>
 </head>
 <body>
+
+<div class="container">
+    <div class="sidebar-container">
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="#category1">Введение</a></li>
+                <li><a href="#category2">Расследование преступлений</a></li>
+                <li><a href="#category3">Международные агентства</a></li>
+                <li><a href="#category4">Ордера на арест</a></li>
+                <li><a href="#category5">Похищение украинских детей</a></li>
+                <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
+            </ul>
+        </div>
+    </div>
 
 <div class="container">
     <div class="sidebar" id="sidebar">
@@ -110,28 +127,30 @@ body {
     <p>По состоянию на 15 мая 62 жертвы насильственных исчезновений (44 мужчины и 18 женщин) были освобождены российскими и связанными с Россией вооруженными группами. Чаще всего жертвы освобождались в результате "обмена пленными" между Россией и Украиной. По мнению УВКПЧ, такие обмены могли бы представлять собой случаи захвата заложников, что в условиях вооруженного конфликта приравнивается к военному преступлению.</p>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-window.addEventListener('scroll', function() {
-    const sidebar = document.getElementById('sidebar');
-    const contentSections = document.querySelectorAll('.content > h2');
-    let currentSection = '';
+$(document).ready(function() {
+    $(window).scroll(function() {
+        const sidebar = $('#sidebar');
+        const contentSections = $('.content > h2');
+        let currentSection = '';
 
-    contentSections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 20) {
-            currentSection = section.getAttribute('id');
+        contentSections.each(function(index, section) {
+            const sectionTop = $(section).offset().top;
+            if ($(window).scrollTop() >= sectionTop - 20) {
+                currentSection = $(section).attr('id');
+            }
+        });
+
+        const activeLinks = sidebar.find('ul li.active');
+        activeLinks.removeClass('active');
+
+        const currentLink = sidebar.find(`ul li a[href="#${currentSection}"]`);
+        if (currentLink.length > 0) {
+            currentLink.parent().addClass('active');
         }
     });
-
-    const activeLinks = sidebar.querySelectorAll('ul li.active');
-    activeLinks.forEach(link => {
-        link.classList.remove('active');
-    });
-
-    const currentLink = sidebar.querySelector(`ul li a[href="#${currentSection}"]`);
-    if (currentLink) {
-        currentLink.parentElement.classList.add('active');
-    }
 });
 </script>
 
