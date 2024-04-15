@@ -7,69 +7,63 @@ image:
 ---
 <html lang="ru">
 <head>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Военные преступления в период вторжения России в Украину</title>
+<title>Википедия-подобный сайдбар</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <style>
-body {
-    margin: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    color: #222;
-    display: flex;
-    justify-content: space-between;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 200px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #555;
-}
-
-.content {
-    flex: 1;
-    padding: 20px;
-    background-color: #fff;
-    overflow-y: auto;
-}
+    /* Общие стили */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+    }
+    .sidebar {
+        width: 250px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-right: 1px solid #ddd;
+        overflow-y: auto; /* Добавляем прокрутку */
+    }
+    .content {
+        flex: 1;
+        padding: 20px;
+    }
+    /* Стили для ссылок в сайдбаре */
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar ul li {
+        margin-bottom: 10px;
+    }
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #0366d6;
+    }
+    .sidebar ul li a:hover {
+        text-decoration: underline;
+    }
 </style>
 </head>
 <body>
-
-<div class="sidebar" id="sidebar">
-    <ul>
-        <li><a href="#category1">Введение</a></li>
-        <li><a href="#category2">Расследование преступлений</a></li>
-        <li><a href="#category3">Международные агентства</a></li>
-        <li><a href="#category4">Ордера на арест</a></li>
-        <li><a href="#category5">Похищение украинских детей</a></li>
-        <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
-        <li><a href="#category7">Ещё категория</a></li>
-        <li><a href="#category8">И ещё категория</a></li>
-        <li><a href="#category9">И ещё одна категория</a></li>
-        <li><a href="#category10">И последняя категория</a></li>
-    </ul>
-</div>
+    <div class="container">
+        <div class="sidebar">
+            <!-- Навигация по категориям -->
+            <ul>
+                <li><a href="#category1">Введение</a></li>
+                <li><a href="#category2">Расследование преступлений</a></li>
+                <li><a href="#category3">Международные агентства</a></li>
+                <li><a href="#category4">Ордера на арест</a></li>
+                <li><a href="#category5">Похищение украинских детей</a></li>
+                <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
+            </ul>
+        </div>
 
 <div class="content">
     <!-- Контент -->
