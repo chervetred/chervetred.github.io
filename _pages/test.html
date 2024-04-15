@@ -7,7 +7,6 @@ image:
 ---
 <html lang="ru">
 <head>
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Википедия-подобный сайдбар</title>
@@ -22,12 +21,15 @@ image:
     .container {
         display: flex;
     }
-    .sidebar {
+    .sidebar-container {
         width: 250px;
-        padding: 20px;
+        height: 100vh; /* Фиксированная высота */
+        overflow-y: auto; /* Прокручиваемая область */
         background-color: #f9f9f9;
         border-right: 1px solid #ddd;
-        overflow-y: auto; /* Добавляем прокрутку */
+    }
+    .sidebar {
+        padding: 20px;
     }
     .content {
         flex: 1;
@@ -53,16 +55,18 @@ image:
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <!-- Навигация по категориям -->
-            <ul>
-                <li><a href="#category1">Введение</a></li>
-                <li><a href="#category2">Расследование преступлений</a></li>
-                <li><a href="#category3">Международные агентства</a></li>
-                <li><a href="#category4">Ордера на арест</a></li>
-                <li><a href="#category5">Похищение украинских детей</a></li>
-                <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
-            </ul>
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <!-- Навигация по категориям -->
+                <ul>
+                    <li><a href="#category1">Введение</a></li>
+                    <li><a href="#category2">Расследование преступлений</a></li>
+                    <li><a href="#category3">Международные агентства</a></li>
+                    <li><a href="#category4">Ордера на арест</a></li>
+                    <li><a href="#category5">Похищение украинских детей</a></li>
+                    <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
+                </ul>
+            </div>
         </div>
 
 <div class="content">
