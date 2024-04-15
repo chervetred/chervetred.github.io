@@ -7,7 +7,6 @@ image:
 ---
 <html lang="ru">
 <head>
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Военные преступления в период вторжения России в Украину</title>
@@ -17,28 +16,20 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
     color: #222;
-}
-
-.container {
     display: flex;
-    position: relative;
+    justify-content: space-between;
 }
 
-.sidebar-container {
-    width: 200px;
+.sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    padding-top: 20px;
-    overflow-y: auto;
-}
-
-.sidebar {
-    width: 100%;
+    width: 200px;
     padding: 20px;
     background-color: #f9f9f9;
     border-right: 1px solid #ddd;
+    overflow-y: auto;
 }
 
 .sidebar ul {
@@ -56,27 +47,30 @@ body {
 }
 
 .content {
-    margin-left: 200px;
+    flex: 1;
     padding: 20px;
     background-color: #fff;
+    overflow-y: auto;
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="sidebar-container">
-        <div class="sidebar" id="sidebar">
-            <ul>
-                <li><a href="#category1">Введение</a></li>
-                <li><a href="#category2">Расследование преступлений</a></li>
-                <li><a href="#category3">Международные агентства</a></li>
-                <li><a href="#category4">Ордера на арест</a></li>
-                <li><a href="#category5">Похищение украинских детей</a></li>
-                <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
-            </ul>
-        </div>
-    </div>
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="#category1">Введение</a></li>
+        <li><a href="#category2">Расследование преступлений</a></li>
+        <li><a href="#category3">Международные агентства</a></li>
+        <li><a href="#category4">Ордера на арест</a></li>
+        <li><a href="#category5">Похищение украинских детей</a></li>
+        <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
+        <li><a href="#category7">Ещё категория</a></li>
+        <li><a href="#category8">И ещё категория</a></li>
+        <li><a href="#category9">И ещё одна категория</a></li>
+        <li><a href="#category10">И последняя категория</a></li>
+    </ul>
+</div>
+
 <div class="content">
     <!-- Контент -->
     <h2 id="category1" class="category-heading">Введение</h2>
