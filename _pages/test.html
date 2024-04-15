@@ -5,10 +5,11 @@ permalink: /zz/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image:
 ---
-<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Военные преступления при российском вторжении в Украину</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixed Sidebar</title>
 <style>
 body {
     margin: 0;
@@ -17,12 +18,12 @@ body {
 
 .container {
     display: flex;
+    position: relative;
 }
 
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: sticky;
+    top: 20px; /* Расстояние от верхней границы контейнера */
     width: 200px;
     padding: 20px;
     background-color: #f4f4f4;
@@ -43,8 +44,10 @@ body {
 }
 
 .content {
-    margin-left: 240px;
+    flex: 1;
     padding: 20px;
+    overflow-y: auto; /* Добавляет вертикальную прокрутку, если контент выходит за пределы */
+    background-color: #fff; /* Цвет фона контента */
 }
 </style>
 </head>
