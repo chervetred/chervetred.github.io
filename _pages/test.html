@@ -9,44 +9,58 @@ image:
 <html>
 <head>
     <title>Военные преступления при российском вторжении в Украину</title>
-    <style>
-        /* Стили для навигации по категориям */
-        .sidebar {
-            float: left;
-            width: 20%;
-            padding: 20px;
-            background-color: #f0f0f0;
-            height: 100%; /* Растягиваем блок до конца страницы */
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-        /* Стили для заголовков категорий */
-        .category-heading {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 0;
-        }
+.container {
+    display: flex;
+}
 
-        /* Стили для контента */
-        .content {
-            float: right;
-            width: 80%;
-            padding: 20px;
-        }
-    </style>
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.content {
+    margin-left: 240px;
+    padding: 20px;
+}
+</style>
 </head>
 <body>
 
-<div class="sidebar">
-    <!-- Навигация по категориям -->
-    <ul>
-        <li><a href="#category1">Введение</a></li>
-        <li><a href="#category2">Расследование преступлений</a></li>
-        <li><a href="#category3">Международные агентства</a></li>
-        <li><a href="#category4">Ордера на арест</a></li>
-        <li><a href="#category5">Похищение украинских детей</a></li>
-        <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
-    </ul>
-</div>
+<div class="container">
+    <div class="sidebar">
+        <ul>
+            <li><a href="#category1">Введение</a></li>
+            <li><a href="#category2">Расследование преступлений</a></li>
+            <li><a href="#category3">Международные агентства</a></li>
+            <li><a href="#category4">Ордера на арест</a></li>
+            <li><a href="#category5">Похищение украинских детей</a></li>
+            <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
+        </ul>
+    </div>
 
 <div class="content">
     <!-- Контент -->
