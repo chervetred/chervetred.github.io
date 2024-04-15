@@ -108,34 +108,8 @@ body {
     <p>По состоянию на 15 мая 62 жертвы насильственных исчезновений (44 мужчины и 18 женщин) были освобождены российскими и связанными с Россией вооруженными группами. Чаще всего жертвы освобождались в результате "обмена пленными" между Россией и Украиной. По мнению УВКПЧ, такие обмены могли бы представлять собой случаи захвата заложников, что в условиях вооруженного конфликта приравнивается к военному преступлению.</p>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function() {
-    $(window).scroll(function() {
-        const sidebar = $('#sidebar');
-        const contentSections = $('.content > h2');
-        let currentSection = '';
-
-        contentSections.each(function(index, section) {
-            const sectionTop = $(section).offset().top;
-            if ($(window).scrollTop() >= sectionTop - 20) {
-                currentSection = $(section).attr('id');
-            }
-        });
-
-        const activeLinks = sidebar.find('ul li.active');
-        activeLinks.removeClass('active');
-
-        const currentLink = sidebar.find(`ul li a[href="#${currentSection}"]`);
-        if (currentLink.length > 0) {
-            currentLink.parent().addClass('active');
-        }
-    });
-});
-</script>
-
 </body>
+</html>
 </html>
 
 
