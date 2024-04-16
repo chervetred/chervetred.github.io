@@ -13,6 +13,7 @@ image:
 <title>Википедия-подобный сайдбар</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
     /* Общие стили */
     body {
@@ -61,7 +62,7 @@ image:
     }
 
     .thumbnail {
-        width: 450px;
+        width: 150px;
         border: 2px solid #ddd; /* Обводка */
         cursor: pointer;
         transition: transform 0.3s ease;
@@ -103,7 +104,7 @@ image:
             <!-- Контент -->
             <h2 id="category1" class="category-heading">Введение</h2>
     <p>2 марта 2023 года прокурор Международного уголовного суда МУС начал полное расследование прошлых и нынешних обвинений в военных преступлениях, преступлениях против человечности или геноцида, совершенных в Украине любым лицом с 21 ноября 2013 года, установил онлайн-метод, позволяющий людям, имеющим доказательства, вступать в контакт со следователями, и направил группу следователей, юристов и других специалистов в Украину для начала сбора доказательств.</p>
-                        <!-- Миниатюра -->
+   <!-- Миниатюра -->
             <div class="thumbnail-container">
                 <img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/450px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Миниатюра">
                 <div class="thumbnail-description">Описание миниатюры</div>
@@ -137,24 +138,20 @@ image:
         <p>5 июля Совет по правам человека заявил, что произвольные задержания гражданских лиц российскими оккупантами стали "широко распространенными".</p>
     <p>По состоянию на 15 мая 62 жертвы насильственных исчезновений (44 мужчины и 18 женщин) были освобождены российскими и связанными с Россией вооруженными группами. Чаще всего жертвы освобождались в результате "обмена пленными" между Россией и Украиной. По мнению УВКПЧ, такие обмены могли бы представлять собой случаи захвата заложников, что в условиях вооруженного конфликта приравнивается к военному преступлению.</p>
         </div>
+       </div>
     </div>
 
-    <!-- JavaScript для раскрытия миниатюры по клику -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var thumbnail = document.querySelector('.thumbnail');
-            thumbnail.addEventListener('click', function () {
-                // Проверка текущего состояния миниатюры
-                if (thumbnail.classList.contains('expanded')) {
-                    thumbnail.style.width = '450px'; // Возвращаем изображение к исходному размеру
-                    thumbnail.classList.remove('expanded');
+        $(document).ready(function() {
+            $('.thumbnail').click(function() {
+                $(this).toggleClass('expanded');
+                if ($(this).hasClass('expanded')) {
+                    $(this).animate({width: '100%'}, 'slow');
                 } else {
-                    thumbnail.style.width = '100%'; // Расширяем изображение до максимальной ширины
-                    thumbnail.classList.add('expanded');
+                    $(this).animate({width: '450px'}, 'slow');
                 }
             });
         });
     </script>
 </body>
 </html>
-
