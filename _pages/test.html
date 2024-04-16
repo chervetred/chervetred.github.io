@@ -5,6 +5,7 @@ permalink: /zz/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image:
 ---
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -36,6 +37,10 @@ image:
     .content {
         flex: 1;
         padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0; /* Убираем отступы между миниатюрами */
+        justify-content: center; /* Выравниваем по центру */
     }
     /* Стили для ссылок в сайдбаре */
     .sidebar ul {
@@ -54,21 +59,20 @@ image:
         text-decoration: underline;
     }
     /* Стили для миниатюры */
-.thumbnail {
-    float: right;
-    margin-left: 20px;
-    border: 1px solid #ddd;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 0; /* Remove gaps between cells */
-    overflow: auto;
-}
+    .thumbnail-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .thumbnail {
+        margin: 0; /* Убираем внешние отступы */
+    }
     .thumbnail img {
         width: 150px;
-    height: auto; /* Фиксированная высота */
-    object-fit: cover; /* Обрезать изображение до размеров контейнера */
-}
-
+        height: auto;
+        border: 1px solid #ddd;
+        margin: 0; /* Убираем внутренние отступы */
+    }
 </style>
 </head>
 <body>
@@ -90,14 +94,14 @@ image:
         <div class="content">
             <!-- Контент -->
             <h2 id="category1" class="category-heading">Введение</h2>
-            <div class="thumbnail">
-                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки">
+            <div class="thumbnail-container">
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки" class="thumbnail">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Описание картинки">
                 </a>
-                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" data-fancybox data-caption="Описание картинки">
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" data-fancybox data-caption="Описание картинки" class="thumbnail">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" alt="Описание картинки">
                 </a>
-                <a href="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" data-fancybox data-caption="Описание картинки">
+                <a href="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" data-fancybox data-caption="Описание картинки" class="thumbnail">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" alt="Описание картинки">
                 </a>
             </div>
