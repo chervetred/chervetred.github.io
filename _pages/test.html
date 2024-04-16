@@ -5,6 +5,7 @@ permalink: /zz/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image:
 ---
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -37,13 +38,16 @@ image:
         padding: 20px;
         position: relative;
     }
-    .thumbnail {
-        position: absolute;
-        top: 0;
-        right: -150px; /* Расстояние от правого края */
-        width: 150px;
-        transition: right 0.3s ease;
+    .thumbnail-container {
+        position: relative;
         cursor: pointer;
+        margin-bottom: 20px;
+    }
+    .thumbnail {
+        width: 150px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: opacity 0.3s ease;
     }
     .thumbnail img {
         width: 100%;
@@ -51,23 +55,32 @@ image:
         border-radius: 5px;
     }
     .thumbnail.open {
-        right: 0;
+        opacity: 0;
     }
-    /* Стили для ссылок в сайдбаре */
-    .sidebar ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+    .description {
+        margin-top: 10px;
+        font-size: 14px;
     }
-    .sidebar ul li {
-        margin-bottom: 10px;
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
     }
-    .sidebar ul li a {
-        text-decoration: none;
-        color: #000; /* Черный цвет для ссылок */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 800px;
     }
-    .sidebar ul li a:hover {
-        text-decoration: underline;
+    .modal img {
+        width: 100%;
+        height: auto;
     }
 </style>
 </head>
@@ -91,9 +104,21 @@ image:
     <!-- Контент -->
     <h2 id="category1" class="category-heading">Введение</h2>
 
-            <div class="thumbnail" onclick="toggleThumbnail()">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Военные преступления">
-            </div>
+ <!-- Контент -->
+            <h2 id="category1" class="category-heading">Введение</h2>
+            
+    <div class="thumbnail-container" onclick="openModal()">
+                <div class="thumbnail">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Военные преступления">
+                </div>
+                <div class="description">
+                    <p>На фото: разрушенные жилые дома в Харькове и Киеве; жертвы резни в Буче</p>
+                </div>
+                <div class="modal">
+                    <span class="modal-content">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Военные преступления">
+                    </span>
+                </div>
     
         <p>С начала российского вторжения в Украину в 2022 году российские военные и власти совершили военные преступления, такие как преднамеренные удары ВС РФ по гражданским объектам включая удары по больницам и по энергосистеме; неизбирательные удары по густонаселенным районам в том числе с применением авиабомб; похищения, пытки и убийства мирных жителей; принудительные депортации; сексуальное насилие; уничтожение культурного наследия; и жестокое обращение, пытки и убийства украинских военнопленных.</p>
 
@@ -129,11 +154,14 @@ image:
     <p>По состоянию на 15 мая 62 жертвы насильственных исчезновений (44 мужчины и 18 женщин) были освобождены российскими и связанными с Россией вооруженными группами. Чаще всего жертвы освобождались в результате "обмена пленными" между Россией и Украиной. По мнению УВКПЧ, такие обмены могли бы представлять собой случаи захвата заложников, что в условиях вооруженного конфликта приравнивается к военному преступлению.</p>
 </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function toggleThumbnail() {
-        $(".thumbnail").toggleClass("open");
+    function openModal() {
+        $(".modal").css("display", "block");
     }
+    $(".modal").click(function() {
+        $(this).css("display", "none");
+    });
 </script>
 </body>
 </html>
