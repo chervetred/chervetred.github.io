@@ -13,6 +13,8 @@ image:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>   
 <style>
     /* Общие стили */
     body {
@@ -20,18 +22,23 @@ image:
         margin: 0;
         padding: 0;
     }
-    .container {
-        display: flex;
-    }
-    .sidebar-container {
-        width: 250px;
-        height: 100vh; /* Фиксированная высота */
-        overflow-y: auto; /* Прокручиваемая область */
-        background-color: #f9f9f9;
-        border-right: 1px solid #ddd;
-    }
-    .sidebar {
-        padding: 20px;
+.container {
+            display: flex;
+        }
+        .sidebar-container {
+            width: 250px; /* Fixed width */
+            height: auto; /* Adjusted height */
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar {
+            padding: 20px;
+        }
+        .content {
+            flex: 1; /* Allow content to grow */
+            padding: 20px;
+        }
     }
     .content {
         flex: 1;
@@ -64,6 +71,16 @@ image:
         height: auto;
     }
 </style>
+
+<script>
+        window.addEventListener('load', function() {
+            const sidebar = document.querySelector('.sidebar-container');
+            const content = document.querySelector('.content');
+            // Adjust sidebar height based on content height
+            sidebar.style.height = content.clientHeight + 'px';
+        });
+    </script>
+    
 </head>
 <body>
     <div class="container">
