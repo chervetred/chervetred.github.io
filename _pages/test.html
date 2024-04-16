@@ -48,6 +48,8 @@ image:
         border: 1px solid #ddd;
         border-radius: 5px;
         transition: opacity 0.3s ease;
+        float: right;
+        margin-left: 20px;
     }
     .thumbnail img {
         width: 100%;
@@ -58,8 +60,18 @@ image:
         opacity: 0;
     }
     .description {
-        margin-top: 10px;
-        font-size: 14px;
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        top: 0;
+        right: 200px; /* Расстояние от миниатюры */
+        z-index: 999;
+    }
+    .thumbnail-container:hover .description {
+        display: block;
     }
     .modal {
         display: none;
@@ -106,19 +118,15 @@ image:
 
  <!-- Контент -->
             <h2 id="category1" class="category-heading">Введение</h2>
-            
-    <div class="thumbnail-container" onclick="openModal()">
-                <div class="thumbnail">
+ 
+    <div class="thumbnail-container">
+                <div class="description">
+                    <p>Описание картинки...</p>
+                </div>
+                <div class="thumbnail" onclick="openModal()">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Военные преступления">
                 </div>
-                <div class="description">
-                    <p>На фото: разрушенные жилые дома в Харькове и Киеве; жертвы резни в Буче</p>
-                </div>
-                <div class="modal">
-                    <span class="modal-content">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Военные преступления">
-                    </span>
-                </div>
+            </div>
     
         <p>С начала российского вторжения в Украину в 2022 году российские военные и власти совершили военные преступления, такие как преднамеренные удары ВС РФ по гражданским объектам включая удары по больницам и по энергосистеме; неизбирательные удары по густонаселенным районам в том числе с применением авиабомб; похищения, пытки и убийства мирных жителей; принудительные депортации; сексуальное насилие; уничтожение культурного наследия; и жестокое обращение, пытки и убийства украинских военнопленных.</p>
 
