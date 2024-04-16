@@ -54,19 +54,18 @@ image:
         text-decoration: underline;
     }
     /* Стили для миниатюры */
-    .thumbnail {
-        float: right;
-        margin-left: 20px;
-        border: 1px solid #ddd;
-        display: grid; /* Группировка в сетку */
-        grid-template-columns: auto auto; /* Два столбца */
-    grid-gap: 0; /* Убираем отступы между ячейками */
-    grid-row-gap: 0; /* Убираем отступы между верхними и нижними столбцами */
+.thumbnail {
+    float: right;
+    margin-left: 20px;
+    border: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 0; /* Remove gaps between cells */
     overflow: auto;
 }
     .thumbnail img {
         width: 150px;
-    height: 75px; /* Фиксированная высота */
+    height: auto; /* Фиксированная высота */
     object-fit: cover; /* Обрезать изображение до размеров контейнера */
 }
 
