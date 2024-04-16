@@ -14,6 +14,8 @@ image:
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.css" />
+
 <style>
     /* Общие стили */
     body {
@@ -21,21 +23,26 @@ image:
         margin: 0;
         padding: 0;
     }
-    .container {
-        display: flex;
-    }
-    .sidebar-container {
-        width: 250px; /* Fixed width */
-        height: auto; /* Adjusted height */
-        overflow-y: auto;
-        background-color: #f9f9f9;
-        border-right: 0px solid #ddd;
-    }
-    .sidebar {
-        padding: 20px;
+.container {
+            display: flex;
+        }
+        .sidebar-container {
+            width: 250px; /* Fixed width */
+            height: auto; /* Adjusted height */
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            border-right: 0px solid #ddd;
+        }
+        .sidebar {
+            padding: 20px;
+        }
+        .content {
+            flex: 1; /* Allow content to grow */
+            padding: 20px;
+        }
     }
     .content {
-        flex: 1; /* Allow content to grow */
+        flex: 1;
         padding: 20px;
     }
     /* Стили для ссылок в сайдбаре */
@@ -57,28 +64,24 @@ image:
     /* Стили для миниатюры */
     .thumbnail-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 150px);
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         grid-gap: 0px;
     }
     .thumbnail {
         width: 150px;
         height: auto;
-        margin: 0;
-        padding: 0;
-    }
-    .thumbnail img {
-        width: 100%;
-        height: auto;
     }
 </style>
+
 <script>
-    window.addEventListener('load', function() {
-        const sidebar = document.querySelector('.sidebar-container');
-        const content = document.querySelector('.content');
-        // Adjust sidebar height based on content height
-        sidebar.style.height = content.clientHeight + 'px';
-    });
-</script>
+        window.addEventListener('load', function() {
+            const sidebar = document.querySelector('.sidebar-container');
+            const content = document.querySelector('.content');
+            // Adjust sidebar height based on content height
+            sidebar.style.height = content.clientHeight + 'px';
+        });
+    </script>
+    
 </head>
 <body>
     <div class="container">
@@ -95,10 +98,11 @@ image:
                 </ul>
             </div>
         </div>
-        <div class="content">
-            <!-- Контент -->
-            <h2 id="category1" class="category-heading">Введение</h2>
-            <div class="thumbnail-container">
+
+<div class="content">
+    <!-- Контент -->
+    <h2 id="category1" class="category-heading">Введение</h2>
+ <div class="thumbnail-container">
                 <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки" class="thumbnail">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Описание картинки">
                 </a>
