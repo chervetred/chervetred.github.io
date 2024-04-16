@@ -60,11 +60,13 @@ image:
         border: 1px solid #ddd;
         display: grid; /* Группировка в сетку */
         grid-template-columns: auto auto; /* Два столбца */
-        grid-gap: 0; /* Без отступов */
-    }
+    grid-gap: 0; /* Убираем отступы между ячейками */
+    grid-row-gap: 0; /* Убираем отступы между верхними и нижними столбцами */
+    overflow: auto;
+}
     .thumbnail img {
         width: 150px;
-    height: 200px; /* Фиксированная высота */
+    height: 75px; /* Фиксированная высота */
     object-fit: cover; /* Обрезать изображение до размеров контейнера */
 }
 
