@@ -53,20 +53,19 @@ image:
     .sidebar ul li a:hover {
         text-decoration: underline;
     }
-/* Стили для миниатюры */
-.thumbnail {
-    float: right;
-    margin-left: 20px;
-    border: 1px solid #ddd;
-    display: flex; /* Использование flexbox для компактного размещения миниатюр */
-}
-.thumbnail a {
-    margin-right: 0px; /* Добавление отступа между миниатюрами */
-}
-.thumbnail img {
-    width: 150px;
-    height: auto;
-}
+    /* Стили для миниатюры */
+    .thumbnail {
+        float: right;
+        margin-left: 20px;
+        border: 1px solid #ddd;
+        display: grid; /* Группировка в сетку */
+        grid-template-columns: auto auto; /* Два столбца */
+        grid-gap: 0; /* Без отступов */
+    }
+    .thumbnail img {
+        width: 150px;
+        height: auto;
+    }
 </style>
 </head>
 <body>
@@ -85,20 +84,35 @@ image:
             </div>
         </div>
 
-<div class="content">
-    <!-- Контент -->
-    <h2 id="category1" class="category-heading">Введение</h2>
-    <div class="thumbnail">
-        <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Описание картинки">
-        </a>
-        <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" data-fancybox data-caption="Описание картинки">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" alt="Описание картинки">
-        </a>
-        <a href="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" data-fancybox data-caption="Описание картинки">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" alt="Описание картинки">
-        </a>
-    </div>
+    <div class="container">
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <!-- Навигация по категориям -->
+                <ul>
+                    <li><a href="#category1">Введение</a></li>
+                    <li><a href="#category2">Расследование преступлений</a></li>
+                    <li><a href="#category3">Международные агентства</a></li>
+                    <li><a href="#category4">Ордера на арест</a></li>
+                    <li><a href="#category5">Похищение украинских детей</a></li>
+                    <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Контент -->
+            <h2 id="category1" class="category-heading">Введение</h2>
+            <div class="thumbnail">
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Описание картинки">
+                </a>
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" data-fancybox data-caption="Описание картинки">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" alt="Описание картинки">
+                </a>
+                <a href="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" data-fancybox data-caption="Описание картинки">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" alt="Описание картинки">
+                </a>
+            </div>
     <p>2 марта 2023 года прокурор Международного уголовного суда МУС начал полное расследование прошлых и нынешних обвинений в военных преступлениях, преступлениях против человечности или геноцида, совершенных в Украине любым лицом с 21 ноября 2013 года, установил онлайн-метод, позволяющий людям, имеющим доказательства, вступать в контакт со следователями, и направил группу следователей, юристов и других специалистов в Украину для начала сбора доказательств.</p>
 
     <h2 id="category3" class="category-heading">Международные агентства</h2>
