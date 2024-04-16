@@ -13,6 +13,8 @@ image:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>   
 <style>
     /* Общие стили */
     body {
@@ -20,21 +22,26 @@ image:
         margin: 0;
         padding: 0;
     }
-    .container {
-        display: flex;
-    }
-    .sidebar-container {
-        width: 250px; /* Fixed width */
-        height: auto; /* Adjusted height */
-        overflow-y: auto;
-        background-color: #f9f9f9;
-        border-right: 0px solid #ddd;
-    }
-    .sidebar {
-        padding: 20px;
+.container {
+            display: flex;
+        }
+        .sidebar-container {
+            width: 250px; /* Fixed width */
+            height: auto; /* Adjusted height */
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            border-right: 0px solid #ddd;
+        }
+        .sidebar {
+            padding: 20px;
+        }
+        .content {
+            flex: 1; /* Allow content to grow */
+            padding: 20px;
+        }
     }
     .content {
-        flex: 1; /* Allow content to grow */
+        flex: 1;
         padding: 20px;
     }
     /* Стили для ссылок в сайдбаре */
@@ -53,52 +60,60 @@ image:
     .sidebar ul li a:hover {
         text-decoration: underline;
     }
-    /* Новые стили для миниатюр */
-    .thumbnail-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-    .thumbnail-container a {
-        width: 250px;
-        display: block;
-        margin-bottom: 10px;
-    }
-    .thumbnail-container a img {
-        width: 100%;
-        height: auto;
-    }
+    /* Стили для миниатюры */
+.thumbnail {
+    float: none; /* Remove the float */
+    margin: 0; /* Remove the margin */
+    display: inline-block; /* Display as inline block */
+    width: 250px; /* Set the width to 250px */
+    text-align: center; /* Center the thumbnails */
+}
+.thumbnail img {
+    width: 100%; /* Ensure the image fills the container */
+    height: auto; /* Maintain aspect ratio */
+}
 </style>
+
+<script>
+        window.addEventListener('load', function() {
+            const sidebar = document.querySelector('.sidebar-container');
+            const content = document.querySelector('.content');
+            // Adjust sidebar height based on content height
+            sidebar.style.height = content.clientHeight + 'px';
+        });
+    </script>
+    
 </head>
 <body>
-<div class="container">
-    <div class="sidebar-container">
-        <div class="sidebar">
-            <!-- Навигация по категориям -->
-            <ul>
-                <li><a href="#category1">Введение</a></li>
-                <li><a href="#category2">Расследование преступлений</a></li>
-                <li><a href="#category3">Международные агентства</a></li>
-                <li><a href="#category4">Ордера на арест</a></li>
-                <li><a href="#category5">Похищение украинских детей</a></li>
-                <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
-            </ul>
+    <div class="container">
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <!-- Навигация по категориям -->
+                <ul>
+                    <li><a href="#category1">Введение</a></li>
+                    <li><a href="#category2">Расследование преступлений</a></li>
+                    <li><a href="#category3">Международные агентства</a></li>
+                    <li><a href="#category4">Ордера на арест</a></li>
+                    <li><a href="#category5">Похищение украинских детей</a></li>
+                    <li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="content">
-        <!-- Контент -->
-        <h2 id="category1" class="category-heading">Введение</h2>
-        <div class="thumbnail-container">
-            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Описание картинки">
-            </a>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" data-fancybox data-caption="Описание картинки">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" alt="Описание картинки">
-            </a>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" data-fancybox data-caption="Описание картинки">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" alt="Описание картинки">
-            </a>
-        </div>
+
+<div class="content">
+    <!-- Контент -->
+    <h2 id="category1" class="category-heading">Введение</h2>
+ <div class="thumbnail-container">
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки" class="thumbnail">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Описание картинки">
+                </a>
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" data-fancybox data-caption="Описание картинки" class="thumbnail">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg/1024px-Zaporizhzhia_after_Russian_shelling%2C_2022-10-09_%2841%29.jpg" alt="Описание картинки">
+                </a>
+                <a href="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" data-fancybox data-caption="Описание картинки" class="thumbnail">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Kharkiv_Oblast_after_shelling_%286%29.jpg" alt="Описание картинки">
+                </a>
+            </div>
     <p>С начала российского вторжения в Украину в 2022 году российские военные и власти совершили военные преступления, такие как преднамеренные удары ВС РФ по гражданским объектам включая удары по больницам и по энергосистеме; неизбирательные удары по густонаселенным районам в том числе с применением авиабомб; похищения, пытки и убийства мирных жителей; принудительные депортации; сексуальное насилие; уничтожение культурного наследия; и жестокое обращение, пытки и убийства украинских военнопленных.</p>
     <h2 id="category2" class="category-heading">Расследование преступлений</h2>
     <p>2 марта 2023 года прокурор Международного уголовного суда МУС начал полное расследование прошлых и нынешних обвинений в военных преступлениях, преступлениях против человечности или геноцида, совершенных в Украине любым лицом с 21 ноября 2013 года, установил онлайн-метод, позволяющий людям, имеющим доказательства, вступать в контакт со следователями, и направил группу следователей, юристов и других специалистов в Украину для начала сбора доказательств.</p>
