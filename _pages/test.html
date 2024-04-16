@@ -14,7 +14,6 @@ image:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
-    /* Общие стили */
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -25,8 +24,8 @@ image:
     }
     .sidebar-container {
         width: 250px;
-        height: 100vh; /* Фиксированная высота */
-        overflow-y: auto; /* Прокручиваемая область */
+        height: 100vh;
+        overflow-y: auto;
         background-color: #f9f9f9;
         border-right: 1px solid #ddd;
     }
@@ -36,63 +35,44 @@ image:
     .content {
         flex: 1;
         padding: 20px;
-        position: relative;
+    }
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar ul li {
+        margin-bottom: 10px;
+    }
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #000;
+    }
+    .sidebar ul li a:hover {
+        text-decoration: underline;
     }
     .thumbnail-container {
         position: relative;
-        cursor: pointer;
-        margin-bottom: 20px;
+        display: inline-block;
     }
     .thumbnail {
-        width: 150px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        transition: opacity 0.3s ease;
-        float: right;
-        margin-left: 20px;
-    }
-    .thumbnail img {
-        width: 100%;
+        width: 100px;
         height: auto;
-        border-radius: 5px;
+        border: 1px solid #ddd;
+        cursor: pointer;
     }
-    .thumbnail.open {
-        opacity: 0;
-    }
-    .description {
+    .thumbnail-description {
         display: none;
         position: absolute;
+        top: 110%;
+        left: 0;
         background-color: #fff;
         border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 10px;
-        top: 0;
-        right: 200px; /* Расстояние от миниатюры */
-        z-index: 999;
+        padding: 5px;
+        z-index: 1;
     }
-    .thumbnail-container:hover .description {
+    .thumbnail-container:hover .thumbnail-description {
         display: block;
-    }
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.9);
-    }
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 800px;
-    }
-    .modal img {
-        width: 100%;
-        height: auto;
     }
 </style>
 </head>
@@ -100,7 +80,6 @@ image:
     <div class="container">
         <div class="sidebar-container">
             <div class="sidebar">
-                <!-- Навигация по категориям -->
                 <ul>
                     <li><a href="#category1">Введение</a></li>
                     <li><a href="#category2">Расследование преступлений</a></li>
@@ -112,17 +91,11 @@ image:
             </div>
         </div>
         <div class="content">
-            <!-- Контент -->
             <h2 id="category1" class="category-heading">Введение</h2>
-            <div class="thumbnail-container" onclick="toggleThumbnail()">
-                <div class="description">
-                    <p>Описание картинки...</p>
-                </div>
-                <div class="thumbnail">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Военные преступления">
-                </div>
-            </div>
-        <p>С начала российского вторжения в Украину в 2022 году российские военные и власти совершили военные преступления, такие как преднамеренные удары ВС РФ по гражданским объектам включая удары по больницам и по энергосистеме; неизбирательные удары по густонаселенным районам в том числе с применением авиабомб; похищения, пытки и убийства мирных жителей; принудительные депортации; сексуальное насилие; уничтожение культурного наследия; и жестокое обращение, пытки и убийства украинских военнопленных.</p>
+                    <p>С начала российского вторжения в Украину в 2022 году российские военные и власти совершили военные преступления, такие как преднамеренные удары ВС РФ по гражданским объектам включая удары по больницам и по энергосистеме; неизбирательные удары по густонаселенным районам в том числе с применением авиабомб; похищения, пытки и убийства мирных жителей; принудительные депортации; сексуальное насилие; уничтожение культурного наследия; и жестокое обращение, пытки и убийства украинских военнопленных.</p>
+            <div class="thumbnail-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Миниатюра" class="thumbnail" id="thumbnail">
+                <div class="thumbnail-description" id="thumbnail-description">Описание картинки</div>
 
     <h2 id="category2" class="category-heading">Расследование преступлений</h2>
     <p>2 марта 2023 года прокурор Международного уголовного суда МУС начал полное расследование прошлых и нынешних обвинений в военных преступлениях, преступлениях против человечности или геноцида, совершенных в Украине любым лицом с 21 ноября 2013 года, установил онлайн-метод, позволяющий людям, имеющим доказательства, вступать в контакт со следователями, и направил группу следователей, юристов и других специалистов в Украину для начала сбора доказательств.</p>
@@ -154,14 +127,12 @@ image:
     <p>Сообщения о пропавших без вести мирных жителях, в основном мужчинах, стали поступать к западу от Киева после вывода российских войск. Одна женщина в Махарове рассказала журналистам, что видела, как российские солдаты под дулом пистолета увели ее зятя из их дома, и с тех пор его никто не видел. Другой мужчина исчез в Шпаках (Львовская область) при попытке доставить бензин другу. Позже украинские войска нашли только его сгоревшую и изрешеченную пулями машину.</p>
         <p>5 июля Совет по правам человека заявил, что произвольные задержания гражданских лиц российскими оккупантами стали "широко распространенными".</p>
     <p>По состоянию на 15 мая 62 жертвы насильственных исчезновений (44 мужчины и 18 женщин) были освобождены российскими и связанными с Россией вооруженными группами. Чаще всего жертвы освобождались в результате "обмена пленными" между Россией и Украиной. По мнению УВКПЧ, такие обмены могли бы представлять собой случаи захвата заложников, что в условиях вооруженного конфликта приравнивается к военному преступлению.</p>
-</div>
         </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function toggleThumbnail() {
-        $(".thumbnail").toggleClass("open");
-    }
+    document.getElementById('thumbnail').addEventListener('click', function() {
+        this.classList.toggle('expanded');
+    });
 </script>
 </body>
 </html>
