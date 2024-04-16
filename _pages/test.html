@@ -14,7 +14,6 @@ image:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js"></script>
 <style>
     /* Общие стили */
     body {
@@ -56,26 +55,32 @@ image:
         text-decoration: underline;
     }
 
-    /* Стили для миниатюры и описания */
+    /* Стили для миниатюры */
     .thumbnail-container {
-        float: right;
-        margin-left: 20px; /* Отступ между текстом и миниатюрой */
+        position: relative;
+        max-width: 150px; /* Ширина миниатюры */
+        margin-left: auto; /* Для выравнивания справа */
     }
-
-    .thumbnail {
-        width: 150px;
-        border: 2px solid #ddd; /* Обводка */
+    .thumbnail-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border: 2px solid #ddd; /* Рамка */
+        cursor: pointer; /* Изменение курсора при наведении */
     }
-
     .thumbnail-description {
-        margin-top: 10px;
-        font-size: 14px;
-        color: #666;
-        display: none; /* По умолчанию скрыто */
+        position: absolute;
+        bottom: -40px; /* Расположение описания */
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8); /* Прозрачный фон */
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        opacity: 0; /* Изначально скрыто */
+        transition: opacity 0.3s ease;
     }
-
     .thumbnail-container:hover .thumbnail-description {
-        display: block; /* Показать при наведении на контейнер */
+        opacity: 1; /* Показывать при наведении */
     }
 </style>
 </head>
@@ -99,12 +104,12 @@ image:
             <!-- Контент -->
             <h2 id="category1" class="category-heading">Введение</h2>
     <p>2 марта 2023 года прокурор Международного уголовного суда МУС начал полное расследование прошлых и нынешних обвинений в военных преступлениях, преступлениях против человечности или геноцида, совершенных в Украине любым лицом с 21 ноября 2013 года, установил онлайн-метод, позволяющий людям, имеющим доказательства, вступать в контакт со следователями, и направил группу следователей, юристов и других специалистов в Украину для начала сбора доказательств.</p>
-<!-- Миниатюра -->
+            <!-- Миниатюра с описанием -->
             <div class="thumbnail-container">
-                <img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/450px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Миниатюра">
-                <div class="thumbnail-description">Описание миниатюры</div>
-            </div>
-        </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Миниатюра">
+                <div class="thumbnail-description">
+                    Описание изображения
+                </div>
 
     <h2 id="category3" class="category-heading">Международные агентства</h2>
     <p>Два других независимых международных агентства также расследуют нарушения прав человека и международного гуманитарного права в этом районе: независимая международная комиссия по расследованию событий на Украине, учрежденная Советом Организации Объединенных Наций по правам человека 4 марта 2022 года, и Миссия ООН по наблюдению за соблюдением прав человека в Украине, развернутая Управлением Верховного комиссара Организации Объединенных Наций по правам человека. 7 апреля 2022 года Организация Объединенных Наций исключила Россию из Совета ООН по правам человека. К концу октября украинская прокуратура задокументировала 39 347 предполагаемых военных преступлений России, выявила более 600 подозреваемых и возбудила дела примерно против 80 из них.</p>
@@ -133,19 +138,16 @@ image:
     <p>Сообщения о пропавших без вести мирных жителях, в основном мужчинах, стали поступать к западу от Киева после вывода российских войск. Одна женщина в Махарове рассказала журналистам, что видела, как российские солдаты под дулом пистолета увели ее зятя из их дома, и с тех пор его никто не видел. Другой мужчина исчез в Шпаках (Львовская область) при попытке доставить бензин другу. Позже украинские войска нашли только его сгоревшую и изрешеченную пулями машину.</p>
         <p>5 июля Совет по правам человека заявил, что произвольные задержания гражданских лиц российскими оккупантами стали "широко распространенными".</p>
     <p>По состоянию на 15 мая 62 жертвы насильственных исчезновений (44 мужчины и 18 женщин) были освобождены российскими и связанными с Россией вооруженными группами. Чаще всего жертвы освобождались в результате "обмена пленными" между Россией и Украиной. По мнению УВКПЧ, такие обмены могли бы представлять собой случаи захвата заложников, что в условиях вооруженного конфликта приравнивается к военному преступлению.</p>
- </div>
+  </div>
+        </div>
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('.thumbnail').zoom(); // Используем библиотеку для создания миниатюры
-            $('.thumbnail').click(function() {
-                $(this).toggleClass('expanded');
-                if ($(this).hasClass('expanded')) {
-                    $(this).css('max-width', '100%').css('cursor', 'zoom-out');
-                } else {
-                    $(this).css('max-width', '250px').css('cursor', 'pointer');
-                }
+        $(document).ready(function(){
+            // При клике на миниатюру
+            $(".thumbnail-container img").click(function(){
+                // Разворачиваем миниатюру
+                $(this).toggleClass("expanded");
             });
         });
     </script>
