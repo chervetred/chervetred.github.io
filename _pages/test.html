@@ -24,7 +24,7 @@ image:
     }
     .sidebar-container {
         width: 250px;
-        height: 100vh; /* Фиксированная высота */
+        height: auto; /* Фиксированная высота */
         overflow-y: auto; /* Прокручиваемая область */
         background-color: #f9f9f9;
         border-right: 1px solid #ddd;
@@ -52,6 +52,17 @@ image:
     .sidebar ul li a:hover {
         text-decoration: underline;
     }
+
+     /* Стили для миниатюры */
+    .thumbnail {
+        float: right;
+        margin-left: 20px;
+        border: 1px solid #ddd;
+    }
+    .thumbnail img {
+        width: 250px;
+        height: auto;
+    }
 </style>
 </head>
 <body>
@@ -74,6 +85,10 @@ image:
 <div class="content">
     <!-- Контент -->
     <h2 id="category1" class="category-heading">Введение</h2>
+
+                <div class="thumbnail">
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки"></div>
+    
         <p>С начала российского вторжения в Украину в 2022 году российские военные и власти совершили военные преступления, такие как преднамеренные удары ВС РФ по гражданским объектам включая удары по больницам и по энергосистеме; неизбирательные удары по густонаселенным районам в том числе с применением авиабомб; похищения, пытки и убийства мирных жителей; принудительные депортации; сексуальное насилие; уничтожение культурного наследия; и жестокое обращение, пытки и убийства украинских военнопленных.</p>
 
     <h2 id="category2" class="category-heading">Расследование преступлений</h2>
