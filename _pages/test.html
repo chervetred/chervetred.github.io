@@ -36,7 +36,6 @@ image:
     .content {
         flex: 1;
         padding: 20px;
-        position: relative; /* Для позиционирования миниатюры */
     }
     /* Стили для ссылок в сайдбаре */
     .sidebar ul {
@@ -56,34 +55,31 @@ image:
     }
 
     /* Стили для миниатюры и описания */
-    .thumbnail {
-        position: absolute;
-        top: 0;
-        right: -120px; /* Расстояние от правого края текста */
-        display: inline-block;
-        margin-top: 20px;
+    .thumbnail-container {
+        float: right;
+        margin-left: 20px; /* Отступ между текстом и миниатюрой */
     }
 
-    .thumbnail-image {
-        width: 100px; /* Ширина миниатюры */
-        height: auto; /* Высота автоматически рассчитывается */
-        border: 1px solid #ddd; /* Рамка миниатюры */
-        cursor: pointer; /* Курсор при наведении */
+    .thumbnail {
+        width: 450px;
+        border: 2px solid #ddd; /* Обводка */
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .thumbnail:hover {
+        transform: scale(1.05); /* Увеличение при наведении */
     }
 
     .thumbnail-description {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: #f9f9f9; /* Цвет фона описания */
-        padding: 5px;
-        border: 1px solid #ddd; /* Рамка описания */
-        display: none; /* По умолчанию описание скрыто */
-        z-index: 1; /* Для управления слоем */
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        display: none; /* По умолчанию скрыто */
     }
 
-    .thumbnail:hover .thumbnail-description {
-        display: block; /* Показывать описание при наведении на миниатюру */
+    .thumbnail-container:hover .thumbnail-description {
+        display: block; /* Показать при наведении на контейнер */
     }
 </style>
 </head>
@@ -106,15 +102,12 @@ image:
         <div class="content">
             <!-- Контент -->
             <h2 id="category1" class="category-heading">Введение</h2>
-                    <p>С начала российского вторжения в Украину в 2022 году российские военные и власти совершили военные преступления, такие как преднамеренные удары ВС РФ по гражданским объектам включая удары по больницам и по энергосистеме; неизбирательные удары по густонаселенным районам в том числе с применением авиабомб; похищения, пытки и убийства мирных жителей; принудительные депортации; сексуальное насилие; уничтожение культурного наследия; и жестокое обращение, пытки и убийства украинских военнопленных.</p>
-<!-- Миниатюра картинки -->
-            <div class="thumbnail">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Миниатюра" onclick="toggleDescription()" class="thumbnail-image">
-                <div class="thumbnail-description">Описание картинки</div>
-            </div>
-
-    <h2 id="category2" class="category-heading">Расследование преступлений</h2>
     <p>2 марта 2023 года прокурор Международного уголовного суда МУС начал полное расследование прошлых и нынешних обвинений в военных преступлениях, преступлениях против человечности или геноцида, совершенных в Украине любым лицом с 21 ноября 2013 года, установил онлайн-метод, позволяющий людям, имеющим доказательства, вступать в контакт со следователями, и направил группу следователей, юристов и других специалистов в Украину для начала сбора доказательств.</p>
+                        <!-- Миниатюра -->
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/450px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Миниатюра">
+                <div class="thumbnail-description">Описание миниатюры</div>
+            </div>
 
     <h2 id="category3" class="category-heading">Международные агентства</h2>
     <p>Два других независимых международных агентства также расследуют нарушения прав человека и международного гуманитарного права в этом районе: независимая международная комиссия по расследованию событий на Украине, учрежденная Советом Организации Объединенных Наций по правам человека 4 марта 2022 года, и Миссия ООН по наблюдению за соблюдением прав человека в Украине, развернутая Управлением Верховного комиссара Организации Объединенных Наций по правам человека. 7 апреля 2022 года Организация Объединенных Наций исключила Россию из Совета ООН по правам человека. К концу октября украинская прокуратура задокументировала 39 347 предполагаемых военных преступлений России, выявила более 600 подозреваемых и возбудила дела примерно против 80 из них.</p>
@@ -146,11 +139,21 @@ image:
         </div>
     </div>
 
+    <!-- JavaScript для раскрытия миниатюры по клику -->
     <script>
-        function toggleDescription() {
-            var description = document.querySelector('.thumbnail-description');
-            description.style.display = (description.style.display === 'block') ? 'none' : 'block';
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var thumbnail = document.querySelector('.thumbnail');
+            thumbnail.addEventListener('click', function () {
+                // Проверка текущего состояния миниатюры
+                if (thumbnail.classList.contains('expanded')) {
+                    thumbnail.style.width = '450px'; // Возвращаем изображение к исходному размеру
+                    thumbnail.classList.remove('expanded');
+                } else {
+                    thumbnail.style.width = '100%'; // Расширяем изображение до максимальной ширины
+                    thumbnail.classList.add('expanded');
+                }
+            });
+        });
     </script>
 </body>
 </html>
