@@ -59,13 +59,14 @@ image:
         margin-left: 1px;
         border: 1px solid #ddd;
         display: grid; /* Группировка в сетку */
-        grid-template-columns: auto auto; /* Два столбца */
-        grid-gap: 0; /* Без отступов */
-    }
-    .thumbnail img {
-        width: 125px;
-        height: auto;
-    }
+    grid-template-columns: repeat(2, 1fr); /* Группировка в 2 столбца */
+    grid-gap: 0; /* Убираем отступы между миниатюрами */
+}
+.thumbnail-grid img {
+    width: 100%; /* Занимает всю ширину ячейки сетки */
+    height: auto;
+}
+
 </style>
 </head>
 <body>
