@@ -8,72 +8,56 @@ image:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Article</title>
-  <!-- Подключение библиотеки jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Подключение стилей для раскрывающихся изображений -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        /* Add your custom styles here */
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Заголовок статьи</h1>
-    <nav>
-      <ul>
-        <li><a href="#section1">Раздел 1</a></li>
-        <li><a href="#section2">Раздел 2</a></li>
-        <li><a href="#section3">Раздел 3</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <article>
-    <section id="section1">
-      <h2>Раздел 1</h2>
-      <p>Содержимое раздела 1...</p>
-    </section>
-    <section id="section2">
-      <h2>Раздел 2</h2>
-      <p>Содержимое раздела 2...</p>
-    </section>
-    <section id="section3">
-      <h2>Раздел 3</h2>
-      <p>Содержимое раздела 3...</p>
-    </section>
-  </article>
-
-  <aside>
-    <h2>Иллюстрация</h2>
-    <div id="imageGallery">
-      <a href="large_image_1.jpg">
-        <img src="thumbnail_1.jpg" alt="Изображение 1">
-      </a>
-      <a href="large_image_2.jpg">
-        <img src="thumbnail_2.jpg" alt="Изображение 2">
-      </a>
-      <!-- Добавьте больше изображений, при необходимости -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Navigation section -->
+                <div id="navigation">
+                    <!-- Table of contents -->
+                    <ul>
+                        <li><a href="#section1">Section 1</a></li>
+                        <li><a href="#section2">Section 2</a></li>
+                        <li><a href="#section3">Section 3</a></li>
+                        <!-- Add more sections as needed -->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- Article section -->
+                <div id="article">
+                    <h1 id="section1">Section 1</h1>
+                    <p>Content of section 1 goes here...</p>
+                    <h1 id="section2">Section 2</h1>
+                    <p>Content of section 2 goes here...</p>
+                    <h1 id="section3">Section 3</h1>
+                    <p>Content of section 3 goes here...</p>
+                    <!-- Add more sections as needed -->
+                </div>
+            </div>
+        </div>
     </div>
-  </aside>
 
-  <!-- Подключение скриптов для раскрывающихся изображений -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.2.0/lg-thumbnail.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lg-fullscreen/1.4.0/lg-fullscreen.min.js"></script>
-
-  <script>
-    // Инициализация галереи изображений
-    $(document).ready(function() {
-      $('#imageGallery').lightGallery({
-        selector: 'a',
-        thumbnail: true,
-        autoplay: false,
-        fullScreen: true
-      });
-    });
-  </script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Add your JavaScript code here
+    </script>
 </body>
 </html>
+
 
 
 
