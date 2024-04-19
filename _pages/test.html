@@ -6,87 +6,65 @@ keywords: червепедия, черветред, черветред - это,
 image:
 ---
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Статья в стиле Википедии</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <title>Wikipedia Style Article</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
             background-color: #fdefe6;
-            margin: 0;
-            padding: 0;
         }
-        .container {
-            display: flex;
-            width: 100%;
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            border-right: 1px solid #ccc;
         }
-        .navigation {
-            width: 20%;
-            height: 100vh;
-            overflow-y: scroll;
-            padding: 20px;
-            box-sizing: border-box;
+        .content {
+            margin-left: 220px;
         }
-        .article {
-            width: 80%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .image-gallery {
+        .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 10px;
         }
-        .image-gallery img {
+        .image-grid img {
             width: 100%;
             height: auto;
             cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .image-gallery img:hover {
-            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="navigation">
-            <h2>Оглавление</h2>
-            <ul>
-                <li><a href="#section1">Введение</a></li>
-                <li><a href="#section2">История</a></li>
-                <li><a href="#section3">Влияние</a></li>
-                <li><a href="#section4">Заключение</a></li>
-            </ul>
-        </div>
-        <div class="article">
-            <h1>Заголовок статьи</h1>
-            <section id="section1">
-                <h2>Введение</h2>
-                <p>Текст введения статьи...</p>
-            </section>
-            <section id="section2">
-                <h2>История</h2>
-                <p>Текст раздела истории...</p>
-            </section>
-            <section id="section3">
-                <h2>Влияние</h2>
-                <p>Текст о влиянии...</p>
-            </section>
-            <section id="section4">
-                <h2>Заключение</h2>
-                <p>Текст заключения статьи...</p>
-            </section>
-            <div class="image-gallery">
-                <img src="path_to_image1.jpg" alt="Описание изображения 1">
-                <img src="path_to_image2.jpg" alt="Описание изображения 2">
-                <img src="path_to_image3.jpg" alt="Описание изображения 3">
-            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <!-- Navigation items here -->
+                    </ul>
+                </div>
+            </nav>
+            <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 content">
+                <div class="image-grid">
+                    <!-- Image thumbnails here -->
+                </div>
+                <!-- Article content here -->
+            </main>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.image-grid img').on('click', function() {
+                window.open($(this).attr('src'), '_blank');
+            });
+        });
+    </script>
 </body>
 </html>
 
