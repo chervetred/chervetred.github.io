@@ -8,97 +8,103 @@ image:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Custom styles -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff; /* Цвет фона */
-            color: #000000; /* Цвет текста */
-            margin: 0;
-            padding: 0;
-        }
-        #sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100%;
-            overflow-y: auto;
-            background-color: #fdefe6; /* Цвет навигации */
-            padding: 20px;
-        }
-        #content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-        .thumbnail {
-            display: inline-block;
-            margin: 10px;
-        }
-        .thumbnail img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff; /* задний фон */
+      color: #000000; /* цвет текста */
+    }
+
+    #container {
+      display: flex;
+    }
+
+    #navigation {
+      flex: 0 0 20%; /* ширина навигации */
+      overflow-y: auto; /* ползунок для прокрутки */
+      padding: 20px;
+      background-color: #fdefe6;
+    }
+
+    #content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .thumbnail {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-gap: 10px;
+    }
+  </style>
 </head>
 <body>
-
-<div id="sidebar">
-    <h2>Navigation</h2>
-    <!-- Navigation links -->
-    <ul>
+  <div id="container">
+    <div id="navigation">
+      <!-- Навигация по разделам -->
+      <ul>
         <li><a href="#section1">Section 1</a></li>
         <li><a href="#section2">Section 2</a></li>
         <li><a href="#section3">Section 3</a></li>
-    </ul>
-</div>
-
-<div id="content">
-    <h1 id="section1">Section 1</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna eget libero posuere malesuada.</p>
-    
-    <h1 id="section2">Section 2</h1>
-    <p>Nullam at velit ut ligula commodo efficitur. Vivamus auctor magna ut ipsum cursus, id faucibus odio laoreet.</p>
-    
-    <h1 id="section3">Section 3</h1>
-    <p>Integer nec nulla non lorem vehicula efficitur. Fusce vel tellus odio.</p>
-    
-    <h2>Illustrations</h2>
-    <!-- Image thumbnails -->
-    <div class="thumbnail">
-        <img src="image1.jpg" alt="Image 1">
+        <!-- Добавьте нужные разделы -->
+      </ul>
     </div>
-    <div class="thumbnail">
-        <img src="image2.jpg" alt="Image 2">
+    <div id="content">
+      <!-- Содержание статьи -->
+      <h1 id="section1">Section 1</h1>
+      <p>Content of section 1</p>
+
+      <h1 id="section2">Section 2</h1>
+      <p>Content of section 2</p>
+
+      <h1 id="section3">Section 3</h1>
+      <p>Content of section 3</p>
+
+      <!-- Блок с изображениями -->
+      <h2>Images</h2>
+      <div class="image-grid">
+        <div class="thumbnail" onclick="showFullImage('image1.jpg')">
+          <img src="image1_thumb.jpg" alt="Image 1">
+        </div>
+        <div class="thumbnail" onclick="showFullImage('image2.jpg')">
+          <img src="image2_thumb.jpg" alt="Image 2">
+        </div>
+        <!-- Добавьте другие изображения -->
+      </div>
+
+      <!-- Блок для полноразмерных изображений -->
+      <div id="fullImageContainer"></div>
     </div>
-    <div class="thumbnail">
-        <img src="image3.jpg" alt="Image 3">
-    </div>
-</div>
+  </div>
 
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script>
-    // jQuery for image expansion on click
-    $(document).ready(function(){
-        $('.thumbnail img').click(function(){
-            $(this).toggleClass('expanded');
-        });
-    });
-</script>
-
+  <!-- JavaScript -->
+  <script>
+    function showFullImage(imageSrc) {
+      const fullImageContainer = document.getElementById('fullImageContainer');
+      fullImageContainer.innerHTML = `<img src="${imageSrc}" alt="Full Image">`;
+    }
+  </script>
 </body>
 </html>
+
 
 
 
