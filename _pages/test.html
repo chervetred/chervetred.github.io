@@ -10,100 +10,96 @@ image:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article Title</title>
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Article</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom styles -->
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffffff; /* Background color */
-            color: #000000; /* Text color */
+            background-color: #ffffff; /* Цвет фона */
+            color: #000000; /* Цвет текста */
             margin: 0;
             padding: 0;
         }
-        .container {
-            display: flex;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            overflow-y: auto;
+            background-color: #fdefe6; /* Цвет навигации */
             padding: 20px;
         }
-        .sidebar {
-            flex: 0 0 20%;
-            background-color: #fdefe6; /* Sidebar background color */
-            padding: 20px;
-            overflow-y: auto; /* Enable vertical scrollbar */
-            height: 100vh; /* Full height */
-        }
-        .main-content {
-            flex: 0 0 75%;
-            background-color: #ffffff; /* Main content background color */
+        #content {
+            margin-left: 250px;
             padding: 20px;
         }
         .thumbnail {
-            width: 100px; /* Adjust size as needed */
-            height: auto;
-            margin-bottom: 10px;
+            display: inline-block;
+            margin: 10px;
+        }
+        .thumbnail img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
             cursor: pointer;
-        }
-        .thumbnail-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            grid-gap: 10px;
-        }
-        .thumbnail-container img {
-            max-width: 100%;
-            height: auto;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar with navigation -->
-        <div class="sidebar">
-            <h2>Navigation</h2>
-            <ul>
-                <li><a href="#section1">Section 1</a></li>
-                <li><a href="#section2">Section 2</a></li>
-                <li><a href="#section3">Section 3</a></li>
-                <!-- Add more sections as needed -->
-            </ul>
-        </div>
-        <!-- Main content -->
-        <div class="main-content">
-            <h1>Article Title</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor risus ut ex laoreet, vitae laoreet mauris consequat. Donec suscipit massa eu libero efficitur convallis.</p>
-            <h2 id="section1">Section 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <h2 id="section2">Section 2</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <h2 id="section3">Section 3</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <!-- Add more sections as needed -->
-            <!-- Illustration block with thumbnails -->
-            <div class="illustration">
-                <h2>Illustrations</h2>
-                <div class="thumbnail-container">
-                    <img class="thumbnail" src="image1.jpg" alt="Thumbnail 1">
-                    <img class="thumbnail" src="image2.jpg" alt="Thumbnail 2">
-                    <!-- Add more thumbnails as needed -->
-                </div>
-            </div>
-        </div>
+
+<div id="sidebar">
+    <h2>Navigation</h2>
+    <!-- Navigation links -->
+    <ul>
+        <li><a href="#section1">Section 1</a></li>
+        <li><a href="#section2">Section 2</a></li>
+        <li><a href="#section3">Section 3</a></li>
+    </ul>
+</div>
+
+<div id="content">
+    <h1 id="section1">Section 1</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna eget libero posuere malesuada.</p>
+    
+    <h1 id="section2">Section 2</h1>
+    <p>Nullam at velit ut ligula commodo efficitur. Vivamus auctor magna ut ipsum cursus, id faucibus odio laoreet.</p>
+    
+    <h1 id="section3">Section 3</h1>
+    <p>Integer nec nulla non lorem vehicula efficitur. Fusce vel tellus odio.</p>
+    
+    <h2>Illustrations</h2>
+    <!-- Image thumbnails -->
+    <div class="thumbnail">
+        <img src="image1.jpg" alt="Image 1">
     </div>
-    <!-- External JavaScript libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        // JavaScript code for thumbnail expansion
-        $(document).ready(function(){
-            $(".thumbnail").click(function(){
-                $(this).toggleClass("expanded");
-            });
+    <div class="thumbnail">
+        <img src="image2.jpg" alt="Image 2">
+    </div>
+    <div class="thumbnail">
+        <img src="image3.jpg" alt="Image 3">
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // jQuery for image expansion on click
+    $(document).ready(function(){
+        $('.thumbnail img').click(function(){
+            $(this).toggleClass('expanded');
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
+
 
 
 
