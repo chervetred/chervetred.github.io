@@ -6,67 +6,105 @@ keywords: червепедия, черветред, черветред - это,
 image:
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Wikipedia Style Article</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Title</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            background-color: #fdefe6;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Background color */
+            color: #000000; /* Text color */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            overflow-y: auto;
-            border-right: 1px solid #ccc;
+            flex: 0 0 20%;
+            background-color: #fdefe6; /* Sidebar background color */
+            padding: 20px;
+            overflow-y: auto; /* Enable vertical scrollbar */
+            height: 100vh; /* Full height */
         }
-        .content {
-            margin-left: 220px;
+        .main-content {
+            flex: 0 0 75%;
+            background-color: #ffffff; /* Main content background color */
+            padding: 20px;
         }
-        .image-grid {
+        .thumbnail {
+            width: 100px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .thumbnail-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             grid-gap: 10px;
         }
-        .image-grid img {
-            width: 100%;
+        .thumbnail-container img {
+            max-width: 100%;
             height: auto;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <!-- Navigation items here -->
-                    </ul>
+    <div class="container">
+        <!-- Sidebar with navigation -->
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>
+                <!-- Add more sections as needed -->
+            </ul>
+        </div>
+        <!-- Main content -->
+        <div class="main-content">
+            <h1>Article Title</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor risus ut ex laoreet, vitae laoreet mauris consequat. Donec suscipit massa eu libero efficitur convallis.</p>
+            <h2 id="section1">Section 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h2 id="section2">Section 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h2 id="section3">Section 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <!-- Add more sections as needed -->
+            <!-- Illustration block with thumbnails -->
+            <div class="illustration">
+                <h2>Illustrations</h2>
+                <div class="thumbnail-container">
+                    <img class="thumbnail" src="image1.jpg" alt="Thumbnail 1">
+                    <img class="thumbnail" src="image2.jpg" alt="Thumbnail 2">
+                    <!-- Add more thumbnails as needed -->
                 </div>
-            </nav>
-            <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 content">
-                <div class="image-grid">
-                    <!-- Image thumbnails here -->
-                </div>
-                <!-- Article content here -->
-            </main>
+            </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- External JavaScript libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.image-grid img').on('click', function() {
-                window.open($(this).attr('src'), '_blank');
+        // JavaScript code for thumbnail expansion
+        $(document).ready(function(){
+            $(".thumbnail").click(function(){
+                $(this).toggleClass("expanded");
             });
         });
     </script>
 </body>
 </html>
+
 
 
 
