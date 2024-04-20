@@ -13,8 +13,12 @@ image:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+  <title>Карусель изображений</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+  
     <style>
     /* Стили для миниатюры */
     .thumbnail {
@@ -26,13 +30,18 @@ image:
         width: 150px;
         height: auto;
     }
-        #navigation ul li {
+    #navigation ul li {
   margin-bottom: 10px; /* Отступ между пунктами списка */
 }
+   .owl-carousel .item img {
+      width: 450px;
+      height: auto;
+      cursor: pointer;   
     </style>
 </head>
 <body>
-<div class="container-fluid">
+
+  <div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
       <div id="navigation" style="height: 400px; overflow-y: scroll;">
@@ -127,11 +136,37 @@ image:
 <p>Пресса сообщала о многочисленных телах на улицах, среди которых были дети. Одно из обнаруженных тел было обгоревшим ребенком. Украинские следователи обнаружили обезглавливания и сожженные трупы, а также минированные тела на стекольном заводе. Human Rights Watch сообщила о суммарных казнях, пытках и незаконных убийствах в Буче.</p>
 
 <p>19 мая New York Times опубликовало видео, показывающее российских десантников, ведущих группу гражданских лиц, предположительно казненных после этого. К 8 августа было обнаружено 458 тел, включая 9 детей. И УВКПЧ сообщило о по меньшей мере 73 незаконных убийствах в Буче.</p>
-    
+  <div class="owl-carousel owl-theme">
+    <a data-fancybox="gallery" href="https://kp.ua/img/forall/u/351/60/2022-04-03T145323Z_1622546529_RC2PFT9MJ9CJ_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649244844.JPG">
+      <img src="https://kp.ua/img/forall/u/351/60/2022-04-03T145323Z_1622546529_RC2PFT9MJ9CJ_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649244844.JPG" alt="Изображение 1">
+    </a>
+    <a data-fancybox="gallery" href="https://kp.ua/img/forall/u/351/60/2022-04-04T220111Z_1955075179_RC2CGT953APL_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649244844.JPG">
+      <img src="https://kp.ua/img/forall/u/351/60/2022-04-04T220111Z_1955075179_RC2CGT953APL_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649244844.JPG" alt="Изображение 2">
+    </a>
+    <!-- ... остальные изображения ... -->
+  </div>    
  </div>
    
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      items: 1,
+    });
+
+    $("[data-fancybox]").fancybox({
+      loop: true,
+    });
+  </script>
+
 </body>
 </html>
 
