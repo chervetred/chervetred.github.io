@@ -32,16 +32,6 @@ image:
   top: 50px; 
   position: sticky;
   overflow-y: auto;
-  height: 400px; /* Высота вашего #navigation */
-}
-
-#element-after-navigation {
-  margin-top: 400px; /* Высота вашего #navigation */
-}
-
-#footer {
-  position: relative; /* или absolute */
-  bottom: 0;
 }
     .owl-carousel .item {
       display: flex;
@@ -166,7 +156,8 @@ image:
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-  <script>
+  
+    <script>
     $('.owl-carousel').owlCarousel({
       loop: true,
       margin: 10,
@@ -178,6 +169,21 @@ image:
       loop: true,
     });
   </script>
+
+  <script>
+  window.addEventListener('scroll', function() {
+    var navigation = document.getElementById('navigation');
+    var topOffset = 50; // Отступ от верхнего края страницы
+    var scrollTop = window.scrollY || window.pageYOffset;
+
+    if (scrollTop >= topOffset) {
+      navigation.style.position = 'fixed';
+      navigation.style.top = topOffset + 'px';
+    } else {
+      navigation.style.position = 'static';
+    }
+  });
+</script>    
 
 </body>
 </html>
