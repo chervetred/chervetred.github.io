@@ -13,8 +13,8 @@ image:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
     /* Стили для миниатюры */
     .thumbnail {
@@ -29,26 +29,11 @@ image:
         #navigation ul li {
   margin-bottom: 10px; /* Отступ между пунктами списка */
 }
-        .swiper {
-  width: 450px;
-  height: 300px; /* Установите высоту слайдера */
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+        .owl-carousel .item img {
+      width: 450px;
+      height: auto;
+    }
+  </style>
     </style>
 </head>
 <body>
@@ -147,52 +132,28 @@ image:
 <p>Пресса сообщала о многочисленных телах на улицах, среди которых были дети. Одно из обнаруженных тел было обгоревшим ребенком. Украинские следователи обнаружили обезглавливания и сожженные трупы, а также минированные тела на стекольном заводе. Human Rights Watch сообщила о суммарных казнях, пытках и незаконных убийствах в Буче.</p>
 
 <p>19 мая New York Times опубликовало видео, показывающее российских десантников, ведущих группу гражданских лиц, предположительно казненных после этого. К 8 августа было обнаружено 458 тел, включая 9 детей. И УВКПЧ сообщило о по меньшей мере 73 незаконных убийствах в Буче.</p>
-        <div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="assets/images/bucha/(1).jpg" alt="Image 1">
-    </div>
-    <div class="swiper-slide">
-      <img src="assets/images/bucha/(1).webp" alt="Image 2">
-    </div>
-    <div class="swiper-slide">
-      <img src="assets/images/bucha/(10).jpg" alt="Image 3">
-    </div>
-    <div class="swiper-slide">
-      <img src="assets/images/bucha/(10).webp" alt="Image 4">
-    </div>
-    <div class="swiper-slide">
-      <img src="assets/images/bucha/(11).webp" alt="Image 5">
-    </div>
-  </div>
-  <div class="swiper-pagination"></div>
-</div>
     
-
+  <div class="owl-carousel owl-theme">
+    <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-03T145323Z_1622546529_RC2PFT9MJ9CJ_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649244844.JPG" alt="Изображение 1"></div>
+    <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-04T220111Z_1955075179_RC2CGT953APL_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649244844.JPG" alt="Изображение 2"></div>
+    <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-03T145323Z_821387237_RC2MFT96L88V_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649245081.JPG" alt="Изображение 3"></div>
+    <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-04T081217Z_1416989432_RC21FT9S2EEE_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649245081.JPG" alt="Изображение 4"></div>
+    <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-02T180237Z_1250941310_RC20FT9A74AI_RTRMADP_3_UKRAINE-CRISIS-BUCHA-BODIES-v1649245081.JPG" alt="Изображение 5"></div>
+  </div>
     </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      items: 1,
+    });
+  </script>
 
-   <script   var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 3, // Количество слайдов на экране
-  spaceBetween: 30, // Расстояние между слайдами
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
-// Добавляем обработчик клика для открытия изображения в полноэкранном режиме
-swiper.on('click', function(e) {
-  const clickedSlide = e.target.closest('.swiper-slide');
-  if (clickedSlide) {
-    // Получаем URL изображения
-    const imgSrc = clickedSlide.querySelector('img').src;
-    // Открываем изображение в новом окне
-    window.open(imgSrc, '_blank');
-  }
-});
-   </script>
 </body>
 </html>
 
