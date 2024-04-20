@@ -28,27 +28,32 @@ image:
     }
     .thumbnail img {
         width: 150px;
-        height: auto;
+        height: 150px;
     }
-    #navigation ul li {
-  margin-bottom: 10px;
-  height: 400px;
+#navigation {
+  height: autp;
   position: sticky;
-  top: 0;
-  overflow-y: auto;  
+  overflow-y: auto;
 }
-   .owl-carousel .item img {
-      width: auto;
-      height: 350px;
-      cursor: pointer;   
-    </style>
+    .owl-carousel .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .owl-carousel .item img {
+      width: 450px;
+      height: auto;
+      cursor: pointer;
+    }
+     </style>  
 </head>
 <body>
 
   <div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
-      <div id="navigation" style="height: 400px; overflow-y: scroll;">
+      <div id="navigation" style="height: auto; overflow-y: scroll;">
         <ul>
           <li><a href="#category1">Введение</a></li>
           <li><a href="#category2">Расследование преступлений</a></li>
@@ -172,3 +177,4 @@ image:
   </script>
 
 </body>
+</html>
