@@ -2,28 +2,21 @@
   <head> <meta name="description" content="Черветред – русофобское сообщество на Дваче"/> </head>
   <div class="container-sm">
     <div class="row align-items-center"> <!-- Add the align-items-center class to center the content -->
-      {% if site.logo %}
       <div class="col-md-3 col-sm-6 mb-4 mb-md-0" style="transform: scale(0.5);">
         <a href="{{site.baseurl}}/"><img src="{{site.logo | relative_url}}" alt="{{site.title}}" class="img-fluid"></a>
       </div>
-      {% endif %}
-      {% if site.contact.address %}
       <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
         <h6>__</h6>
         <ul class="list-unstyled">
           <li class="font-secondary text-dark">{{site.contact.address.city}}</li>
         </ul>
       </div>
-      {% endif %}
-      {% if site.contact %}
       <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
         <h6>__</h6>
         <ul class="list-unstyled">
           <li class="font-secondary text-dark">Tel: {{site.contact.phone}}</li>
         </ul>
       </div>
-      {% endif %}
-      {% if site.social %}
       <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
         <h6>__</h6>
         <ul class="list-inline d-inline-block">
@@ -32,7 +25,6 @@
           {% endfor %}
         </ul>
       </div>
-      {% endif %}
     </div>
   </div>
   <div class="text-center pb-3">{{site.copyright | markdownify}}</div>
