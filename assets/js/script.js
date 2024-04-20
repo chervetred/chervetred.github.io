@@ -7,7 +7,7 @@
   });
 
   // headroom js
-  $('.navigation').headroom();
+
 
   // Background-images
   $('[data-background]').each(function () {
