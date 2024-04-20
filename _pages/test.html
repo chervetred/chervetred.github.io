@@ -27,11 +27,13 @@ image:
         width: 150px;
         height: auto;
     }
-        #navigation ul li {
-  margin-bottom: 10px; /* Отступ между пунктами списка */
+#navigation {
+  height: 400px;
   position: sticky;
-  top: 0;     
+  top: 0;
+  overflow-y: auto;
 }
+
 .owl-carousel .item {
   display: flex;
   justify-content: center;
@@ -39,10 +41,9 @@ image:
 }
 
 .owl-carousel .item img {
-  width: 300px; /* измените ширину на 300px */
-  height: 300px; /* установите высоту на 300px, чтобы изображение оставалось квадратным */
-  object-fit: cover; /* для обрезки изображения */
-  cursor: pointer;
+  max-width: 300px;
+  height: 300px; /* Устанавливаем фиксированную высоту для равномерного выравнивания */
+  object-fit: cover; /* Это свойство позволяет изображению заполнить контейнер, сохраняя при этом соотношение сторон */
 }
 
 
