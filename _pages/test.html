@@ -30,17 +30,17 @@ image:
         #navigation ul li {
   margin-bottom: 10px; /* Отступ между пунктами списка */
 }
-.owl-carousel .item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Добавить этот стиль для обрезания изображений */
+.thumbnail {
+  width: 300px;
+  height: 300px;
+  overflow: hidden; /* Обрезать изображения, выходящие за пределы контейнера */
 }
 
-.owl-carousel .item img {
-  width: 500px;
-  height: 500px;
-  object-fit: cover; /* Обрезать изображение до размеров контейнера */
+.thumbnail img {
+  width: 100%; /* Заполнить всю ширину контейнера */
+  height: 100%; /* Заполнить всю высоту контейнера */
+  object-fit: cover; /* Обрезать изображение до размера контейнера */
+  object-position: center; /* Выравнивание изображения по центру */
 }
 
 
@@ -65,7 +65,7 @@ image:
         </ul>
       </div>
     </div>
-    <div class="col-md-9">
+   <div class="col-md-9" style="height: 100vh; overflow-y: auto;">
       <!-- Оставьте ваше сод
       <!-- Контент -->
     <h1 id="category1" class="category-heading">Введение</h1>
