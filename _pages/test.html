@@ -85,6 +85,30 @@ image:
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('.article-section');
+      sections.forEach((section) => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        if (isScrolledIntoView(section)) {
+          navLinks.forEach((link) => {
+            link.classList.remove('active');
+          });
+          const currentLink = document.querySelector(`a[href="#${section.id}"]`);
+          currentLink.classList.add('active');
+        }
+      });
+    });
+
+    function isScrolledIntoView(elem) {
+      const rect = elem.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+      );
+    }
+  
 </body>
 </html>
 
