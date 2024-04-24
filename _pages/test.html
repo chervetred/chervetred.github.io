@@ -10,104 +10,56 @@ image:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Название статьи</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .navigation {
-            position: fixed;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .navigation ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .navigation ul li {
-            margin-bottom: 10px;
-        }
-
-        .navigation ul li a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-        }
-
-        .navigation ul li a.active {
-            font-weight: bold;
-        }
-
-        .section {
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
-            padding: 20px;
-        }
-
-        .section h2 {
-            margin-top: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Навигация -->
-        <nav class="navigation">
-            <ul>
-                <li><a href="#section1" class="nav-link active">Раздел 1</a></li>
-                <li><a href="#section2" class="nav-link">Раздел 2</a></li>
-                <li><a href="#section3" class="nav-link">Раздел 3</a></li>
-                <!-- Добавьте дополнительные ссылки на разделы, если необходимо -->
-            </ul>
-        </nav>
-        <!-- Разделы статьи -->
-        <div id="section1" class="section">
-            <h2>Раздел 1</h2>
-            <p>Содержание раздела 1...</p>
-        </div>
-        <div id="section2" class="section">
-            <h2>Раздел 2</h2>
-            <p>Содержание раздела 2...</p>
-        </div>
-        <div id="section3" class="section">
-            <h2>Раздел 3</h2>
-            <p>Содержание раздела 3...</p>
-        </div>
-        <!-- Добавьте дополнительные разделы, если необходимо -->
-    </div>
-
-    <!-- Подключение jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Подключение библиотеки скроллинга -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
-    <!-- Скрипт для выделения текущего раздела в навигации при скроллинге -->
+    <title>Название вашей статьи</title>
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключение скриптов и библиотек из CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollspy/2.0.0/jquery-scrollspy.min.js"></script>
     <script>
         $(document).ready(function(){
-            $(window).scroll(function(){
-                $(".section").each(function(){
-                    var sectionOffset = $(this).offset().top;
-                    var scrollTop = $(window).scrollTop();
-                    if(scrollTop >= sectionOffset){
-                        var id = $(this).attr('id');
-                        $(".nav-link").removeClass("active");
-                        $("a[href='#"+ id +"']").addClass("active");
-                    }
-                });
-            });
+            $('body').scrollspy({target: ".navbar", offset: 50});
+        });
+    </script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- Навигация -->
+    <nav class="navbar">
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="#section1">Раздел 1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#section2">Раздел 2</a></li>
+            <li class="nav-item"><a class="nav-link" href="#section3">Раздел 3</a></li>
+            <!-- Добавьте больше разделов по мере необходимости -->
+        </ul>
+    </nav>
+
+    <!-- Содержимое статьи -->
+    <div class="container">
+        <section id="section1" class="section">
+            <h2>Раздел 1</h2>
+            <p>Содержание раздела 1.</p>
+        </section>
+        <section id="section2" class="section">
+            <h2>Раздел 2</h2>
+            <p>Содержание раздела 2.</p>
+        </section>
+        <section id="section3" class="section">
+            <h2>Раздел 3</h2>
+            <p>Содержание раздела 3.</p>
+        </section>
+        <!-- Добавьте больше разделов по мере необходимости -->
+    </div>
+
+    <!-- Подключение скрипта для плавной прокрутки к якорным ссылкам -->
+    <script>
+        $('a[href*="#"]').on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $($(this).attr('href')).offset().top
+            }, 500, 'linear');
         });
     </script>
 </body>
 </html>
+
 
