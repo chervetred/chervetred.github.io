@@ -10,7 +10,8 @@ image:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моя статья</title>
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <title>Карусель изображений</title>
@@ -19,7 +20,7 @@ image:
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
   
   <style>
-        .owl-carousel .item {
+    .owl-carousel .item {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,36 +30,94 @@ image:
       width: auto;
       height: 450px;
     }
+
     
-    
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+    }
+    .nav-sidebar {
+      height: 100vh;
+      overflow-y: auto;
+      position: sticky;
+      top: 0;
+      padding: 20px;
+      width: 200px;
+      font-size: 18px;
+      scrollbar-width: thin;
+      scrollbar-color: #fdefe6;
+    }
+    .nav-sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .nav-sidebar::-webkit-scrollbar-thumb {
+      background-color: #666;
+    }
     .article-section {
-      border: 3px solid #fdefe6;
-      padding: 10px;
+      border: 1px solid #fdefe6;
+      padding: 20px;
       margin-bottom: 20px;
-      font-family: Arial, sans-serif; /* Шрифт для текста разделов */
     }
-    .nav-link {
-      font-family: Arial, sans-serif; /* Шрифт для пунктов меню */
-      font-size: 14px; /* Размер шрифта для пунктов меню */
-      padding: 5px; /* Поля для пунктов меню */
-    }
-    .nav-link.active {
-      background-color: #fdefe6;
+    .active {
+      background-color: black;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-3">
-        <ul class="nav flex-column">
-          <li><a href="#section1" class="nav-link">Раздел 1</a></li>
-          <li><a href="#section2" class="nav-link">Раздел 2</a></li>
-          <li><a href="#section3" class="nav-link">Раздел 3</a></li>
-        </ul>
+    <div class="nav-sidebar">
+      <ul class="nav flex-column">
+          <li><a href="#section1" class="nav-link">Введение</a></li>
+          <li><a href="#section2" class="nav-link">Расследование преступлений</a></li>
+          <li><a href="#section3" class="nav-link">Международные агентства</a></li>
+          <li><a href="#section4" class="nav-link">Ордера на арест</a></li>
+          <li><a href="#section5" class="nav-link">Похищение украинских детей</a></li>
+          <li><a href="#section6" class="nav-link">Произвольное задержание и насильственное исчезновение</a></li>
+          <li><a href="#section7" class="nav-link">Фильтрационные лагеря </a></li> 
+          <li><a href="#section8" class="nav-link">Атаки на мирных жителей  </a></li>
+          <li><a href="#section9" class="nav-link">Резня в Киевской и Черниговской областях</a></li>
+         <li><a href="#section10" class="nav-link">Резня в Буче</a></li>       
+      </ul>
+    </div>
+    <div style="flex: 1;">
+      <div id="section1" class="article-section">
+        <h2>Раздел 1</h2>
+        <p>Содержание раздела 1...</p>
       </div>
-      <div class="col-9">
-        <div id="section1" class="article-section">
+      <div id="section2" class="article-section">
+        <h2>Раздел 2</h2>
+        <p>Содержание раздела 2...</p>
+      </div>
+      <div id="section3" class="article-section">
+        <h2>Раздел 3</h2>
+        <p>Содержание раздела 3...</p>
+      </div>
+            <div id="section4" class="article-section">
+        <h2>Раздел 2</h2>
+        <p>Содержание раздела 2...</p>
+      </div>
+            <div id="section5" class="article-section">
+        <h2>Раздел 2</h2>
+        <p>Содержание раздела 2...</p>
+      </div>
+            <div id="section6" class="article-section">
+        <h2>Раздел 2</h2>
+        <p>Содержание раздела 2...</p>
+      </div>
+            <div id="section7" class="article-section">
+        <h2>Раздел 2</h2>
+        <p>Содержание раздела 2...</p>
+      </div>
+            <div id="section8" class="article-section">
+        <h2>Раздел 2</h2>
+        <p>Содержание раздела 2...</p>
+      </div>
+            <div id="section9" class="article-section">
+        <h2>Резня в Киевской и Черниговской областях</h2>
 <p>Киевская и Черниговская области оказались в центре страшных событий. 27 февраля российские войска окружили и казнили по меньшей мере шестерых мужчин в Старом Быкове, оставив позади разрушение, которое затронуло даже местную школу. Этот кошмар повторился 31 марта после очередных казней.</p>
 <p>28 февраля пятеро мирных жителей в Победе, защищавших почтовое отделение, были без суда казнены российскими войсками, которые затем взорвали само здание почты.</p>
 <p>7 марта украинский беспилотник, следящий за событиями возле автомагистрали E40 под Киевом, запечатлел момент, когда российские войска убивают мирного жителя с поднятыми руками. Позже, после освобождения этого района украинскими войсками, журналисты BBC обнаружили обгоревшие тела мужчины и женщины возле их сгоревшей машины, а также многочисленные трупы вдоль шоссе.</p>
@@ -66,20 +125,8 @@ image:
 <p>Киевская областная полиция 15 апреля сообщила об ужасном обнаружении 900 тел мирных жителей после ухода российских войск, из которых более 350 были обнаружены только в Буче. Из них почти 95% были жертвами казней, а некоторые даже обнаружены под обломками и в массовых захоронениях.</p>
 <p>Министерство обороны Украины также сообщило о находке еще 132 человек в Макарове и обвинило россиян в пытках и убийствах.</p>
 <p>УВКПЧ заявило 5 июля, что имеет более 300 сообщений о преднамеренных убийствах гражданских лиц Россией, подкрепленных доказательствами и свидетельскими показаниями, а также украинскими перехватами разговоров российских военных и планированием массовых захоронений.</p>
-          <p>Содержание раздела 1...</p>
-        </div>
-        <div id="section2" class="article-section">
-          <h2>Раздел 2</h2>
-<p>Киевская и Черниговская области оказались в центре страшных событий. 27 февраля российские войска окружили и казнили по меньшей мере шестерых мужчин в Старом Быкове, оставив позади разрушение, которое затронуло даже местную школу. Этот кошмар повторился 31 марта после очередных казней.</p>
-<p>28 февраля пятеро мирных жителей в Победе, защищавших почтовое отделение, были без суда казнены российскими войсками, которые затем взорвали само здание почты.</p>
-<p>7 марта украинский беспилотник, следящий за событиями возле автомагистрали E40 под Киевом, запечатлел момент, когда российские войска убивают мирного жителя с поднятыми руками. Позже, после освобождения этого района украинскими войсками, журналисты BBC обнаружили обгоревшие тела мужчины и женщины возле их сгоревшей машины, а также многочисленные трупы вдоль шоссе.</p>
-<p>Российская агрессия продолжалась 26 марта 2022 года в направлении Донбасса, при этом российские солдаты стреляли по городам, а отступающие войска заминировали их, препятствуя спасательным операциям.</p>
-<p>Киевская областная полиция 15 апреля сообщила об ужасном обнаружении 900 тел мирных жителей после ухода российских войск, из которых более 350 были обнаружены только в Буче. Из них почти 95% были жертвами казней, а некоторые даже обнаружены под обломками и в массовых захоронениях.</p>
-<p>Министерство обороны Украины также сообщило о находке еще 132 человек в Макарове и обвинило россиян в пытках и убийствах.</p>
-<p>УВКПЧ заявило 5 июля, что имеет более 300 сообщений о преднамеренных убийствах гражданских лиц Россией, подкрепленных доказательствами и свидетельскими показаниями, а также украинскими перехватами разговоров российских военных и планированием массовых захоронений.</p>
-        </div>
-        <div id="section3" class="article-section">
-          <h2>Раздел 3</h2>
+          <div id="section10" class="article-section">
+        <h2>Резня в Буче</h2>
 <p>В конце марта российские войска к северу от Киева были выведены, и после ээтого появились ужасные видеозаписи: на улицах лежали тела в гражданской одежде. Агентство AFP сообщило о по меньшей мере двадцати трупах мирных жителей с пулями в затылке. Некоторым связывали руки, а других бесследно погребали в массовых захоронениях. Полиция обнаружила в Буче 15 апреля 350 тел с огнестрельными ранениями.</p>
 
 <p>На подтвержденном видео от New York Times видно, как российские бронетранспортеры стреляют в гражданского, едущего на велосипеде. Позднее видео показывает его тело рядом с велосипедом. The Economist сообщил о мужчине, оказавшемся в ловушке на контрольно-пропускном пункте, который подвергся артиллерийскому обстрелу, затем был схвачен, избит и подвергнут пыткам, после выведен на улицу, где его застрелили. Он притворялся мертвым, пока не смог сбежать. BBC News сообщила о связанных телах мирных жителей в храме, переехавших танк.</p>
@@ -98,12 +145,13 @@ image:
     <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-03T145323Z_821387237_RC2MFT96L88V_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649245081.JPG" alt="Изображение 3"></div>
     <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-04T081217Z_1416989432_RC21FT9S2EEE_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649245081.JPG" alt="Изображение 4"></div>
     <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-02T180237Z_1250941310_RC20FT9A74AI_RTRMADP_3_UKRAINE-CRISIS-BUCHA-BODIES-v1649245081.JPG" alt="Изображение 5"></div>
-        </div>
+  </div>
+      </div>
       </div>
     </div>
   </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <script>
@@ -118,27 +166,7 @@ image:
       loop: true,
     });
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.addEventListener('scroll', function() {
-      const sections = document.querySelectorAll('.article-section');
-      sections.forEach((section) => {
-        const navLinks = document.querySelectorAll('.nav-link');
-        const rect = section.getBoundingClientRect();
-        if (
-          rect.top >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-        ) {
-          navLinks.forEach((link) => {
-            link.classList.remove('active');
-          });
-          const currentLink = document.querySelector(`a[href="#${section.id}"]`);
-          currentLink.classList.add('active');
-        }
-      });
-    });
-  </script>
+  
 </body>
 </html>
 
