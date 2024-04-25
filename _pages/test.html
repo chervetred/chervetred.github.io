@@ -46,10 +46,6 @@ image:
         margin-bottom: 5px;
     }
 
-    /* Подсветка активной категории */
-    .active-category {
-        background-color: yellow;
-    }
     .owl-carousel .item img {
       width: auto;
       height: 450px;
@@ -162,46 +158,12 @@ image:
   <div class="item"><a href="https://kp.ua/img/forall/u/351/60/2022-04-02T180237Z_1250941310_RC20FT9A74AI_RTRMADP_3_UKRAINE-CRISIS-BUCHA-BODIES-v1649245081.JPG" data-fancybox="gallery"><img src="https://kp.ua/img/forall/u/351/60/2022-04-02T180237Z_1250941310_RC20FT9A74AI_RTRMADP_3_UKRAINE-CRISIS-BUCHA-BODIES-v1649245081.JPG" alt="Изображение 5"></a></div>
 </div>
 
-  </div>
-      </div> 
-
-</body>
+    </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
-        // Получаем все ссылки в навигации
-        const navLinks = document.querySelectorAll('#navigation ul li a');
-
-        // Функция для подсветки активной категории
-        function highlightActiveCategory() {
-            const scrollPosition = window.scrollY;
-
-            // Проходимся по всем ссылкам
-            navLinks.forEach(link => {
-                const targetId = link.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                // Если позиция скролла соответствует позиции категории, добавляем класс active-category
-                if (targetElement.offsetTop <= scrollPosition && targetElement.offsetTop + targetElement.offsetHeight > scrollPosition) {
-                    link.classList.add('active-category');
-                } else {
-                    link.classList.remove('active-category');
-                }
-            });
-        }
-
-        // Вызываем функцию при прокрутке страницы
-        window.addEventListener('scroll', highlightActiveCategory);
-        // Вызываем функцию при загрузке страницы, чтобы определить начальное состояние
-        highlightActiveCategory();
-    });
-</script>
-
-  
   <script>
     $('.owl-carousel').owlCarousel({
       loop: true,
