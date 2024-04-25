@@ -31,19 +31,37 @@ image:
     }
     
     
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+    }
+    .nav-sidebar {
+      height: 100vh;
+      overflow-y: auto;
+      position: sticky;
+      top: 0;
+      padding: 20px;
+      width: 200px;
+      font-size: 18px;
+      scrollbar-width: thin;
+      scrollbar-color: #666 #111;
+    }
+    .nav-sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .nav-sidebar::-webkit-scrollbar-thumb {
+      background-color: #666;
+    }
     .article-section {
-      border: 3px solid #fdefe6;
-      padding: 10px;
+      border: 1px solid #ccc;
+      padding: 20px;
       margin-bottom: 20px;
-      font-family: Arial, sans-serif; /* Шрифт для текста разделов */
     }
-    .nav-link {
-      font-family: Arial, sans-serif; /* Шрифт для пунктов меню */
-      font-size: 14px; /* Размер шрифта для пунктов меню */
-      padding: 5px; /* Поля для пунктов меню */
-    }
-    .nav-link.active {
-      background-color: #fdefe6;
+    .active {
+      background-color: lightblue;
     }
   </style>
 </head>
