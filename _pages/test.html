@@ -41,10 +41,15 @@ image:
   overflow-y: auto;
 }
 
- #navigation ul li a.active {
-  color: red; /* Цвет подсветки активной категории */
-  font-weight: bold; /* Жирный текст для активной категории, например */
-}     
+    /* Добавляем отступы между категориями */
+    #navigation ul li {
+        margin-bottom: 5px;
+    }
+
+    /* Подсветка активной категории */
+    .active-category {
+        background-color: yellow;
+    }
     .owl-carousel .item img {
       width: auto;
       height: 450px;
@@ -167,18 +172,33 @@ image:
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <script>
-  $(document).ready(function() {
-    // Функция для подсветки активной категории при скроллинге
-    $(window).scroll(function() {
-      var scrollDistance = $(window).scrollTop();
-      $('.category-heading').each(function(i) {
-        if ($(this).position().top <= scrollDistance) {
-          $('#navigation ul li a.active').removeClass('active');
-          $('#navigation ul li a').eq(i).addClass('active');
+    window.addEventListener('DOMContentLoaded', function() {
+        // Получаем все ссылки в навигации
+        const navLinks = document.querySelectorAll('#navigation ul li a');
+
+        // Функция для подсветки активной категории
+        function highlightActiveCategory() {
+            const scrollPosition = window.scrollY;
+
+            // Проходимся по всем ссылкам
+            navLinks.forEach(link => {
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                // Если позиция скролла соответствует позиции категории, добавляем класс active-category
+                if (targetElement.offsetTop <= scrollPosition && targetElement.offsetTop + targetElement.offsetHeight > scrollPosition) {
+                    link.classList.add('active-category');
+                } else {
+                    link.classList.remove('active-category');
+                }
+            });
         }
-      });
-    }).scroll();
-  });
+
+        // Вызываем функцию при прокрутке страницы
+        window.addEventListener('scroll', highlightActiveCategory);
+        // Вызываем функцию при загрузке страницы, чтобы определить начальное состояние
+        highlightActiveCategory();
+    });
 </script>
 
   
@@ -194,10 +214,5 @@ image:
       loop: true,
     });
   </script>
-</body>
-<footer class="bg-secondary" style="height: 100%;">
-  <head> <meta name="description" content="Черветред – русофобское сообщество на Дваче"/> </head>
-  </div>
-</footer>
-        
+</body> 
 </html>
