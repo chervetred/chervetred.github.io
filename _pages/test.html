@@ -11,10 +11,10 @@ image:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Моя статья</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-  <title>Карусель изображений</title>
+    <title>Карусель изображений</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
@@ -25,49 +25,67 @@ image:
       justify-content: center;
       align-items: center;
     }
-        .owl-carousel .item img {
+
+    .owl-carousel .item img {
       width: auto;
       height: 450px;
     }
-     </style>  
     
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+    }
+    .nav-sidebar {
+      height: 100vh;
+      overflow-y: auto;
+      position: sticky;
+      top: 0;
+      padding: 20px;
+      width: 200px;
+      font-size: 18px;
+      scrollbar-width: thin;
+      scrollbar-color: #666 #111;
+    }
+    .nav-sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .nav-sidebar::-webkit-scrollbar-thumb {
+      background-color: #666;
+    }
     .article-section {
-      border: 1px solid #fdefe6; /* Рамка для разделов */
-      padding: 10px;
+      border: 1px solid #ccc;
+      padding: 20px;
       margin-bottom: 20px;
-      font-family: Arial, sans-serif; /* Шрифт для текста разделов */
     }
-    .nav-link {
-      font-family: Arial, sans-serif; /* Шрифт для пунктов меню */
-      font-size: 12px; /* Размер шрифта для пунктов меню */
-      padding: 5px; /* Поля для пунктов меню */
-    }
-    .nav-link.active {
+    .active {
       background-color: lightblue;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-3">
-        <ul class="nav flex-column">
-          <li><a href="#section1" class="nav-link">Раздел 1</a></li>
-          <li><a href="#section2" class="nav-link">Раздел 2</a></li>
-          <li><a href="#section3" class="nav-link">Раздел 3</a></li>
-        </ul>
+    <div class="nav-sidebar">
+      <ul class="nav flex-column">
+        <li><a href="#section1" class="nav-link">Раздел 1</a></li>
+        <li><a href="#section2" class="nav-link">Раздел 2</a></li>
+        <li><a href="#section3" class="nav-link">Раздел 3</a></li>
+      </ul>
+    </div>
+    <div style="flex: 1;">
+      <div id="section1" class="article-section">
+        <h2>Раздел 1</h2>
+        <p>Содержание раздела 1...</p>
       </div>
-      <div class="col-9">
-        <div id="section1" class="article-section">
-          <h2>Раздел 1</h2>
-          <p>Содержание раздела 1...</p>
-        </div>
-        <div id="section2" class="article-section">
-          <h2>Раздел 2</h2>
-          <p>Содержание раздела 2...</p>
-        </div>
-        <div id="section3" class="article-section">
-          <h2>Раздел 3</h2>
+      <div id="section2" class="article-section">
+        <h2>Раздел 2</h2>
+        <p>Содержание раздела 2...</p>
+      </div>
+      <div id="section3" class="article-section">
+        <h2>Раздел 3</h2>
 <p>В конце марта российские войска к северу от Киева были выведены, и после ээтого появились ужасные видеозаписи: на улицах лежали тела в гражданской одежде. Агентство AFP сообщило о по меньшей мере двадцати трупах мирных жителей с пулями в затылке. Некоторым связывали руки, а других бесследно погребали в массовых захоронениях. Полиция обнаружила в Буче 15 апреля 350 тел с огнестрельными ранениями.</p>
 
 <p>На подтвержденном видео от New York Times видно, как российские бронетранспортеры стреляют в гражданского, едущего на велосипеде. Позднее видео показывает его тело рядом с велосипедом. The Economist сообщил о мужчине, оказавшемся в ловушке на контрольно-пропускном пункте, который подвергся артиллерийскому обстрелу, затем был схвачен, избит и подвергнут пыткам, после выведен на улицу, где его застрелили. Он притворялся мертвым, пока не смог сбежать. BBC News сообщила о связанных телах мирных жителей в храме, переехавших танк.</p>
@@ -86,7 +104,6 @@ image:
     <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-03T145323Z_821387237_RC2MFT96L88V_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649245081.JPG" alt="Изображение 3"></div>
     <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-04T081217Z_1416989432_RC21FT9S2EEE_RTRMADP_3_UKRAINE-CRISIS-BUCHA-v1649245081.JPG" alt="Изображение 4"></div>
     <div class="item"><img src="https://kp.ua/img/forall/u/351/60/2022-04-02T180237Z_1250941310_RC20FT9A74AI_RTRMADP_3_UKRAINE-CRISIS-BUCHA-BODIES-v1649245081.JPG" alt="Изображение 5"></div>
-        </div>
       </div>
     </div>
   </div>
@@ -104,26 +121,6 @@ image:
 
     $("[data-fancybox]").fancybox({
       loop: true,
-    });
-  </script>
-
-  <script>
-    document.addEventListener('scroll', function() {
-      const sections = document.querySelectorAll('.article-section');
-      sections.forEach((section) => {
-        const navLinks = document.querySelectorAll('.nav-link');
-        const rect = section.getBoundingClientRect();
-        if (
-          rect.top >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-        ) {
-          navLinks.forEach((link) => {
-            link.classList.remove('active');
-          });
-          const currentLink = document.querySelector(`a[href="#${section.id}"]`);
-          currentLink.classList.add('active');
-        }
-      });
     });
   </script>
 </body>
