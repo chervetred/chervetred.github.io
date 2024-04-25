@@ -40,6 +40,11 @@ image:
   position: sticky;
   overflow-y: auto;
 }
+
+ #navigation ul li a.active {
+  color: red; /* Цвет подсветки активной категории */
+  font-weight: bold; /* Жирный текст для активной категории, например */
+}     
     .owl-carousel .item img {
       width: auto;
       height: 450px;
@@ -160,6 +165,23 @@ image:
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    // Функция для подсветки активной категории при скроллинге
+    $(window).scroll(function() {
+      var scrollDistance = $(window).scrollTop();
+      $('.category-heading').each(function(i) {
+        if ($(this).position().top <= scrollDistance) {
+          $('#navigation ul li a.active').removeClass('active');
+          $('#navigation ul li a').eq(i).addClass('active');
+        }
+      });
+    }).scroll();
+  });
+</script>
+
+  
   <script>
     $('.owl-carousel').owlCarousel({
       loop: true,
