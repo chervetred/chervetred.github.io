@@ -7,6 +7,7 @@ title: Червепедия | Официальный сайт Черветред
 logo: /assets/images/logo.png  
 description: Червепедия - официальный сайт Черветреда - людей, которых объединяет русофобия.
 copyright: Червепедия - официальный сайт Черветреда - людей, которых объединяет русофобия. Based on [Parsa Jekyll](https://themefisher.com). The fixes & additional scripts by Дрюнька столичный.
+production_url: https://chervetred.github.io
 # Preloader
 preloader: false 
 menu:
