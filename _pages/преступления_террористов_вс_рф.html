@@ -407,7 +407,7 @@ image:
 <script>
   $('.owl-carousel').owlCarousel({
     loop: true,
-    margin: 0,
+    margin: 10,
     nav: true,
     items: 1,
     onInitialized: centerImage,
@@ -424,12 +424,12 @@ image:
     $currentImage.css('left', leftPosition);
   }
 
-  $('.fancybox').fancybox({
-    afterClose: function() {
-      $('.owl-carousel').trigger('to.owl.carousel', [0]);
-    }
+  $(document).on('click', '.fancybox-close-small', function() {
+    // Пересчитываем позиции изображений после закрытия галереи FancyBox
+    centerImage($('.owl-carousel').trigger('refresh.owl.carousel').data('owl.carousel'));
   });
 </script>
+
 </body>
 <footer class="bg-secondary" style="height: 100%;">
   <head> <meta name="description" content="Черветред – русофобское сообщество на Дваче"/> </head>
