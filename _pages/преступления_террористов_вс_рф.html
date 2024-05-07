@@ -15,6 +15,7 @@ image:
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <title>Карусель с FancyBox</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-zVR1EfEXvrzGpWXkKSvaVyvp3c8q2lD6+7ex6uJ6uBzokIqGrViM6EADuoSM9mi5" crossorigin="anonymous">
 	<style>
 	/* Стили для миниатюры */
 	
@@ -41,24 +42,46 @@ image:
 	}
 	
 
+
+
 .carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+  position: relative;
+  overflow: hidden;
+  width: auto; /* ширина карусели */
+  height: 450px; /* высота карусели */
 }
 
 .item {
-  flex: 0 0 auto;
-  width: 450px; /* ширина каждого изображения в карусели */
-  margin-right: 10px; /* отступ между изображениями */
-  scroll-snap-align: start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
 }
 
 .item img {
-  max-width: 100%;
-  height: auto;
+  max-height: 100%;
+  width: auto;
 }
+
+.controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prev, .next {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -396,7 +419,25 @@ image:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
 $(document).ready(function() {
-  $(".item a").fancybox();
+  var currentSlide = 0;
+  var totalSlides = $('.carousel .item').length;
+
+  function showSlide(index) {
+    $('.carousel .item').hide();
+    $('.carousel .item').eq(index).show();
+  }
+
+  $('.prev').click(function() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  });
+
+  $('.next').click(function() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  });
+
+  showSlide(currentSlide);
 });
 </script>
 </body>
