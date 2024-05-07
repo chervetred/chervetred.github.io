@@ -5,7 +5,6 @@ permalink: /червепедия_преступления_террористов
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image:
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,62 +14,63 @@ image:
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
   <style>
     .carousel {
-      position: relative; /* To position buttons relative to carousel */
-      max-width: 450px; /* Adjust as needed */
+      display: flex;
+      overflow-x: hidden; /* изменено на hidden для скрытия прокрутки */
+      max-height: 450px;
+      position: relative; /* добавлено для позиционирования кнопок */
     }
     .item {
-      display: none; /* Hide all items initially */
-    }
-    .item.active {
-      display: block; /* Show only the active item */
+      flex: 0 0 auto;
+      margin-right: 10px;
     }
     .item img {
-      max-width: 100%; /* Adjust image width as needed */
       max-height: 450px;
     }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    .button {
-      margin: 0 5px;
+    .prev, .next {
+      position: absolute; /* добавлено для позиционирования кнопок */
+      top: 50%; /* добавлено для позиционирования кнопок по вертикали */
+      transform: translateY(-50%); /* добавлено для позиционирования кнопок по вертикали */
+      background-color: rgba(255, 255, 255, 0.5); /* прозрачный фон */
+      padding: 10px;
       cursor: pointer;
+      z-index: 1; /* добавлено для позиционирования кнопок над изображениями */
+    }
+    .prev {
+      left: 0; /* кнопка "назад" */
+    }
+    .next {
+      right: 0; /* кнопка "вперёд" */
     }
   </style>
 </head>
 <body>
   <div class="carousel">
-    <div class="item active"><a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии"></a></div>
+    <div class="item"><a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии"></a></div>
     <div class="item"><a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
     <div class="item"><a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
-    <div class="buttons"></div> 
   </div>
+
+  <div class="prev">&#10094;</div> <!-- Кнопка "назад" -->
+  <div class="next">&#10095;</div> <!-- Кнопка "вперёд" -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <script>
     $(document).ready(function() {
-      // Initialize Fancybox
       $(".item a").fancybox();
 
-      // Generate buttons
-      const $carousel = $('.carousel');
-      const $items = $carousel.find('.item');
-      const $buttonsContainer = $carousel.find('.buttons');
-      
-      $items.each(function(index) {
-        const $button = $('<span class="button">').text(index + 1);
-        $button.on('click', function() {
-          $items.removeClass('active');
-          $(this).addClass('active');
-          $items.eq(index).addClass('active');
-        });
-        $buttonsContainer.append($button);
+      // Перелистывание карусели
+      $(".next").click(function() {
+        $(".carousel").stop().animate({
+          scrollLeft: "+=200" // Измените эту величину на ваше усмотрение, чтобы подстроить под ширину изображения
+        }, 500); // Время анимации
       });
 
-      // Activate the first button
-      $buttonsContainer.find('.button').first().addClass('active');
+      $(".prev").click(function() {
+        $(".carousel").stop().animate({
+          scrollLeft: "-=200" // Измените эту величину на ваше усмотрение, чтобы подстроить под ширину изображения
+        }, 500); // Время анимации
+      });
     });
   </script>
 </body>
