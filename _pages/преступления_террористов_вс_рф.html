@@ -1,85 +1,53 @@
----
-layout: page
-title: Червепедия - военные преступления при российском вторжении в Украину
-permalink: /червепедия_преступления_террористов_вс_рф/
-keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
-image:
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Карусель с изображениями и Fancybox</title>
+  <title>Галерея изображений</title>
+  <!-- Подключение стилей FancyBox -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <!-- Подключение jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Подключение FancyBox -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <style>
+    /* Стили для карусели */
     .carousel {
       display: flex;
-      overflow-x: hidden; /* Скрыть прокрутку */
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; /* Для плавного скролла на мобильных устройствах */
+      scroll-behavior: smooth; /* Плавный скролл */
       max-height: 450px;
-      position: relative;
     }
     .item {
       flex: 0 0 auto;
-      margin-right: 10px;
+      scroll-snap-align: start;
     }
+    /* Стили для изображений */
     .item img {
       max-height: 450px;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.5);
-      padding: 10px;
-      cursor: pointer;
-      z-index: 1;
-    }
-    .prev {
-      left: 0;
-    }
-    .next {
-      right: 0;
+      display: block;
+      margin: auto;
     }
   </style>
 </head>
 <body>
+
+  <!-- Блок с галереей изображений -->
   <div class="carousel">
     <div class="item"><a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии"></a></div>
     <div class="item"><a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
     <div class="item"><a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
   </div>
 
-  <div class="prev">&#10094;</div>
-  <div class="next">&#10095;</div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <script>
+    // Инициализация FancyBox
     $(document).ready(function() {
-      $(".item a").fancybox();
-
-      // Перелистывание карусели
-      $(".next").click(function() {
-        $(".carousel").stop().animate({
-          scrollLeft: "+=260" // Ширина изображения + маржин
-        }, 500);
+      $("[data-fancybox]").fancybox({
+        // Опции FancyBox здесь, если нужны
       });
-
-      $(".prev").click(function() {
-        $(".carousel").stop().animate({
-          scrollLeft: "-=260" // Ширина изображения + маржин
-        }, 500);
-      });
-
-      // Подсчёт общей ширины карусели и установка правильной ширины элементов карусели
-      var totalWidth = 0;
-      $(".item").each(function() {
-        totalWidth += $(this).outerWidth(true);
-      });
-      $(".carousel").css("width", totalWidth);
     });
   </script>
 </body>
 </html>
-
