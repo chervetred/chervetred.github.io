@@ -6,404 +6,73 @@ keywords: червепедия, черветред, черветред - это,
 image:
 ---
 
-<html lang="ru">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Сайдбар</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
- <title>Карусель с изображениями и Fancybox</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карусель с изображениями и Fancybox</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
   <style>
-	<style>
-	/* Стили для миниатюры */
-	
-	.thumbnail {
-		float: right;
-		margin-left: 20px;
-		border: 1px solid #ddd;
-	}
-	
-	.thumbnail img {
-		width: 150px;
-		height: auto;
-	}
-	
-	#navigation {
-		height: 6000px;
-		top: 50px;
-		position: sticky;
-		overflow-y: auto;
-	}
-	
-	#navigation ul li {
-		margin-bottom: 5px;
-	}
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      max-height: 450px;
+      position: relative; /* To position buttons relative to carousel */
+      max-width: 450px; /* Adjust as needed */
     }
     .item {
-      flex: 0 0 auto;
-      margin-right: 10px;
+      display: none; /* Hide all items initially */
+    }
+    .item.active {
+      display: block; /* Show only the active item */
     }
     .item img {
+      max-width: 100%; /* Adjust image width as needed */
       max-height: 450px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .button {
+      margin: 0 5px;
+      cursor: pointer;
     }
   </style>
 </head>
-
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-3">
-				<div id="navigation" style="height: 600px; overflow-y: scroll;">
-					<ul>
-						<li><a href="#category1">Введение</a></li>
-						<li><a href="#category2">Расследование преступлений</a></li>
-						<li><a href="#category3">Международные агентства</a></li>
-						<li><a href="#category4">Ордера на арест</a></li>
-						<li><a href="#category5">Похищение украинских детей</a></li>
-						<li><a href="#category6">Произвольное задержание и насильственное исчезновение</a></li>
-						<li><a href="#category7">Фильтрационные лагеря </a></li>
-						<li><a href="#category8">Атаки на мирных жителей  </a></li>
-						<li><a href="#category9">Резня в Киевской и Черниговской областях</a></li>
-						<li><a href="#category10">Резня в Буче</a></li>
-						<li><a href="#category11">Массовые захоронения в Изюме </a></li>
-						<li><a href="#category12">Тростянец</a></li>
-						<li><a href="#category13">Обстрел гражданского конвоя в Купянске </a></li>
-						<li><a href="#category14">Российские удары по больницам </a></li>
-						<li><a href="#category15">Российские удары по украинской инфраструктуре</a></li>
-						<li><a href="#category16">Культурное наследие </a></li>
-						<li><a href="#category17">Пытки мирных жителей</a></li>
-						<li><a href="#category18">Русские камеры пыток </a></li>
-						<li><a href="#category19">Гражданские лица в качестве живого щита </a></li>
-						<li><a href="#category20">Сексуальное насилие </a></li>
-						<li><a href="#category20">Мародёрство</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md-9">
-				<!-- Оставьте ваше сод
-      <!-- Контент -->
-				<h1 id="category1" class="category-heading">Введение</h1>
-				<div class="thumbnail">
-					<a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" data-fancybox data-caption="Описание картинки"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg/800px-Kharkiv_after_shelling_on_18_March_2022_%2801%29.jpg" alt="Описание картинки"> </a>
-				</div>
-				<p>С начала агрессии России против Украины в 2022 году российские войска и власти систематически совершают <a href="https://en.wikipedia.org/wiki/Russian_war_crimes" target="_blank">военные преступления</a>. В их числе: <a href="https://en.wikipedia.org/wiki/Attacks_on_civilians_in_the_Russian_invasion_of_Ukraine" target="_blank">преднамеренные удары по гражданской инфраструктуре</a>, включая <a href="https://en.wikipedia.org/wiki/Russian_strikes_on_hospitals_during_the_Russian_invasion_of_Ukraine" target="_blank">больницы</a> и <a href="https://en.wikipedia.org/wiki/Russian_strikes_against_Ukrainian_infrastructure_(2022%E2%80%93present)" target="_blank">предприятия энергетического сектора</a>; <a href="https://en.wikipedia.org/wiki/Indiscriminateattack" target="blank">безжалостные атаки на населённые пункты</a>, в том числе с <a href="https://en.wikipedia.org/wiki/UseofclustermunitionsintheRussianinvasionofUkraine" target="blank">использованием авиации</a>; похищения, пытки и убийства мирного населения; насильственные депортации; случаи <a href="https://en.wikipedia.org/wiki/SexualviolenceintheRussianinvasionofUkraine" target="blank">сексуального насилия</a>; <a href="https://en.wikipedia.org/wiki/Ukrainianculturalheritageduringthe2022Russianinvasion" target="blank">уничтожение культурного наследия</a>; а также грубое обращение, пытки и убийства украинских военнопленных.</p> Источники: <a href="https://web.archive.org/web/20220924015357/https://www.nytimes.com/2022/09/23/world/europe/russia-ukraine-war-crimes-united-nations.html" target="_blank">[1]</a> <a href="https://www.cnbc.com/2022/10/28/russia-ukraine-war-un-report-details-accounts-of-rape-torture-and-executions.html" target="_blank">[2]</a> <a href="https://www.amnesty.org/en/latest/news/2022/02/russian-military-commits-indiscriminate-attacks-during-the-invasion-of-ukraine" target="_blank">[3]</a> <a href="https://www.hrw.org/news/2022/03/18/ukraine-deadly-attacks-kill-injure-civilians-destroy-homes" target="_blank">[4]</a> <a href="https://www.ohchr.org/en/statements/2022/03/situation-ukraine">[5]</a>
-				<h1 id="category2" class="category-heading">Расследование преступлений</h1>
-				<p>В начале марта 2023 года прокурор Международного уголовного суда (МУС) объявил о начале полномасштабного расследования предполагаемых военных преступлений, преступлений против человечности и геноцида, совершенных в Украине с 21 ноября 2013 года. Для облегчения предоставления доказательств была запущена онлайн-платформа, позволяющая связаться со следователями. Кроме того, в Украину была направлена группа специалистов МУС, состоящая из следователей, юристов и других экспертов, для сбора улик.</p>
-				<h1 id="category3" class="category-heading">Международные агентства</h1>
-				<p>Еще два независимых международных органа активно расследуют нарушения прав человека и международного гуманитарного права в Украине: Независимая международная комиссия по расследованию событий в Украине, созданная Советом ООН по правам человека 4 марта 2022 года, и Миссия ООН по наблюдению за правами человека в Украине, развернутая Управлением Верховного комиссара ООН по правам человека. В связи с этим 7 апреля 2022 года Генеральная Ассамблея ООН исключила Россию из состава Совета по правам человека. По состоянию на конец октября украинская прокуратура задокументировала <a href="https://www.nbcnews.com/news/world/ukraine-prosecute-russian-war-crimes-investigation-kharkiv-burial-rcna31006" target="_blank">39 347 военных преступлений, связанных с действиями России</a>, идентифицировала более 600 подозреваемых и возбудила дела примерно против 80 из них.</p>
-				<h1 id="category4" class="category-heading">Ордера на арест</h1>
-				<p>17 марта 2023 года Международный уголовный суд вынес ордера на арест против Владимира Путина и Марии Алексеевны Львовой-Беловой по обвинениям в причастности к военному преступлению - <a href="https://www.bbc.com/news/world-europe-64992727" target="_blank">Похищение детей во время вторжения в Украину</a>.</p>
-				<h1 id="category5" class="category-heading">Похищение украинских детей</h1>
-				<p>Более 121 000 украинских детей были похищены российскими вооруженными силами и выдворены в восточные провинции России. Некоторые из них лишились своих родителей из-за действий российских военных. Проект закона, разработанный Государственной Думой России, закрепляет процедуру так называемого <a href="https://www.eupoliticalreport.eu/russia-kidnaps-ukrainian-children/" target="_blank">"Усыновления" этих детей</a>. Министерство иностранных дел Украины выразило озабоченность по поводу "вопиющей угрозы незаконного усыновления украинских детей гражданами России без соблюдения всех необходимых процедур, предусмотренных украинским законодательством", и призвало органы ООН вмешаться для <a href="https://thehill.com/policy/international/3267579-ukraine-deported-children-facing-threat-of-illegal-adoption-in-russia/" target="_blank">Возвращение детей на Украину</a> </p>
-				<p>Президент Украины Владимир Зеленский 1 июня 2022 года обвинил Россию в насильственной депортации более 200 000 детей из Украины, включая сирот и детей, отделенных от своих семей. Он осудил это как "отвратительное военное преступление" и "преступную политику", направленную не только на похищение людей, но и на лишение их <a href="https://edition.cnn.com/europe/live-news/russia-ukraine-war-news-06-02-22/h_60e8553772059b3692de446d084a6752" target="_blank">Возможности вернуться и сохранить связь с Украиной</a> </p>
-				<p>Во время осады Мариуполя российские войска принудительно депортировали <a href="https://www.theguardian.com/world/2022/apr/04/hundreds-of-ukrainians-forcibly-deported-to-russia-say-mariupol-women" target="_blank">Тысячи жителей Украины в Россию</a>. Согласно данным Министерства иностранных дел Украины от 24 марта, около 6000 жителей Мариуполя были принудительно депортированы российской армией в качестве "заложников", чтобы усилить давление на Украину.</p>
-				<p><a href="https://en.wikipedia.org/wiki/Embassy_of_the_United_States,_Kyiv" target="_blank">Посольство США в Киеве</a> процитировало заявление Министерства иностранных дел Украины о том, что 2389 украинских детей были незаконно вывезены из Донецка и Луганска и <a href="https://news.sky.com/story/ukraine-war-kyiv-claims-moscow-forcefully-deporting-thousands-of-ukrainian-children-to-russia-12572666" target="_blank">Доставлены в Россию</a></p>
-				<p>Депортация гражданских лиц во время войны, включая защищаемых детей, запрещена <a href="https://lieber.westpoint.edu/deportation-ukrainian-civilians-russia-legal-framework/" target="_blank">Статья 49 Четвертой Женевской конвенции</a>. 7 июня представитель Human Rights Watch Таня Локшина подчеркнула, что принудительная депортация сама по себе является военным преступлением и призвала Россию прекратить эту практику. Кроме того, Human Rights Watch и Харьковская группа защиты прав человека сообщили о случаях запугивания и давления на беженцев <a href="https://www.volkskrant.nl/gs-bedb8bfe" target="_blank">с целью получения показаний против Вооруженных сил Украины</a></p>
-				<h1 id="category6" class="category-heading">Произвольное задержание и насильственное исчезновение</h1>
-				<p>В отчете Верховного комиссара Организации Объединенных Наций по правам человека зафиксировано 270 случаев произвольных арестов и насильственных исчезновений граждан, в результате чего восемь из них были обнаружены мертвыми. Специалисты отметили, что такие произвольные задержания стали "распространенным явлением" на оккупированных территориях, где действуют российские вооруженные силы и связанные с ними группировки. Также было зафиксировано похищение 21 журналиста и активиста гражданского общества, из которых девять уже были освобождены.</p>
-				<p>Наблюдательная миссия по правам человека подтвердила факты арестов и заключения под стражу 24 государственных служащих, включая трех мэров и руководителей самопровозглашенных Луганской и Донецкой республик, совершенные российскими вооруженными силами и связанными с ними группировками. Источники: <a href="https://www.bbc.com/news/world-europe-60858363" target="_blank">[1]</a> <a href="https://www.ohchr.org/en/statements/2022/03/situation-ukraine" target="_blank">[2]</a> <a href="https://www.ohchr.org/sites/default/files/2022-03/HRMMU_Update_2022-03-26_EN.pdf" target="_blank">[3]</a></p>
-				<p>Согласно международному гуманитарному праву, интернирование граждан допускается только в случаях, когда они представляют индивидуальную угрозу безопасности. Все арестованные, чей статус военнопленных вызывает сомнения, должны рассматриваться как военнопленные в соответствии с Женевской конвенцией до того момента, пока не будет определен их статус. После отвода российских войск из определенных территорий появились сообщения о пропавших без вести мирных жителях, в основном мужчинах, некоторые из которых <a href="https://www.bbc.com/news/world-europe-61249160" target="_blank">стали жертвами похищений со стороны российских террористов</a></p>
-				<h1 id="category7" class="category-heading">Российские фильтрационные лагеря </h1>
-				<p>Истории вынужденных эвакуаций из Мариуполя вызвали глубокую тревогу относительно обращения с людьми в <a href="https://en.wikipedia.org/wiki/Russian_filtration_camps_for_Ukrainians" target="_blank">российских фильтрационных лагерях</a>.
-					<p></p><a href="https://www.bbc.com/news/world-europe-61683513" target="_blank">По словам очевидцев</a>, гражданские лица находились в этих лагерях до их эвакуации. Украинские официальные лица описали эти места как "современные концентрационные лагеря". Беженцы делились ужасными рассказами о жестоких пытках и убийствах, происходивших в фильтрационных лагерях, особенно в Мариуполе. Им причиняли побои, применяли электрический ток и даже задушевывали пакетами на головах. Источники: <a href="https://www.bbc.com/news/world-europe-61683513" target="_blank">[1]</a> <a href="https://www.politico.com/news/2022/05/26/ukraine-filtration-camps-00034862" target="_blank">[2]</a> <a href="https://www.bbc.com/news/world-europe-61683513" target="_blank">[3]</a> </p>
-				<p>Беженцам снимали отпечатки пальцев, фотографировали со всех сторон и осматривали их телефоны. Тех, кого подозревали в "украинском национализме", отправляли на допросы в Донецк. Беженцы также делились с журналистами, <a href="https://www.bbc.com/news/world-europe-61208404" target="_blank">что в лагерях не хватало самых необходимых предметов, и многие были вынуждены покинуть Украинуи уехать</a> в Россию.</p>
-				<p>5 июля Управление Верховного комиссара Организации Объединенных Наций по правам человека выразило тревогу относительно местонахождения и обращения с теми, кто все еще находится в процессе фильтрации. Существует опасение, что некоторые из них могли быть задержаны в неизвестных местах с высоким риском подвергнуться <a href="https://www.ohchr.org/en/statements/2022/07/ukraine-high-commissioner-updates-human-rights-council" target="_blank">пыткам и жестокому обращению</a>.</p>
-				<h1 id="category8" class="category-heading">Российские атаки на мирных жителей </h1>
-				<p>Устав Международного уголовного суда определяет атаки на гражданскую инфраструктуру как военные преступления. Мониторинговая миссия ООН по правам человека в Украине отмечает, что <a href="https://www.ohchr.org/sites/default/files/2022-03/HRMMU_Update_2022-03-26_EN.pdf" target="_blank">Россия совершала неизбирательные нападения и налеты на гражданские объекты</a>, такие как <a href="https://www.ohchr.org/sites/default/files/2022-03/HRMMU_Update_2022-03-26_EN.pdf" target="_blank">жилые дома, больницы, школы и детские сады</a>. 25 февраля Amnesty International заявила, что российские войска проявили вопиющее пренебрежение к жизням гражданского населения, применив баллистические ракеты и другие виды оружия взрывного действия в густонаселенных районах. Amnesty также отмечает, что Россия ложно утверждала, что использовала только высокоточное оружие, в то время как нападения на Угледар, Харьков и Умань <a href="https://www.amnesty.org/en/latest/news/2022/02/russian-military-commits-indiscriminate-attacks-during-the-invasion-of-ukraine" target="_blank">являются военными преступлениями</a>.</p>
-				<p>В заявлении Управления Верховного комиссара Организации Объединенных Наций по правам человека от 3 марта говорится, что за первую неделю вторжения было зафиксировано по меньшей мере 1006 жертв среди гражданского населения, но организация полагает, что реальные цифры гораздо выше.</p>
-				<p>Всемирная организация здравоохранения 6 марта заявила, что несколько медицинских центров подверглись нападениям, а генеральный директор Тедрос Адханом Гебрейесус подчеркнул, что "атаки на медицинские учреждения или персонал нарушают медицинскую нейтральность и международное гуманитарное право".</p>
-				<p>Amnesty International отмечает, что Россия неоднократно нарушала международное гуманитарное право неизбирательными атаками и прямыми нападениями на гражданские объекты. Проверенные отчеты и видеозаписи демонстрируют многочисленные удары по больницам и школам, а также использование неточного и запрещенного оружия, такого как кассетные бомбы.</p>
-				<p>Верховный комиссар ООН по правам человека Мишель Бачелет 5 июля сообщила, что большинство жертв среди гражданского населения, задокументированных ее офисом, были вызваны неоднократным применением русскими вооруженными силами оружия взрывного действия в населенных районах, что подтверждает тяжелые потери среди гражданского населения из-за применения неизбирательного оружия и тактики.</p>
-				<p>Источники: <a href="https://www.reuters.com/world/europe/ukraine-health-centres-have-been-attacked-who-chief-says-2022-03-06/" target="_blank">[1]</a> <a href="https://www.amnesty.org/en/latest/news/2022/03/everything-is-on-fire-one-month-since-the-russian-invasion-of-ukraine/" target="_blank">[2]</a> <a href="https://www.ohchr.org/en/statements/2022/07/ukraine-high-commissioner-updates-human-rights-council" target="_blank">[3]</a></p>
-				<p>Сообщения о применении кассетных боеприпасов в населенных районах Украины вызвали обеспокоенность в связи с жертвами среди гражданского населения. Ни Российская Федерация, ни Украина не ратифицировали Конвенцию по кассетным боеприпасам 2008 года, однако принципы международного гуманитарного права запрещают неизбирательные и непропорциональные атаки. Управление Верховного комиссара ООН по правам человека заявило, что кассетные боеприпасы использовались как российскими вооруженными силами, так и пророссийскими сепаратистами. Источники: <a href="https://www.ohchr.org/sites/default/files/2022-03/HRMMU_Update_2022-03-26_EN.pdf" target="_blank">[1]</a> <a href="https://www.wired.com/story/russia-ukraine-cluster-bombs/" target="_blank">[2]</a> <a href="https://www.ohchr.org/en/documents/country-reports/situation-human-rights-ukraine-context-armed-attack-russian-federation" target="_blank">[3]</a> </p>
-				<p>Газета "Нью-Йорк Таймс" сообщила 19 июня 2023 года, что имеются более 1000 фотографий кассетных боеприпасов в населенных районах. Отмечается, что большинство из них представляют собой неуправляемые ракеты, способные нанести побочный ущерб гражданскому населению.</p>
-				<h1 id="category9" class="category-heading">Резня в Киевской и Черниговской областях </h1>
-				<p>
-					<div style="display: flex; justify-content: center;">
-						<iframe src="https://www.currenttime.tv/embed/player/0/31784506.html?type=video" frameborder="0" scrolling="no" width="640" height="360" allowfullscreen></iframe>
-					</div>
-				</p>
-				<p>Киевская и Черниговская области оказались в центре страшных событий. 27 февраля российские войска <a href="https://www.hrw.org/news/2022/04/03/ukraine-apparent-war-crimes-russia-controlled-areas" target="_blank">окружили и казнили</a> по меньшей мере шестерых мужчин в Старом Быкове, оставив позади разрушение, которое затронуло даже местную школу. Этот кошмар повторился 31 марта после очередных казней.</p>
-				<p>28 февраля пятеро мирных жителей в Победе, защищавших почтовое отделение, были без суда казнены российскими войсками, которые затем <a href="https://www.rferl.org/a/ukraine-post-office-massacre-russian-troops/31960917.html" target="_blank">взорвали само здание почты</a>.</p>
-				<p>7 марта украинский беспилотник, следящий за событиями возле автомагистрали E40 под Киевом, запечатлел момент, когда российские войска <a href="https://www.bbc.com/news/world-europe-60949791">убивают мирного жителя с поднятыми руками</a>. Позже, после освобождения этого района украинскими войсками, журналисты BBC обнаружили обгоревшие тела мужчины и женщины возле их сгоревшей машины, а также многочисленные <a href="https://www.bbc.com/news/world-europe-60949791">трупы вдоль шоссе</a>.</p>
-				<p>Российская агрессия продолжалась 26 марта 2022 года в направлении Донбасса, при этом российские солдаты стреляли по городам, а отступающие войска заминировали их, <a href="https://www.npr.org/2022/04/06/1091308623/ukraine-borodyanka-civilians-russia" target="_blank">препятствуя спасательным операциям</a>.</p>
-				<p>Киевская областная полиция 15 апреля сообщила об ужасном обнаружении 900 тел мирных жителей после ухода российских войск, из которых более 350 были обнаружены только в Буче. Из них почти 95% были <a href="https://www.ohchr.org/en/statements/2022/07/ukraine-high-commissioner-updates-human-rights-council" target="_blank">жертвами казней</a>, а некоторые даже обнаружены под обломками и <a href="https://apnews.com/article/russia-ukraine-zelenskyy-kyiv-business-black-sea-22d7279f32c15d4a7037a2195113fb57" target="_blank">в массовых захоронениях</a>.</p>
-				<p>Министерство обороны Украины также сообщило о находке еще 132 человек в Макарове и обвинило россиян в пытках и убийствах.</p>
-				<p>УВКПЧ заявило 5 июля, что имеет <a href="https://www.ohchr.org/en/statements/2022/07/ukraine-high-commissioner-updates-human-rights-council" target="_blank">более 300 сообщений о преднамеренных убийствах гражданских лиц Россией</a>, подкрепленных <a href="https://www.cnn.com/videos/world/2022/04/08/audio-intercepts-russian-soldiers-chance-vpx.cnn" target="_blank">доказательствами и свидетельскими показаниями</a>, а <a href="https://inews.co.uk/news/russia-news-ria-novosti-demands-liquidation-ukraine-ukrainians-war-crimes-civilians-putin-1558378" target="_blank">также украинскими перехватами разговоров российских военных</a>. <p></p>Источники: <a href="https://www.hrw.org/news/2022/04/03/ukraine-apparent-war-crimes-russia-controlled-areas" target="_blank">[1]</a> <a href="https://www.rferl.org/a/ukraine-post-office-massacre-russian-troops/31960917.html" target="_blank">[2]</a> <a href="https://www.bbc.com/news/world-europe-60949791" target="_blank">[3]</a> <a href="https://www.lemonde.fr/les-decodeurs/article/2022/04/05/guerre-en-ukraine-ce-que-l-on-sait-du-massacre-de-boutcha_6120745_4355770.html" target="_blank">[4]</a> <a href="https://www.npr.org/2022/04/06/1091308623/ukraine-borodyanka-civilians-russia" target="_blank">[5]</a> <a href="https://apnews.com/article/russia-ukraine-zelenskyy-kyiv-business-black-sea-22d7279f32c15d4a7037a2195113fb57" target="_blank">[6]</a> <a href="https://www.ohchr.org/en/statements/2022/07/ukraine-high-commissioner-updates-human-rights-council" target="_blank">[7]</a> <a href="https://abcnews.go.com/International/live-updates/russia-ukraine/?id=83931446#83983531" target="_blank">[8]</a> <a href="https://www.theguardian.com/world/live/2022/apr/09/russia-ukraine-war-latest-zelenskiy-calls-for-firm-global-response-to-war-at-kramatorsk-train-station-live?page=with:block-6251681e8f083703c7bd903b" target="_blank">[9]</a> <a href="https://inews.co.uk/news/russia-news-ria-novosti-demands-liquidation-ukraine-ukrainians-war-crimes-civilians-putin-1558378" target="_blank">[10]</a></p>
   <div class="carousel">
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/6/62/Chernihiv_Oblast%2C_28.02.2022_%284%29_-_ruins.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Chernihiv_Oblast%2C_28.02.2022_%284%29_-_ruins.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/6/64/Ukrainian_rescuers_check_the_remains_of_a_school_in_Chernihiv_%281%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Ukrainian_rescuers_check_the_remains_of_a_school_in_Chernihiv_%281%29.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/ru/1/1e/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_1.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/ru/1/1e/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_1.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/ru/d/db/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_2.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/ru/d/db/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_2.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/ru/a/a3/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_3.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/ru/a/a3/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_3.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/ru/7/77/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_4.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/ru/7/77/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_4.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/4/49/Russian_plane_with_bombs_shot_down_over_Chernihiv_%281%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Russian_plane_with_bombs_shot_down_over_Chernihiv_%281%29.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/7/7a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%286%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%286%29.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/b/b7/Tarnovsky%27s_House_after_Russian_airstrike%2C_2022-03-11_%2801%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Tarnovsky%27s_House_after_Russian_airstrike%2C_2022-03-11_%2801%29.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/a/ac/Hotel_Ukraine_in_Chernihiv_01.jpg?uselang=ru" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Hotel_Ukraine_in_Chernihiv_01.jpg?uselang=ru" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/d/de/Theodosius_of_Chernihiv_church_after_fighting_%282022-04-24%29_01.jpg?uselang=ru" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Theodosius_of_Chernihiv_church_after_fighting_%282022-04-24%29_01.jpg?uselang=ru" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/3/3a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%283%29.jpg?uselang=ru" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%283%29.jpg?uselang=ru" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://upload.wikimedia.org/wikipedia/commons/5/53/Russian_plane_with_bombs_shot_down_over_Chernihiv_%288%29.jpg?uselang=ru" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Russian_plane_with_bombs_shot_down_over_Chernihiv_%288%29.jpg?uselang=ru" alt="червепедия - военные преступления россии"></a>
-					</div>
-				</div>
-				<h1 id="category10" class="category-heading">Резня в Буче</h1>
-<p>Конец марта ознаменовался отступлением российских войск к северу от Киева, после чего мир увидел ужасающие кадры: <a href="https://www.washingtonpost.com/world/2022/04/02/bucha-bodies-russia-retreat-kyiv/">тела мирных жителей в гражданской одежде, разбросанные по улицам</a>. Агентство AFP сообщило о как минимум двадцати убитых с пулевыми ранениями в затылок. Некоторых жертв связывали перед казнью, других хоронили в массовых захоронениях. 15 апреля полиция обнаружила в Буче 350 тел с огнестрельными ранениями. Источники: <a href="https://www.bbc.com/news/world-europe-60967463" target="_blank">[1]</a>
-<a href="https://www.washingtonpost.com/world/2022/04/02/bucha-bodies-russia-retreat-kyiv/" target="_blank">[2]</a> 
- <a href="https://apnews.com/article/russia-ukraine-zelenskyy-kyiv-business-black-sea-22d7279f32c15d4a7037a2195113fb57" target="_blank">[3]</a> </p> 
-				</p>
-				<div class="owl-carousel owl-theme">
-					<div class="item">
-						<a href="https://static.dw.com/image/61350635_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61350635_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61352146_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61352146_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61352118_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61352118_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61351854_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61351854_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61351929_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61351929_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61351914_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61351914_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61348565_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61348565_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61351675_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61351675_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61351869_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61351869_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61351974_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61351974_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61352529_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61352529_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61352557_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61352557_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61352607_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61352607_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61352646_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61352646_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61352104_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61352104_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://static.dw.com/image/61351959_605.jpg" data-fancybox="gallery"><img src="https://static.dw.com/image/61351959_605.jpg" alt="червепедия - военные преступления россии"></a>
-					</div>
-				</div>
-        
-<p><a href="https://www.businessinsider.com/nyt-russian-soldiers-open-fire-cyclist-in-bucha-in-video-2022-4" target="_blank">Видео, подтвержденное New York Times</a>, демонстрирует шокирующий момент, когда российские бронетранспортеры открывают огонь по мирному жителю, едущему на велосипеде. Позже на видео показано его бездыханное тело рядом с велосипедом. The Economist рассказал историю мужчины, оказавшегося в ловушке на контрольно-пропускном пункте, который подвергся артиллерийскому обстрелу, затем был схвачен, избит и подвергнут пыткам, после чего выведен на улицу и расстрелян. Он выжил, притворившись мертвым, и <a href="https://www.economist.com/europe/2022/04/05/one-killing-among-many-in-a-kyiv-suburb" target="_blank">позже сумел сбежать</a>. BBC News сообщила о еще более ужасающей находке - связанных телах мирных жителей в храме, <a href="https://www.bbc.com/news/world-europe-60981228" target="_blank">перееханных танком</a>.</p>
-          
-          <div class="owl-carousel owl-theme">
-					<div class="item">
-						<a href="https://ichef.bbci.co.uk/news/800/cpsprodpb/13C7C/production/_124002018_bucha_church.jpg.webp" data-fancybox="gallery"><img src="https://ichef.bbci.co.uk/news/800/cpsprodpb/13C7C/production/_124002018_bucha_church.jpg.webp" alt="червепедия - военные преступления россии"></a>
-					</div>
-					<div class="item">
-						<a href="https://ichef.bbci.co.uk/news/800/cpsprodpb/C74C/production/_124002015_image001-v2-003.jpg.webp" data-fancybox="gallery"><img src="https://ichef.bbci.co.uk/news/800/cpsprodpb/C74C/production/_124002015_image001-v2-003.jpg.webp" alt="червепедия - военные преступления россии"></a>
-					</div>
-				</div>
-          </p>
-				
-<p>Силы территориальной обороны обнародовали видеозапись, на которой запечатлены <a href="https://www.thetimes.co.uk/article/bodies-of-mutilated-children-among-horrors-the-russians-left-behind-5ddnkkwp2" target="_blank">18 изувеченных тел в Забучье</a>, Бучинский район. Украинский солдат сообщил о страшных деталях: <a href="https://www.thetimes.co.uk/article/bodies-of-mutilated-children-among-horrors-the-russians-left-behind-5ddnkkwp2" target="_blank">у некоторых жертв были отрезаны уши, у других вырваны зубы</a>. Согласно данным радиостанции Свободная Европа/Радио Свобода, российские военные использовали "<a href="https://www.rferl.org/a/ukraine-execution-cellar/31787326.html" target="_blank">подвал для казней</a>". Они также убили женщину и ее 14-летнего сына, <a href="https://www.hrw.org/news/2022/04/03/ukraine-apparent-war-crimes-russia-controlled-areas" target="_blank">бросив их в подвал с дымовыми шашками</a>.</p>
+    <div class="item active"><a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии"></a></div>
+    <div class="item"><a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
+    <div class="item"><a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
+    <div class="buttons"></div> 
+  </div>
 
-<p>Российские танки ворвались в Бучу, <a href="https://www.hrw.org/news/2022/03/30/devastation-and-loss-bucha-ukraine" target="_blank">обстреливая дома</a>, <a href="https://www.nytimes.com/interactive/2022/04/11/world/europe/bucha-terror.html" target="_blank">а снайперы беспощадно расстреливали любого, кто двигался</a>. Очевидцы рассказывали о <a href="https://www.hrw.org/news/2022/03/30/devastation-and-loss-bucha-ukraine" target="_blank">расстрелах мирных жителей, пытавшихся найти еду и воду, и об отказе в медицинской помощи раненым</a>. Свидетели также утверждали, что <a href="https://vot-tak.tv/novosti/03-04-2022-rasstrely-zhitelej-buchi/" target="_blank">российские солдаты проверяли документы</a> и <a href="https://www.abc.net.au/news/2022-04-04/ukraine-accuses-russia-of-massacre-city-strewn-with-bodies/100963106" target="_blank">казнили тех, кто ранее служил в Донбассе или имел при себе украинскую символику</a>.</p>
-
-<p>Пресса сообщала о многочисленных телах на улицах, среди которых были и дети. Одно из обнаруженных тел принадлежало обгоревшему ребенку. Украинские следователи обнаружили обезглавленные и сожженные трупы, а также тела, заминированные на стекольном заводе. Human Rights Watch задокументировала суммарные казни, пытки и незаконные убийства в Буче.</p>
-
-<p>19 мая New York Times опубликовала видео, на котором российские десантники ведут группу гражданских лиц, предположительно казненных после этого. К 8 августа было обнаружено 458 тел, включая 9 детей. УВКПЧ сообщило о как минимум 73 незаконных убийствах в Буче. Источники:
-<a href="https://www.cbc.ca/news/world/associated-press-journalists-bucha-civilian-killings-bucha-1.6409330" target="_blank">[1]</a>
-<a href="https://www.washingtonpost.com/world/2022/04/06/bucha-barbarism-atrocities-russian-soldiers/" target="_blank">[2]</a>
-<a href="https://www.hrw.org/news/2022/04/21/ukraine-russian-forces-trail-death-bucha" target="_blank">[3]</a>
-<a href="https://www.nytimes.com/2022/05/19/world/europe/russia-bucha-ukraine-executions.html" target="_blank">[4]</a>
-<a href="https://babel.ua/en/news/82626-at-least-458-ukrainians-died-in-the-bucha-community-as-a-result-of-the-actions-of-the-russians" target="_blank">[5]</a>
-<a href="https://www.ohchr.org/en/press-releases/2022/12/un-report-details-summary-executions-civilians-russian-troops-northern" target="_blank">[6]</a>
-        </p>
-				
-				<h1 id="category11" class="category-heading">Массовые захоронения в Изюме </h1>
-<p>15 сентября 2022 года, после освобождения Изюма от российских войск, в близлежащем лесу была обнаружена ужасающая находка: сотни могил, отмеченных лишь простыми деревянными крестами и обезличенными номерами. Одна, более крупная могила, содержала останки как минимум 17 украинских солдат, согласно табличке. В ходе расследования украинские власти обнаружили 447 тел: 414 гражданских (215 мужчин, 194 женщины, 5 детей), 22 солдата и 11 тел неопределенного пола (по состоянию на 23 сентября). Хотя часть жертв погибла от артиллерийских обстрелов и отсутствия медицинской помощи, у большинства были обнаружены следы насильственной смерти. У 30 человек выявили признаки пыток и внесудебных казней: веревки на шеях, связанные руки, сломанные конечности и даже ампутация гениталий. Источники:
-<a href="https://web.archive.org/web/20220916081103/https://www.npr.org/2022/09/16/1123400735/ukraines-president-says-a-new-mass-grave-is-found-near-a-recaptured-city" target="_blank">[1]</a>
-<a href="https://www.theguardian.com/world/2022/sep/16/some-hanged-themselves-the-work-to-find-answers-amid-iziums-mass-grave" target="_blank">[2]</a>
-<a href="https://web.archive.org/web/20220916081103/https://www.npr.org/2022/09/16/1123400735/ukraines-president-says-a-new-mass-grave-is-found-near-a-recaptured-city" target="_blank">[3]</a>
-<a href="https://www.kyivpost.com/russias-war/mass-grave-found-in-ukraine-town-retaken-from-russia-zelensky.html" target="_blank">[4]</a>
-<a href="https://www.pravda.com.ua/news/2022/09/23/7368817/" target="_blank">[5]</a>
-<a href="https://web.archive.org/web/20220916161701/https://www.theguardian.com/world/2022/sep/16/ukraine-mass-grave-with-440-bodies-discovered-in-recaptured-izium-says-police-chief" target="_blank">[6]</a>
-
-<div class="owl-carousel owl-theme">
-  <div class="item"><a href="https://upload.wikimedia.org/wikipedia/commons/6/6d/Cemetery_in_Izium_made_during_Russian_occupation_%2807%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Cemetery_in_Izium_made_during_Russian_occupation_%2807%29.jpg" alt="червепедия - военные преступления россии"></a></div>
-  <div class="item"><a href="https://upload.wikimedia.org/wikipedia/commons/f/f0/Cemetery_in_Izium_made_during_Russian_occupation_%2803%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Cemetery_in_Izium_made_during_Russian_occupation_%2803%29.jpg" alt="червепедия - военные преступления россии"></a></div> </div> </p> 
-				
-<p>В Купянске местные <a href="https://english.nv.ua/nation/ukraine-uncovers-mass-graves-with-murdered-civilians-in-recently-liberated-kupyansk-vuzlovyi-50275475.html" target="_blank">правоохранители столкнулись с ужасающей картиной</a>: тела семьи из трех человек и их соседа, хладнокровно расстрелянных в середине сентября и захороненных в общей могиле. На телах обнаружили пулевые ранения в грудь и голову, а в соседнем подвале – гильзы от автоматического оружия. 6 октября в кирпичной мастерской были найдены тела двух замученных мужчин, один из которых погиб от огнестрельного ранения.</p>
-
-<p>5 октября в Лимане также были обнаружены массовые захоронения. Украинские войска и правоохранители нашли 110 траншей с телами, включая детские, на кладбище Новой Масляковки. 55 тел, как гражданских, так и военных, имели "повреждения от взрывов и снарядов, а также пулевые ранения". <a href="https://news.yahoo.com/mass-grave-55-bodies-found-040323944.html" target="_blank">Среди погибших была семья с годовалым ребенком</a>. Были также найдены тела 34 украинских военнослужащих. В общей сложности в городе обнаружены останки 144 человек, 108 из которых находились в братских могилах, включая 85 <a href="https://www.reuters.com/world/ukraine-completes-exhumation-soldiers-lyman-mass-grave-2022-10-14/" target="_blank">мирных жителей</a>. Свидетели рассказали, что российские войска убивали всех, кто помогал украинским солдатам, и заставляли местных жителей хоронить тела. Многие тела оставались на улицах в течение нескольких дней. <a href="https://www.pravda.com.ua/eng/news/2022/10/5/7370531/" target="_blank">Были найдены и тела многочисленных российских боевиков</a>.</p>
-
-<p></p><div style="display: flex; justify-content: center;">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/U-9bFUCGo34?si=kciNS32Y1ydcM2OX" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-
-</p>
-				<h1 id="category12" class="category-heading">Тростянец</h1>
-<p>Освобождение Тростянца в Сумской области вскрыло страшные реалии российской оккупации. Местный морг сообщил о зверствах: по меньшей мере один человек был замучен и убит российскими военными, а молодых людей похищали. Даже больница не избежала варварства, став мишенью обстрелов; местные <a href="https://www.nytimes.com/2022/04/03/world/europe/ukraine-war-russia-trostyanets.html" target="_blank">жители единогласно обвинили в этом русских</a>.</p>
-
-<p>Журналисты The Guardian, посетившие освобожденный город, провели собственное расследование, обнаружив свидетельства казней, мародерства и пыток. Мэр подтвердил гибель от 50 до 100 мирных жителей во время оккупации. Свидетели рассказали, как <a href="https://www.theguardian.com/world/2022/apr/05/barbarians-russian-troops-leave-grisly-mark-on-ukraine-town-of-trostianets" target="_blank">российские солдаты стреляли в воздух, чтобы запугать женщин, доставлявших еду пожилым людям, и выкрикивали оскорбительные лозунги</a>.</p>
-				
- <div class="owl-carousel owl-theme">
-  <div class="item"><a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии"></a></div>
-  <div class="item"><a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
-  <div class="item"><a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>	</div>   
-</p>
-				
-<p>Гражданские автомобили также стали жертвами российской агрессии. В результате обстрела гуманитарного конвоя в Запорожье из ракетных комплексов С-300 погибли по меньшей мере 25 мирных жителей, включая шестерых детей. Подобные инциденты происходили и в Чернигове, где российские войска нападали на автомобили с людьми, пытавшимися покинуть город. Особенно жестоким было убийство 15-летнего мальчика, о котором <a href="https://www.bbc.com/news/world-europe-61036880" target="_blank">сообщила BBC 10 апреля</a>.  <a href="https://www.hrw.org/news/2022/05/02/ukraine-russian-forces-fired-civilian-vehicles" target="_blank">Human Rights Watch задокументировала</a> множество подобных случаев, свидетельствующих о целенаправленных атаках на гражданских и зверствах российских военных.</p>
-
-<p><a href="https://www.hrw.org/news/2022/05/02/ukraine-russian-forces-fired-civilian-vehicles" target="_blank">28 февраля под Гостомелем были обстреляны два автомобиля с людьми, пытавшимися покинуть город</a>. 3 марта российские солдаты атаковали микроавтобус с двумя мужчинами, направлявшимися на переговоры о гуманитарной помощи. Один из них был ранен, а второго вытащили из машины и казнили без суда и следствия, <a href="https://www.hrw.org/news/2022/05/02/ukraine-russian-forces-fired-civilian-vehicles" target="_blank">в то время как раненый сумел бежать</a>. И это лишь малая часть подобных нападений.</p>
-
-<p>Видеозапись с камер наблюдения, сделанная 28 февраля, запечатлела трагический момент убийства гражданских лиц в Макарове. Их автомобиль был уничтожен огнем российской бронетехники на перекрестке недалеко от больницы. Источники: 
-    <a href="https://www.theguardian.com/world/2022/mar/08/russian-soldiers-accused-of-firing-on-civilian-vehicles-in-ukraine" target="_blank">[1]</a>
-<a href="https://www.rferl.org/a/ukraine-makariv-russian-tanks-civilian-car-destroyed-killed/31744637.html" target="_blank">[2]</a>
-<a href="https://tsn.ua/ato/okupanti-rozstrilyali-avtomobil-z-pensionerami-u-makarovi-2004934.html" target="_blank">[3]</a>
-    </p>
-<p>4 марта, как сообщает Kyiv Independent, <a href="https://kyivindependent.com/national/russian-soldiers-murder-volunteers-helping-starving-animals-near-kyiv/" target="_blank">российские войска хладнокровно расстреляли трех безоружных мирных жителей</a>, доставлявших корм для собак в приют в Буче. Российский бронетранспортер открыл огонь по их машине, когда они подъезжали к дому. В другом инциденте, <a href="https://www.theguardian.com/world/2022/apr/02/i-realised-my-husband-was-dead-ukrainians-tell-of-russian-army-atrocities" target="_blank">произошедшем 5 марта в Буче</a>, российские военные атаковали колонну автомобилей, пытавшихся покинуть город. В результате обстрела погиб водитель одной из машин, а в другой - мать с двумя детьми.</p>
-
-<p>27 марта <a href="https://globalnews.ca/news/8955557/rita-horbyk-ukraine-war-crime-investigation/" target="_blank">российская армия обстреляла колонну автомобилей с гражданскими</a>, которые пытались эвакуироваться из села Степанки, недалеко от Харькова. Погибли пожилая женщина и 13-летняя девочка. Инцидент расследовался как группой по военным преступлениям прокуратуры Харьковской области, так и Global News, которая выявила недостатки в официальном расследовании.</p>
-
-<p><a href="https://www.theguardian.com/world/2022/apr/19/ukraine-war-battle-for-donbas-has-begun-russia-launches-offensive" target="_blank">18 апреля, во время захвата Кременной</a>, российские войска обвиняются в <a href="https://www.abc.net.au/news/2022-04-19/ukraine-latest-kreminna-attacks-eastern-donbas/101000708" target="_blank">расстреле четырех мирных жителей</a>, пытавшихся бежать на своих автомобилях.</p>
-				
-				<h1 id="category13" class="category-heading">Обстрел гражданского конвоя в Купянске </h1>
-				<p>На 30 сентября пришлось обнаружение колонны из шести гражданских автомобилей и микроавтобуса на окраине села Куриловка. Место находилось в так называемой "серой зоне" между Купянском и Сватово. Этот инцидент стал причиной гибели около 24 человек, среди которых оказались и беременная женщина, и 13 детей. В свою очередь, Украина обвинила российские войска в убийстве. Расследование указало, что трагедия произошла приблизительно 25 сентября.</p>
-				<p>Судя по отчетам 7 свидетелей, которым удалось спастись и добраться до деревни Кившаровка, тела погибших были расстреляны и подвергнуты сожжению. Колонна попала в засаду российских войск 25 сентября, примерно в 9:00 утра (UTC + 3), когда выезжала из деревни Пищане по единственной тогда доступной дороге. По данным свидетельств, после нападения российских войск, оставшихся в живых, предположительно казнили. В течение месяца сотрудники правоохранительных органов установили личности всех жертв автоколонны. Из 26 человек, погибших в этом инциденте, 22 несчастных смогли спастись, но 3 из них, включая двух детей, получили ранения. В последующие дни были обнаружены еще 2 тела.</p>
-				<p>Важные доказательства, включая тела погибших и автомобиль, были переданы на исследование французским экспертам. Их анализ показал наличие следов использования осколочно-фугасных снарядов калибра 30 мм и 45 мм, а также гранат ВОГ-17 и ВОГ-25.</p>
-				<h1 id="category14" class="category-heading">Российские удары по больницам </h1>
-				<p>По состоянию на 26 марта 2022 года Мониторинговая миссия ООН по правам человека в Украине подтвердила 74 нападения на медицинские учреждения. Из них 61 случай произошел на территории, контролируемой правительством, включая авиаудары по больницам в Изюме, Мариуполе, Овруче, Волновахе и Угледаре. Девять нападений зафиксированы на территории, контролируемой связанными с Россией вооруженными группами, и четыре в оспариваемых населенных пунктах. Страдали перинатальные центры, родильные дома и детские больницы. Два детских медицинских учреждения и один перинатальный стационар были полностью разрушены. 26 марта журналисты AP в Украине заявили, что располагают достаточными доказательствами, чтобы утверждать, что Россия атакует украинские больницы по всей стране.</p>
-				<p>30 марта 2022 года Всемирная организация здравоохранения (ВОЗ) сообщила о 82 подтвержденных российских нападениях на медицинское обслуживание в Украине с 24 февраля. Эти нападения включали атаки на медицинские учреждения, пациентов и медицинских работников. По данным ВОЗ, в результате этих инцидентов погибли как минимум 72 человека, а 43 получили ранения. К 8 апреля количество подтвержденных нападений возросло до 91.</p>
-				<p>К 30 мая 2023 года ВОЗ утвердила 1004 нападения на медицинские учреждения в Украине с начала российского вторжения. По меньшей мере 101 человек погиб среди медицинских работников и пациентов, а многие получили ранения. Это самое высокое количество нападений, подтвержденных ВОЗ, в условиях чрезвычайной гуманитарной ситуации. К 21 декабря 2023 года число нападений возросло до 1422 по данным Системы эпиднадзора ВОЗ за нападениями на медицинские учреждения (SSA).</p>
-				<h1 id="category15" class="category-heading">Российские удары по украинской инфраструктуре</h1>
-				<p>После октября 2022 года Россия увеличила интенсивность своих нападений на электростанции и другую гражданскую инфраструктуру в рамках кампании, направленной на деморализацию украинского народа и угрожающей оставить миллионы мирных жителей без отопления и воды зимой. Состояние на 20 октября 2022 года свидетельствует о том, что до 40% энергосистемы Украины подверглось атаке со стороны России. В ответ на это правительство обратилось к гражданам с просьбой экономить энергию и ввело веерные отключения электроэнергии.</p>
-				<p>Всемирная организация здравоохранения предупредила о потенциальном гуманитарном кризисе, подчеркнув, что "отсутствие доступа к топливу или электричеству из-за поврежденной инфраструктуры может стать вопросом жизни или смерти, если люди не смогут отапливать свои дома". Дениз Браун, постоянный координатор Организации Объединенных Наций в Украине, заявила, что нападения могут привести к "высокому риску смертности в зимние месяцы".</p>
-				<h1 id="category16" class="category-heading">Культурное наследие </h1>
-				<p>В соответствии с позицией Организации Объединенных Наций, акты насилия направленные против зданий, используемых для религиозных, образовательных, художественных, научных или благотворительных целей, а также исторических памятников и больниц, не задействованных в военных операциях, рассматриваются как военные преступления.</p>
-				<p>Применение оружия массового поражения вызывает беспокойство в связи с его близостью к историческим памятникам, произведениям искусства, церквам и другим культурным ценностям. Российские войска повредили или разрушили художественный музей Куинджи в Мариуполе, кинотеатр "Щорс" из советской эпохи и библиотеку эпохи возрождения в Чернигове, мемориальный комплекс Холокоста Бабий Яр в Киеве, здание "Слова" из советской эпохи, а также здание областной государственной администрации в Харькове, деревянную церковь XIX века в Вязовке, Житомирской области, и Историко-краеведческий музей в Иванькове. 24 июня ЮНЕСКО сообщила о подтвержденном ущербе, нанесенном по меньшей мере 150 украинским историческим местам, религиозным зданиям и музеям во время российского вторжения.</p>
-				<p>Культурные ценности обладают особым статусом защиты в соответствии с международным гуманитарным правом. Протокол I Женевской конвенции и Гаагская конвенция о защите культурных ценностей в случае вооруженных конфликтов (оба обязательны для Украины и России) запрещают государствам-участникам атаковать исторические памятники для поддержки военных целей или использовать их как объекты агрессии или репрессий. Протокол II Гаагской конвенции разрешает нападения на культурные ценности только в случае "крайней военной необходимости" при отсутствии реальной альтернативы. Хотя Протокол II не применяется в данном случае, поскольку Украина является единственной стороной, и применяется только между сторонами, понятие об императивной военной необходимости может быть применимо, если его рассматривать как разъяснение конвенции, а не как ее дополнение. Нападения на культурное наследие приравниваются к военным преступлениям и могут преследоваться по закону в Международном уголовном суде.</p>
-				<h1 id="category17" class="category-heading">Пытки мирных жителей</h1>
-				<p>Международный уголовный суд, опираясь на нормы Женевской конвенции, классифицирует убийства, жестокое обращение и пытки как военные преступления. Специальный докладчик ООН по вопросу о пытках отметил в сентябре 2023 года, что применение пыток Россией не является случайным, а представляет собой системное нарушение, организованное с целью запугивания, внушения страха или наказания для извлечения информации и признаний.</p>
-				<p>22 марта некоммерческая организация "Репортеры без границ" сообщила, что российские военные захватили украинского монтажера и переводчика Радио Франс 5 марта, когда тот направлялся домой в деревню в Центральной Украине. Его удерживали в плену девять дней и подвергли пыткам, избиениям и инсценировке казни.</p>
-				<p>В апреле правозащитная организация "Хьюман Райтс Вотч" посетила 17 сел в Киевской и Черниговской областях, находившихся под российской оккупацией с конца февраля по март 2022 года. Результаты расследования включают 22 случая казней, 9 убийств, 6 исчезновений и 7 случаев пыток. Свидетели сообщили о избиениях, применении электрошока и инсценировке казней в целях давления на задержанных.</p>
-				<p>4 апреля глава Херсонского регионального отделения Комитета избирателей Украины Дементий Белый заявил, что российские силы безопасности систематически избивают, пытают и похищают мирных жителей в Херсонской области Украины. Свидетельства также свидетельствуют о произвольных обысках и задержаниях.</p>
-				<p>Российских солдат также обвиняли в убийствах, пытках и избиениях мирных жителей в Бородянке во время вывода войск.</p>
-				<p>Украинцы, сбежавшие из оккупированного Херсона на территорию, контролируемую Украиной, предоставили свидетельства о пытках, жестоком обращении и похищении людей российскими войсками. Один из свидетелей предоставил вещественные доказательства пыток и описал различные формы издевательств.</p>
-				<p>Расследование, проведенное Би-би-си, обнаружило доказательства пыток, включая электрошок и ожоги, помимо избиений. Врачи также подтвердили тяжелые травмы у жертв. Миссия ООН по правам человека также документировала случаи пыток и исчезновений, совершенные российскими оккупационными силами в регионе.</p>
-				<p>Избранный мэр Херсона составил список из более 300 похищенных российскими войсками по состоянию на 15 мая 2022 года. По словам свидетелей, в здании, где размещаются российские оккупационные власти, часто слышны крики подвергаемых пыткам.</p>
-				<p>22 июля "Хьюман Райтс Вотч" опубликовала отчет, документирующий 42 случая пыток, незаконных задержаний и насильственных исчезновений гражданских лиц в оккупированных Россией районах Херсонской и Запорожской областей. Свидетели рассказывали о пытках и издевательствах, которые приводили к серьезным травмам.</p>
-				<p>Учителя в оккупированных районах были вынуждены военными преподавать на русском языке и подвергались пыткам за использование украинского языка.</p>
-				<p>Международный уголовный суд, опираясь на нормы Женевской конвенции, классифицирует убийства, жестокое обращение и пытки как военные преступления. Специальный докладчик ООН по вопросу о пытках отметил в сентябре 2023 года, что применение пыток Россией не является случайным, а представляет собой системное нарушение, организованное с целью запугивания, внушения страха или наказания для извлечения информации и признаний.</p>
-				<p>22 марта некоммерческая организация "Репортеры без границ" сообщила, что российские военные захватили украинского монтажера и переводчика Радио Франс 5 марта, когда тот направлялся домой в деревню в Центральной Украине. Его удерживали в плену девять дней и подвергли пыткам, избиениям и инсценировке казни.</p>
-				<p>В апреле правозащитная организация "Хьюман Райтс Вотч" посетила 17 сел в Киевской и Черниговской областях, находившихся под российской оккупацией с конца февраля по март 2022 года. Результаты расследования включают 22 случая казней, 9 убийств, 6 исчезновений и 7 случаев пыток. Свидетели сообщили о избиениях, применении электрошока и инсценировке казней в целях давления на задержанных.</p>
-				<p>4 апреля глава Херсонского регионального отделения Комитета избирателей Украины Дементий Белый заявил, что российские силы безопасности систематически избивают, пытают и похищают мирных жителей в Херсонской области Украины. Свидетельства также свидетельствуют о произвольных обысках и задержаниях.</p>
-				<p>Российских солдат также обвиняли в убийствах, пытках и избиениях мирных жителей в Бородянке во время вывода войск.</p>
-				<p>Украинцы, сбежавшие из оккупированного Херсона на территорию, контролируемую Украиной, предоставили свидетельства о пытках, жестоком обращении и похищении людей российскими войсками. Один из свидетелей предоставил вещественные доказательства пыток и описал различные формы издевательств.</p>
-				<p>Расследование, проведенное Би-би-си, обнаружило доказательства пыток, включая электрошок и ожоги, помимо избиений. Врачи также подтвердили тяжелые травмы у жертв. Миссия ООН по правам человека также документировала случаи пыток и исчезновений, совершенные российскими оккупационными силами в регионе.</p>
-				<p>Избранный мэр Херсона составил список из более 300 похищенных российскими войсками по состоянию на 15 мая 2022 года. По словам свидетелей, в здании, где размещаются российские оккупационные власти, часто слышны крики подвергаемых пыткам.</p>
-				<p>22 июля "Хьюман Райтс Вотч" опубликовала отчет, документирующий 42 случая пыток, незаконных задержаний и насильственных исчезновений гражданских лиц в оккупированных Россией районах Херсонской и Запорожской областей. Свидетели рассказывали о пытках и издевательствах, которые приводили к серьезным травмам.</p>
-				<p>Учителя в оккупированных районах были вынуждены военными преподавать на русском языке и подвергались пыткам за использование украинского языка.</p>
-				<h1 id="category18" class="category-heading">Русские камеры пыток </h1> Киевская область
-				<p>Генеральная прокуратура Украины 4 апреля сообщила о находке "камеры пыток" в подвале детского санатория в Буче, Киевская область. В этом месте были обнаружены тела пяти мужчин с связанными за спиной руками. Информация была подтверждена фотографиями, опубликованными в Facebook.</p> Сумская область
-				<p>В середине апреля 2022 года британская газета The Independent опубликовала свидетельства двух выживших из российской "камеры пыток" в Тростянце, Сумская область. Согласно этим свидетельствам, в подвале железнодорожного вокзала содержались не менее восьми гражданских лиц. Их пытали, морили голодом, проводили инсценировки казней, заставляли сидеть в своих экскрементах, применяли электрошок, угрожали изнасилованием и калечащими операциями на половых органах. По крайней мере одного из заключенных забили до смерти российские охранники, заявив, что "все украинцы должны умереть". На момент публикации статьи двое людей все еще числились пропавшими без вести. Один из заключенных был подвергнут пыткам электрическим током до тех пор, пока не попросил российских солдат убить его. В окрестностях города было найдено множество тел, изуродованных до неузнаваемости.</p> Харьковская область
-				<p>После успешного контрнаступления Украины в Харькове, в результате которого было освобождено множество населенных пунктов от российской оккупации, власти обнаружили камеры пыток, которые использовались российскими войсками в период контроля над этим районом.</p>
-				<p>В городе Балаклея, который был под оккупацией россиян в течение шести месяцев, криминалисты, правозащитники, эксперты по уголовному праву и украинские следователи обнаружили многочисленные доказательства военных преступлений и пыток. Во время российской оккупации, войска использовали здание "БалДрук" (названное так в честь бывшей издательской компании, которая до войны располагала там офисом) как тюрьму и центр пыток. Русские также использовали здание полицейского участка через дорогу для пыток. По словам украинских официальных лиц, около 40 человек содержались в этих камерах пыток, где их подвергали разнообразным формам насилия, включая казнь на электрическом стуле, избиения и нанесение увечий. В городе были обнаружены также две камеры пыток для детей, один из содержавшихся там детей рассказал, что его резали ножом, обжигали раскаленным металлом и подвергали инсценировке казни.</p>
-				<p>Другая российская камера пыток была найдена в освобожденном селе Козачья Лопань, которое расположено у местной железнодорожной станции. Президент Украины Владимир Зеленский отметил, что в освобожденных районах Харькова было обнаружено более десяти камер пыток, а также массовые захоронения. Зеленский заявил: "Когда оккупанты убегали, они оставили за собой инструменты для пыток". Прокуратура Харьковской области утверждает, что "представители Российской Федерации создали псевдо-правоохранительное ведомство с камерой пыток в подвале, где подвергали гражданских лиц бесчеловечным пыткам". Украинская прокуратура начала расследование по факту использования Россией камер пыток.</p>
-				<p>В ходе расследования журналисты Associated Press обнаружили десять мест пыток в Изюме, Украина. Изучение показало, что как гражданские лица Украины, так и военнопленные "регулярно" подвергались пыткам. Минимум восемь человек были убиты в результате пыток.</p>
-				<p>Опрос Human Rights Watch, проведенный с конца сентября по начало октября, среди более чем 100 жителей Изюма, показал, что практически все из них сообщили о пытках членов своих семей или друзей, а пятнадцать человек заявили, что сами были подвергнуты пыткам; выжившие описали пытки электрическим током, пытки водой, жестокие избиения, угрозы огнестрельным оружием и принуждение к длительному пребыванию в напряженных позах.</p>
-				<p>Местные жители также утверждали, что российские военные нападали на конкретных людей и уже имели списки местных жителей, включая семьи военнослужащих и ветеранов войны на Донбассе. Они также сообщили, что при выборе жертв терроризировали горожан, публично раздевая их при обыске.</p>
-				<p>К октябрю в городе, где проживает примерно 46 000 человек, было выявлено не менее 10 мест пыток.</p>
-				<p>В июле 2022 года The Guardian сообщила о камерах пыток в оккупированной Россией Запорожской области, опираясь на показания 16-летнего юноши, который содержался в одной из них с апреля. Мальчик был задержан российскими солдатами, когда пытался покинуть оккупированный город Мелитополь из-за видео на его телефоне, где российские солдаты высмеивали вторжение России. Его держали во временной тюрьме посменного содержания в Васильевке. Свидетельство мальчика описывало помещения, где применялись пытки, следы крови и промокшие бинты, а также крики пытаемых. Пытки включали удары током и избиения, часто длившиеся часами.</p>
-				<p>После освобождения Херсона украинскими войсками от российской оккупации уполномоченный Украины по правам человека Дмитрий Лубинец заявил о обнаружении российских камер пыток, предназначенных специально для детей. Согласно показаниям местных жителей, детям отказывали в еде и давали воду только через день, говорили, что их родители бросили, и заставляли убирать кровь в соседних камерах пыток для взрослых. Лубинец сообщил о десяти камерах пыток в Херсонской области, четыре из которых были в самом городе.</p>
-				<p>В городе также была обнаружена российская импровизированная тюрьма, действовавшая как камера пыток ФСБ. По оценкам украинских властей, в ней содержались тысячи человек. Помимо прочих методов пыток, сотрудники ФСБ применяли к жертвам электрошок.</p>
-				<h1 id="category19" class="category-heading">Гражданские лица в качестве живого щита</h1> Международный уголовный суд квалифицирует использование гражданских лиц в качестве живого щита как серьезное нарушение Женевской конвенции, а следовательно, военное преступление. 29 июня Управление Верховного комиссара Организации Объединенных Наций по правам человека выразило обеспокоенность по поводу того, что российские вооруженные силы и пророссийские вооруженные группировки занимают позиции вблизи гражданских объектов, не принимая мер по защите гражданского населения. Агентство по правам человека получило сообщения об использовании живых щитов, что предполагает преднамеренное использование гражданских лиц для защиты определенных военных объектов от нападений.
-				<p>ABC News и The Economist сообщили, что российские солдаты использовали более 300 мирных украинцев в качестве живого щита в Яхидне с 3 по 31 марта. Российские войска использовали деревню в качестве базы для нападения на близлежащий город Чернигов и разбили крупный военный лагерь в местной школе. В течение 28 дней 360 мирных жителей Украины, в том числе 74 ребенка и 5 инвалидов, находились в плену в нечеловеческих условиях в подвале школы, в то время как близлежащие районы подвергались обстрелам со стороны украинских вооруженных сил. Подвал был переполнен, в нем не было туалетов, воды и вентиляции. Десять пожилых людей умерли из-за плохих условий содержания. В показаниях свидетелей сообщается о случаях пыток и убийств. По мнению УВКПЧ, произошедшее в школе Яхидне свидетельствует о том, что российские вооруженные силы использовали гражданских лиц, чтобы сделать свою базу неуязвимой для военных нападений, а также подвергали их бесчеловечному и унижающему достоинство обращению.</p>
-				<p>The BBC и The Guardian обнаружили "явные доказательства" использования мирных жителей Украины в качестве живых щитов российскими войсками в районе под Киевом после вывода российских войск 1 апреля. Ссылаясь на свидетельства очевидцев от жителей Бучи и близлежащего села Иванков, а также жителей села Обуховичи, недалеко от белорусской границы, российские войска обвинялись в использовании мирных жителей в качестве живых щитов, когда они подверглись нападению украинских солдат. Многочисленные свидетели сообщили, что 14 марта российские солдаты ходили от двери к двери, окружили около 150 мирных жителей и заперли их в местной школе, где они использовались в качестве защиты российскими войсками.</p>
-				<p>Комитет ООН по правам инвалидов заявил, что он получил сообщения об использовании инвалидов в качестве "живого щита" российскими вооруженными силами.</p>
-				<p>Госсекретарь США Энтони Блинкен заявил, что использование Россией атомных электростанций для активных военных действий равносильно использованию живого щита, сославшись на сообщения о том, что российские войска вели огонь по украинцам с ядерных объектов.</p>
-				<h1 id="category20" class="category-heading">Сексуальное насилие </h1>
-				<p>Есть свидетельства того, что российское военное командование терпимо относилось к сексуальному насилию и применяло его в качестве тактического приема. По мере отступления российских войск из районов к северу от Киева были обнаружены свидетельства изнасилований, пыток и внесудебных расправ, осуществлявшихся российскими военными, включая групповые изнасилования под угрозой расстрела и на глазах у детей.</p>
-				<p>В марте 2022 года Мониторинговая миссия ООН по правам человека в Украине подчеркнула повышенные риски сексуального насилия и риск замалчивания фактов жертвами. К началу июня Миссия зарегистрировала 124 случая сексуального насилия, совершенного в ходе конфликта в отношении женщин, детей и мужчин из разных городов и областей Украины. Предполагаемые преступники в большинстве случаев (89) были из числа российских и пророссийских сепаратистских вооруженных формирований, в двух случаях – из числа мирных жителей или неустановленных лиц с территории, подконтрольной российским войскам.</p>
-				<p>В конце марта Генеральная прокуратура Украины возбудила уголовное дело в отношении российского военного, обвиняемого в убийстве невооруженного мирного жителя, а затем в неоднократном изнасиловании его жены. Инцидент, по имеющейся информации, произошел 9 марта в Шевченкове – селе под Киевом. Женщина сообщила, что двое российских солдат неоднократно насиловали ее, убив перед этим ее мужа и домашнюю собаку, пока их четырехлетний сын прятался в подсобном помещении дома. Первоначально о случившемся сообщила лондонская газета The Times. Украинские власти заявили, что с начала вторжения в феврале 2022 года ими получены многочисленные сообщения о сексуальных домогательствах и изнасилованиях, совершенных российскими военными. Украинский депутат Мария Мезенцева утверждает, что подобные случаи занижаются, и есть множество других жертв. Подробное описание этого же случая в Богдановке и других событий было опубликовано в издании Meduza.</p>
-				<p>В другом сообщенном инциденте российский солдат проник в школу в селе Малая Рогань, где укрывались мирные жители, и изнасиловал молодую украинку. Human Rights Watch сообщила, что женщина подвергалась угрозам и неоднократному изнасилованию со стороны российского солдата, который порезал ей щеку, шею и волосы. Согласно показаниям свидетелей, жители деревни сообщили об инциденте российским офицерам, ответственным за оккупацию деревни. Те арестовали преступника и заявили, что он будет казнен без суда и следствия. Министр иностранных дел Украины Дмитрий Кулеба заявил, что российские солдаты совершили "многочисленные" изнасилования украинских женщин. База данных "Сексуальное насилие в вооруженных конфликтах" зафиксировала сообщения о сексуальном насилии со стороны российских вооруженных сил в течение трех из семи лет конфликта на востоке Украины, начиная с 2014 года.</p>
-				<p>Отчет, опубликованный The Kyiv Independent, включал фотографию и информацию об одном мужчине и двух или трех обнаженных женщинах под одеялом. Российские солдаты попытались сжечь их тела на обочине дороги перед бегством. Украинские официальные лица заявили, что женщины были изнасилованы, а тела сожжены. Human Rights Watch получила сообщения о других случаях изнасилования в Черниговской области и Мариуполе. ABC News сообщил в апреле 2022 года, что в селе Берестянка под Киевом произошли "изнасилования, стрельба и бессмысленная казнь". В частности, сообщалось, что 9 марта российские солдаты застрелили мужчину, попытавшегося помешать им изнасиловать его жену и подругу.</p>
-				<p>12 апреля 2022 года BBC News взяла интервью у 50-летней женщины из деревни в 70 км к западу от Киева. Она рассказала, что была изнасилована под дулом пистолета чеченцем, состоявшим в союзе с российскими вооруженными силами. По словам соседей, 40-летняя женщина была изнасилована и убита тем же солдатом, оставив после себя "тревожное место преступления", как выразилось BBC News. На следующий день после визита BBC News полиция эксгумировала тело 40-летней женщины. В сообщении The New York Times говорилось, что украинская женщина была похищена российскими солдатами, содержалась в подвале в качестве секс-рабыни, а затем казнена.</p>
-				<p>3 июня специальный представитель ООН по сексуальному насилию в условиях конфликта Прамила Паттен сообщила Совету Безопасности ООН, что в Управление ООН по правам человека поступили сообщения о десятках насильственных сексуальных нападений на женщин и девочек, причем о многих других случаях, вероятно, не сообщалось. Она также отметила, что страна превращается в "кризис торговли людьми".</p>
-				<p>По состоянию на 5 июля 2022 года Мониторинговая миссия ООН по правам человека в Украине подтвердила 28 случаев сексуального насилия, связанного с конфликтом, включая изнасилование, групповое изнасилование, пытки, принудительное публичное раздевание и угрозы сексуального насилия. Управление Верховного комиссара ООН по правам человека сообщило, что 11 случаев, включая изнасилование и групповое изнасилование, были совершены российскими вооруженными силами и правоохранительными органами. Однако из-за ограниченной связи, особенно с районами, находящимися под контролем России или сепаратистов (такими как Мариуполь), и оспариваемыми городами, основным препятствием для проверки случаев сексуального насилия остается доступ, и точное количество таких случаев трудно отследить или своевременно зафиксировать. Сообщения о сексуальном насилии поступали украинским и международным властям, сотрудникам правоохранительных органов и средств массовой информации после вывода российских войск.</p>
-				<p>52-летняя женщина была захвачена российскими солдатами в оккупированном Изюме и неоднократно изнасилована, в то время как ее мужа избивали. Она вместе со своим мужем была арестована 1 июля и помещена в небольшой сарай, который использовался как пыточная камера. Российские солдаты надели им на головы мешки и угрожали, после чего насильно раздели ее, потрогали и заявили, что отправят фотографии этого унизительного акта членам ее семьи. Затем женщину неоднократно насиловал командир подразделения в течение следующих трех дней, а в это время другие российские солдаты избивали ее мужа в соседнем гараже. После чего насильник рассказывал о нападении мужу женщины. Она пыталась покончить с собой через повешение, но не смогла. Впоследствии российские солдаты пытали ее электрическим током и унижали. Командир также узнал банковский счет женщины и украл с него деньги. Женщина и ее муж были освобождены 10 июля, когда русские бросили их с завязанными глазами на ближайшей заправочной станции. Им удалось бежать на украинскую территорию, и после освобождения Изюма в сентябре они вернулись домой.</p>
-				<p>В конце сентября 2022 года группа следователей Независимой международной комиссии по расследованию событий на Украине опубликовала заявление, в котором говорилось, что комиссия "задокументировала случаи, когда дети подвергались изнасилованию, пыткам и незаконному заключению", и назвала их военными преступлениями. В том же докладе также упоминались дети, погибающие и получающие ранения в результате неизбирательных нападений со стороны России, а также принудительного разлучения с семьей и похищения людей.</p>
-				<p>Врачи роддома в Полтаве сообщили о случаях изнасилования женщин российскими солдатами, которым затем вводили оконный герметик во влагалище, чтобы они никогда не могли иметь детей.</p>
-				<h1 id="category21" class="category-heading">Мародёрство</h1>
-				<p>Свидетельства мародерства в Буче: Выжившие после резни в Буче рассказали HRW о действиях российских солдат во время оккупации города. Солдаты допрашивали жителей, уничтожали их имущество, разграбили город и вынесли одежду, драгоценности, электронику, бытовую технику и транспортные средства эвакуированных, погибших и оставшихся в городе.</p>
-				<p>Мародерство в других регионах Украины: Корреспондент Wall Street Journal сообщил о мародерстве российских солдат, забравших еду и ценности в ходе своего визита на юг Украины. Журналисты The Guardian обнаружили свидетельства "систематического мародерства" в Тростянце после месячной оккупации Россией. Жители Берестянки под Киевом сообщили ABC News о разграблении российскими солдатами одежды, бытовой техники и электроники перед возвращением деревни под контроль Украины.</p>
-				<p>Доказательства в Telegram и социальных сетях: В Telegram были опубликованы видеоролики, на которых российские солдаты отправляли украденные украинские товары домой через курьерские службы в Беларуси. На видео были видны кондиционеры, алкоголь, автомобильные аккумуляторы и сумки из магазинов "Эпицентр К". Новостной агрегатор Ukraine Alert опубликовал видео с украденными товарами, найденными в брошенном российском бронетранспортере, и изображение поврежденного российского военного грузовика, перевозящего три стиральные машины.</p>
-				<p>Перехваченные телефонные звонки и прекращение прямой трансляции: Российская компания CDEK postal service прекратила прямую трансляцию своего видеонаблюдения в начале апреля. Эта трансляция использовалась белорусским диссидентом для сбора доказательств мародерства, поскольку на ней были зафиксированы предметы с радиоактивной станции в Чернобыле.</p>
-				<p>Базары для награбленного имущества: Поступали сообщения о базарах, созданных российскими войсками в Беларуси для торговли награбленными товарами. Однако требование оплаты в евро и долларах США создавало трудности для местных жителей из-за валютных ограничений.</p>
-				<p>Украинские официальные лица выдвинули многочисленные заявления о разграблении и другом ущербе, нанесенном российскими войсками учреждениям культуры, причем большинство обвинений поступило из районов Мариуполя и Мелитополя. Украинские официальные лица утверждали, что российские войска изъяли более 2000 произведений искусства и скифское золото из различных музеев и перевезли их в Донбасс.</p>
-				<p>Эксперты в Украине и других странах, которые отслеживают российские грабежи и уничтожение культурного наследия в Украине, приводят доказательства того, что спонсируемая государством и систематически проводимая специалистами деятельность началась с вторжения в Крым в 2014 году.</p>
-			</div>
-		</div>
-</body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <script>
     $(document).ready(function() {
-      $(".item a").fancybox({
-        loop: true, // Зацикливание галереи
-        protect: true, // Защита от загрузки изображений
+      // Initialize Fancybox
+      $(".item a").fancybox();
+
+      // Generate buttons
+      const $carousel = $('.carousel');
+      const $items = $carousel.find('.item');
+      const $buttonsContainer = $carousel.find('.buttons');
+      
+      $items.each(function(index) {
+        const $button = $('<span class="button">').text(index + 1);
+        $button.on('click', function() {
+          $items.removeClass('active');
+          $(this).addClass('active');
+          $items.eq(index).addClass('active');
+        });
+        $buttonsContainer.append($button);
       });
+
+      // Activate the first button
+      $buttonsContainer.find('.button').first().addClass('active');
     });
   </script>
 </body>
-<footer class="bg-secondary" style="height: 100%;">
-
-	<head>
-		<meta name="description" content="Черветред – русофобское сообщество на Дваче" /> </head>
-	</div>
-</footer>
-
 </html>
-</body>
 
-</html>
