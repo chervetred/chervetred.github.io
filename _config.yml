@@ -15,8 +15,12 @@ menu:
     url: /
   - name: Черветред
     url: /about/
-  - name: Новости Скотоублюдии
-    url: /russia_news/
+  - name: Червепедия
+    url: /
+    submenu:
+     - name: Военные преступления России (архив 2022)  
+       url: /червепедия_преступления_террористов_вс_рф//
+       target: _blank
   - name: Обезумевшего рубля тред
     url: /
     submenu:
@@ -26,15 +30,7 @@ menu:
      - name: ОБР на Концечане
        url: https://endchan.gg/polru/
        target: _blank
-  - name: Военные преступления России в Украине
-    url: /
-    submenu:
-     - name: Военные преступления России (архив 2022)  
-       url: /военные_преступления_россии/
-       target: _blank
-     - name: Военные преступления России (архив 2023)  
-       url: /военные_преступления_россии_2/
-       target: _blank    
+       
 # *** NOTE ***
 # You can add submenus. For example:
 
