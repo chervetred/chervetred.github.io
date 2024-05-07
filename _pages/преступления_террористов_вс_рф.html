@@ -15,9 +15,9 @@ image:
   <style>
     .carousel {
       display: flex;
-      overflow-x: hidden; /* изменено на hidden для скрытия прокрутки */
+      overflow-x: hidden; /* Скрыть прокрутку */
       max-height: 450px;
-      position: relative; /* добавлено для позиционирования кнопок */
+      position: relative;
     }
     .item {
       flex: 0 0 auto;
@@ -27,19 +27,19 @@ image:
       max-height: 450px;
     }
     .prev, .next {
-      position: absolute; /* добавлено для позиционирования кнопок */
-      top: 50%; /* добавлено для позиционирования кнопок по вертикали */
-      transform: translateY(-50%); /* добавлено для позиционирования кнопок по вертикали */
-      background-color: rgba(255, 255, 255, 0.5); /* прозрачный фон */
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.5);
       padding: 10px;
       cursor: pointer;
-      z-index: 1; /* добавлено для позиционирования кнопок над изображениями */
+      z-index: 1;
     }
     .prev {
-      left: 0; /* кнопка "назад" */
+      left: 0;
     }
     .next {
-      right: 0; /* кнопка "вперёд" */
+      right: 0;
     }
   </style>
 </head>
@@ -50,8 +50,8 @@ image:
     <div class="item"><a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
   </div>
 
-  <div class="prev">&#10094;</div> <!-- Кнопка "назад" -->
-  <div class="next">&#10095;</div> <!-- Кнопка "вперёд" -->
+  <div class="prev">&#10094;</div>
+  <div class="next">&#10095;</div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
@@ -62,15 +62,22 @@ image:
       // Перелистывание карусели
       $(".next").click(function() {
         $(".carousel").stop().animate({
-          scrollLeft: "+=200" // Измените эту величину на ваше усмотрение, чтобы подстроить под ширину изображения
-        }, 500); // Время анимации
+          scrollLeft: "+=260" // Ширина изображения + маржин
+        }, 500);
       });
 
       $(".prev").click(function() {
         $(".carousel").stop().animate({
-          scrollLeft: "-=200" // Измените эту величину на ваше усмотрение, чтобы подстроить под ширину изображения
-        }, 500); // Время анимации
+          scrollLeft: "-=260" // Ширина изображения + маржин
+        }, 500);
       });
+
+      // Подсчёт общей ширины карусели и установка правильной ширины элементов карусели
+      var totalWidth = 0;
+      $(".item").each(function() {
+        totalWidth += $(this).outerWidth(true);
+      });
+      $(".carousel").css("width", totalWidth);
     });
   </script>
 </body>
