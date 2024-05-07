@@ -13,10 +13,8 @@ image:
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Сайдбар</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-	<title>Карусель</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+<title>Карусель с FancyBox</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 	<style>
 	/* Стили для миниатюры */
 	
@@ -42,26 +40,26 @@ image:
 		margin-bottom: 5px;
 	}
 	
-	.owl-carousel .item {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	
-	.owl-carousel .item img {
-		width: auto;
-		height: 450px;
-		object-fit: contain;
-	}
-	
-	.owl-carousel {
-		overflow: hidden;
-	}
-	
-	.owl-carousel .owl-item img {
-		pointer-events: none;
-	}
-	</style>
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+}
+
+.item {
+  flex: 0 0 auto;
+  width: 450px; /* ширина каждого изображения в карусели */
+  margin-right: 10px; /* отступ между изображениями */
+  scroll-snap-align: start;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+}
+</style>
 </head>
 
 <body>
@@ -145,7 +143,7 @@ image:
 				<p>Киевская областная полиция 15 апреля сообщила об ужасном обнаружении 900 тел мирных жителей после ухода российских войск, из которых более 350 были обнаружены только в Буче. Из них почти 95% были <a href="https://www.ohchr.org/en/statements/2022/07/ukraine-high-commissioner-updates-human-rights-council" target="_blank">жертвами казней</a>, а некоторые даже обнаружены под обломками и <a href="https://apnews.com/article/russia-ukraine-zelenskyy-kyiv-business-black-sea-22d7279f32c15d4a7037a2195113fb57" target="_blank">в массовых захоронениях</a>.</p>
 				<p>Министерство обороны Украины также сообщило о находке еще 132 человек в Макарове и обвинило россиян в пытках и убийствах.</p>
 				<p>УВКПЧ заявило 5 июля, что имеет <a href="https://www.ohchr.org/en/statements/2022/07/ukraine-high-commissioner-updates-human-rights-council" target="_blank">более 300 сообщений о преднамеренных убийствах гражданских лиц Россией</a>, подкрепленных <a href="https://www.cnn.com/videos/world/2022/04/08/audio-intercepts-russian-soldiers-chance-vpx.cnn" target="_blank">доказательствами и свидетельскими показаниями</a>, а <a href="https://inews.co.uk/news/russia-news-ria-novosti-demands-liquidation-ukraine-ukrainians-war-crimes-civilians-putin-1558378" target="_blank">также украинскими перехватами разговоров российских военных</a>. <p></p>Источники: <a href="https://www.hrw.org/news/2022/04/03/ukraine-apparent-war-crimes-russia-controlled-areas" target="_blank">[1]</a> <a href="https://www.rferl.org/a/ukraine-post-office-massacre-russian-troops/31960917.html" target="_blank">[2]</a> <a href="https://www.bbc.com/news/world-europe-60949791" target="_blank">[3]</a> <a href="https://www.lemonde.fr/les-decodeurs/article/2022/04/05/guerre-en-ukraine-ce-que-l-on-sait-du-massacre-de-boutcha_6120745_4355770.html" target="_blank">[4]</a> <a href="https://www.npr.org/2022/04/06/1091308623/ukraine-borodyanka-civilians-russia" target="_blank">[5]</a> <a href="https://apnews.com/article/russia-ukraine-zelenskyy-kyiv-business-black-sea-22d7279f32c15d4a7037a2195113fb57" target="_blank">[6]</a> <a href="https://www.ohchr.org/en/statements/2022/07/ukraine-high-commissioner-updates-human-rights-council" target="_blank">[7]</a> <a href="https://abcnews.go.com/International/live-updates/russia-ukraine/?id=83931446#83983531" target="_blank">[8]</a> <a href="https://www.theguardian.com/world/live/2022/apr/09/russia-ukraine-war-latest-zelenskiy-calls-for-firm-global-response-to-war-at-kramatorsk-train-station-live?page=with:block-6251681e8f083703c7bd903b" target="_blank">[9]</a> <a href="https://inews.co.uk/news/russia-news-ria-novosti-demands-liquidation-ukraine-ukrainians-war-crimes-civilians-putin-1558378" target="_blank">[10]</a></p>
-				<div class="owl-carousel owl-theme">
+	<div class="carousel">
 					<div class="item">
 						<a href="https://upload.wikimedia.org/wikipedia/commons/6/62/Chernihiv_Oblast%2C_28.02.2022_%284%29_-_ruins.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Chernihiv_Oblast%2C_28.02.2022_%284%29_-_ruins.jpg" alt="червепедия - военные преступления россии"></a>
 					</div>
@@ -395,14 +393,10 @@ image:
 		</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
-$('.owl-carousel').owlCarousel({
-	loop: true,
-	margin: 10,
-	nav: true,
-	items: 1,
+$(document).ready(function() {
+  $(".item a").fancybox();
 });
 </script>
 </body>
