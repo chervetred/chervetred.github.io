@@ -5,132 +5,86 @@ permalink: /111/
 keywords: червепедия, черветред, черветред - это, кинаман, миопатия, павел гринев, червепедия зеркало
 image: 
 ---
-Чтобы ваши посты из Telegram были идентифицируемы в контейнере следующим образом, нужно вставить скрипт для вывода каждого поста на основе списка `posts`. Ниже представлен обновленный HTML код с вашим списком постов:
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Telegram Post Carousel</title>
-    <!-- Добавляем ссылку на стили Slick Carousel -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <!-- Добавляем ссылку на jQuery, которая необходима для Slick Carousel -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Добавляем ссылку на Slick Carousel JS файл -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <style>
-        /* Стили для контейнера с каруселью */
-        #telegram-posts {
-            width: 80%;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        /* Стили для кнопок перелистывания */
-        .slick-prev, .slick-next {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 999;
-            background: white;
-        }
-        .slick-prev { left: 0; }
-        .slick-next { right: 0; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery Carousel</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+<style>
+  .gallery-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .gallery-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  .gallery-image {
+    height: 450px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
 
-<div id="telegram-posts">
-    <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
+<div class="gallery-container">
+  <div class="gallery-slide">
+    <img class="gallery-image" src="https://static.dw.com/image/61357858_1004.webp" data-fancybox="gallery" data-src="https://static.dw.com/image/61357858_1004.webp" alt="Image 1">
+    <img class="gallery-image" src="https://static.dw.com/image/61350635_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61350635_605.jpg" alt="Image 2">
+    <img class="gallery-image" src="https://static.dw.com/image/61355506_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61355506_605.jpg" alt="Image 3">
+    <img class="gallery-image" src="https://static.dw.com/image/61352146_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61352146_605.jpg" alt="Image 4">
+  </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
-$(document).ready(function(){
-    let posts = [
-         'chervethread_2ch/124',
-         'chervethread_2ch/123', 
-         'chervethread_2ch/122', 
-         'chervethread_2ch/120',
-         'chervethread_2ch/115',
-         'chervethread_2ch/112',  
-         'chervethread_2ch/77',
-         'chervethread_2ch/92',
-         'chervethread_2ch/93',
-         'chervethread_2ch/106',
-         'PolitCircus/14620',
-         'PolitCircus/14623',
-         'PolitCircus/14625',
-         'PolitCircus/14633',
-         'PolitCircus/14635',
-         'PolitCircus/14636',
-         'nexta_live/74497',
-         'nexta_live/74494',
-         'nexta_live/74488',
-         'nexta_live/74428',
-         'nexta_live/74407',
-         'PolitCircus/14604',
-         'PolitCircus/14612',
-         'nexta_live/74394',
-         'nexta_live/74390',
-         'nexta_live/74367',
-         'nexta_live/74346',
-         'nexta_live/74337',
-         'chervethread_2ch/76',
-         'nexta_live/74333',   
-         'klirik_sergio/51984',
-         'klirik_sergio/51989', 
-         'nexta_live/74332',
-         'nexta_live/74297',   
-         'chervethread_2ch/74',
-         'chervethread_2ch/72',
-         'chervethread_2ch/73',
-         'nexta_live/74285',
-         'chervethread_2ch/64',
-         'chervethread_2ch/65',
-         'chervethread_2ch/71',
-         'nexta_live/74230',
-         'nexta_live/74247',
-         'chervethread_2ch/70',
-         'chervethread_2ch/66',      
-         'nexta_live/73636',
-         'nexta_live/74200',
-         'mar_lik/38023',
-         'chervethread_2ch/57',
-         'pravyvzgliad/18659',
-         'chervethread_2ch/54',
-         'nexta_live/74103',
-         'chervethread_2ch/53',
-         'nexta_live/74102',
-         'nexta_live/74099',
-         'nexta_live/74083',
-         'nexta_live/74070',
-         'oko18_channel/8183',
-         'nexta_live/73801',
-         'nexta_live/73797',
-         'nexta_live/73784',
-         'nexta_live/73748',
-         'nexta_live/73707',
-         'nexta_live/73688',
-         'nexta_live/72153',
-         'chervethread_2ch/62'
-    ];
-
-    posts.forEach(post => {
-        $("#telegram-posts").append(`<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="${post}" data-width="100%"></script>`);
+  $(document).ready(function() {
+    $(".gallery-image").click(function() {
+      $.fancybox.open({
+        src: $(this).data("src"),
+        type: 'image'
+      });
     });
 
-    $('#telegram-posts').slick({
-        dots: false,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        adaptiveHeight: true
+    let currentIndex = 0;
+    const slides = document.querySelector('.gallery-slide');
+    const images = document.querySelectorAll('.gallery-image');
+    const totalSlides = images.length;
+
+    function updateSlidePosition() {
+      slides.style.transform = `translateX(${-currentIndex * (100 / totalSlides)}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlidePosition();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlidePosition();
+    }
+
+    document.querySelector('.gallery-container').addEventListener('click', function(event) {
+      const target = event.target;
+      if (target.classList.contains('gallery-image')) {
+        const index = Array.from(images).indexOf(target);
+        currentIndex = index;
+        updateSlidePosition();
+      }
     });
-});
+
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+    document.querySelector('.next').addEventListener('click', nextSlide);
+  });
 </script>
 
 </body>
 </html>
 
-
-Теперь скрипт добавляет посты из вашего списка на страницу, используя Telegram Widget API, каждый пост будет отображаться в карусели без нумерации.
