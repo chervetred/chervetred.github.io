@@ -6,85 +6,37 @@ keywords: червепедия, черветред, черветред - это,
 image:
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery Carousel</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-<style>
-  .gallery-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 20px;
-  }
-  .gallery-slide {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-  .gallery-image {
-    height: 450px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-</style>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.css"/>
+  <style>
+    .carousel-image {
+      height: 450px;
+    }
+  </style>
 </head>
 <body>
-
-<div class="gallery-container">
-  <div class="gallery-slide">
-    <img class="gallery-image" src="https://static.dw.com/image/61357858_1004.webp" data-fancybox="gallery" data-src="https://static.dw.com/image/61357858_1004.webp" alt="Image 1">
-    <img class="gallery-image" src="https://static.dw.com/image/61350635_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61350635_605.jpg" alt="Image 2">
-    <img class="gallery-image" src="https://static.dw.com/image/61355506_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61355506_605.jpg" alt="Image 3">
-    <img class="gallery-image" src="https://static.dw.com/image/61352146_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61352146_605.jpg" alt="Image 4">
+  <div class="carousel">
+    <div><a href="https://static.dw.com/image/61357858_1004.webp" data-fancybox="gallery"><img class="carousel-image" src="https://static.dw.com/image/61357858_1004.webp"></a></div>
+    <div><a href="https://static.dw.com/image/61350635_605.jpg" data-fancybox="gallery"><img class="carousel-image" src="https://static.dw.com/image/61350635_605.jpg"></a></div>
+    <div><a href="https://static.dw.com/image/61355506_605.jpg" data-fancybox="gallery"><img class="carousel-image" src="https://static.dw.com/image/61355506_605.jpg"></a></div>
+    <div><a href="https://static.dw.com/image/61352146_605.jpg" data-fancybox="gallery"><img class="carousel-image" src="https://static.dw.com/image/61352146_605.jpg"></a></div>
   </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $(".gallery-image").click(function() {
-      $.fancybox.open({
-        src: $(this).data("src"),
-        type: 'image'
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
       });
     });
-
-    let currentIndex = 0;
-    const slides = document.querySelector('.gallery-slide');
-    const images = document.querySelectorAll('.gallery-image');
-    const totalSlides = images.length;
-
-    function updateSlidePosition() {
-      slides.style.transform = `translateX(${-currentIndex * (100 / totalSlides)}%)`;
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlidePosition();
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlidePosition();
-    }
-
-    document.querySelector('.gallery-container').addEventListener('click', function(event) {
-      const target = event.target;
-      if (target.classList.contains('gallery-image')) {
-        const index = Array.from(images).indexOf(target);
-        currentIndex = index;
-        updateSlidePosition();
-      }
-    });
-
-    document.querySelector('.prev').addEventListener('click', prevSlide);
-    document.querySelector('.next').addEventListener('click', nextSlide);
-  });
-</script>
-
+  </script>
 </body>
 </html>
 
