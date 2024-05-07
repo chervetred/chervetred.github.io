@@ -6,59 +6,88 @@ keywords: червепедия, черветред, черветред - это,
 image:
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-  <style>
-    .carousel {
-      display: flex;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-    }
-    .item {
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-      width: 450px;
-      height: 450px;
-      margin-right: 10px;
-    }
-    .item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery Carousel</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+<style>
+  .gallery-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .gallery-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  .gallery-image {
+    height: 450px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-  <div class="carousel">
-    <div class="item"><a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии"></a></div>
-    <div class="item"><a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
-    <div class="item"><a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
-  </div>
 
-  <script>
-    $(document).ready(function() {
-      $(".carousel").fancybox({
-        loop: true,
-        buttons: [
-          "zoom",
-          "slideShow",
-          "fullScreen",
-          "thumbs",
-          "close"
-        ],
-        animationEffect: "fade",
-        transitionEffect: "fade",
-        transitionDuration: 800
+<div class="gallery-container">
+  <div class="gallery-slide">
+    <img class="gallery-image" src="https://static.dw.com/image/61357858_1004.webp" data-fancybox="gallery" data-src="https://static.dw.com/image/61357858_1004.webp" alt="Image 1">
+    <img class="gallery-image" src="https://static.dw.com/image/61350635_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61350635_605.jpg" alt="Image 2">
+    <img class="gallery-image" src="https://static.dw.com/image/61355506_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61355506_605.jpg" alt="Image 3">
+    <img class="gallery-image" src="https://static.dw.com/image/61352146_605.jpg" data-fancybox="gallery" data-src="https://static.dw.com/image/61352146_605.jpg" alt="Image 4">
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".gallery-image").click(function() {
+      $.fancybox.open({
+        src: $(this).data("src"),
+        type: 'image'
       });
     });
-  </script>
+
+    let currentIndex = 0;
+    const slides = document.querySelector('.gallery-slide');
+    const images = document.querySelectorAll('.gallery-image');
+    const totalSlides = images.length;
+
+    function updateSlidePosition() {
+      slides.style.transform = `translateX(${-currentIndex * (100 / totalSlides)}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlidePosition();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlidePosition();
+    }
+
+    document.querySelector('.gallery-container').addEventListener('click', function(event) {
+      const target = event.target;
+      if (target.classList.contains('gallery-image')) {
+        const index = Array.from(images).indexOf(target);
+        currentIndex = index;
+        updateSlidePosition();
+      }
+    });
+
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+    document.querySelector('.next').addEventListener('click', nextSlide);
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
