@@ -8,37 +8,46 @@ image:
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.css"/>
+  <title>Галерея картинок</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
   <style>
-    .carousel-image {
-      height: 450px;
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery a {
+      margin: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="carousel">
-    <div><a href="https://static.dw.com/image/61357858_1004.webp" data-fancybox="gallery"><img class="carousel-image" src="https://static.dw.com/image/61357858_1004.webp"></a></div>
-    <div><a href="https://static.dw.com/image/61350635_605.jpg" data-fancybox="gallery"><img class="carousel-image" src="https://static.dw.com/image/61350635_605.jpg"></a></div>
-    <div><a href="https://static.dw.com/image/61355506_605.jpg" data-fancybox="gallery"><img class="carousel-image" src="https://static.dw.com/image/61355506_605.jpg"></a></div>
-    <div><a href="https://static.dw.com/image/61352146_605.jpg" data-fancybox="gallery"><img class="carousel-image" src="https://static.dw.com/image/61352146_605.jpg"></a></div>
+  <div class="gallery">
+    <a data-fancybox="gallery" href="https://static.dw.com/image/61357858_1004.webp">
+      <img src="https://static.dw.com/image/61357858_1004.webp" alt="Картинка 1" height="450">
+    </a>
+    <a data-fancybox="gallery" href="https://static.dw.com/image/61350635_605.jpg">
+      <img src="https://static.dw.com/image/61350635_605.jpg" alt="Картинка 2" height="450">
+    </a>
+    <a data-fancybox="gallery" href="https://static.dw.com/image/61355506_605.jpg">
+      <img src="https://static.dw.com/image/61355506_605.jpg" alt="Картинка 3" height="450">
+    </a>
+    <a data-fancybox="gallery" href="https://static.dw.com/image/61352146_605.jpg">
+      <img src="https://static.dw.com/image/61352146_605.jpg" alt="Картинка 4" height="450">
+    </a>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <script>
-    $(document).ready(function(){
-      $('.carousel').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        adaptiveHeight: true
-      });
+    $(document).ready(function() {
+      $("[data-fancybox='gallery']").fancybox();
     });
   </script>
 </body>
 </html>
+
 
 
 
