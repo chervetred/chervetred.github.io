@@ -407,7 +407,7 @@ image:
 <script>
   $('.owl-carousel').owlCarousel({
     loop: true,
-    margin: 10,
+    margin: 0,
     nav: true,
     items: 1,
     onInitialized: centerImage,
@@ -423,6 +423,12 @@ image:
 
     $currentImage.css('left', leftPosition);
   }
+
+  $('.fancybox').fancybox({
+    afterClose: function() {
+      $('.owl-carousel').trigger('to.owl.carousel', [0]);
+    }
+  });
 </script>
 </body>
 <footer class="bg-secondary" style="height: 100%;">
