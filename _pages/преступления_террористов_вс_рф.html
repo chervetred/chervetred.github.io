@@ -11,29 +11,68 @@ image:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instagram-like Gallery</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-
-<div class="carousel">
-  <div class="item"><a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии"></a></div>
-  <div class="item"><a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
-  <div class="item"><a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
-</div>
-
-<script>
-  $(".carousel").each(function() {
-    $(this).find("img").css("height", "450px");
-  });
-  $(".carousel").fancybox({
-    loop: true,
-    buttons: [
-      "close"
-    ]
-  });
-</script>
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Include FancyBox CSS file -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <!-- Include FancyBox JS file -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <style>
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+      width: 100%;
+      gap: 10px; /* Adjust the spacing between images */
+    }
+    .item {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 450px; /* Set the width of each image */
+    }
+    .item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel">
+    <div class="item">
+      <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии">
+      </a>
+    </div>
+    <div class="item">
+      <a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery">
+        <img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии">
+      </a>
+    </div>
+    <div class="item">
+      <a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery">
+        <img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии">
+      </a>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+      // Activate the Fancybox plugin
+      $('[data-fancybox="gallery"]').fancybox({
+        loop: true, // Enable infinite loop when navigating
+        buttons: [ // Customize the buttons displayed
+          "slideShow",
+          "fullScreen",
+          "thumbs",
+          "close"
+        ]
+      });
+    });
+  </script>
 </body>
 </html>
+
 
 
 
