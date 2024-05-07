@@ -13,7 +13,9 @@ image:
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Сайдбар</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <title>Карусель с изображениями и Fancybox</title>
+ <title>Карусель с изображениями и Fancybox</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 <style>
 	<style>
@@ -41,16 +43,11 @@ image:
 		margin-bottom: 5px;
 	}
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      max-height: 450px;
-    }
-    .item {
-      flex: 0 0 auto;
-      margin-right: 10px;
+      max-width: auto;
     }
     .item img {
-      max-height: 450px;
+      max-width: auto;
+      height: 450px;
     }
   </style>
 </head>
@@ -386,12 +383,31 @@ image:
 		</div>
 </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <script>
     $(document).ready(function() {
+      $('.carousel').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+        nextArrow: '<button type="button" class="slick-next">Next</button>',
+        dots: true,
+        appendDots: $('.carousel'),
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+            }
+          }
+        ]
+      });
+
       $(".item a").fancybox();
     });
-  </script
+  </script>
 </body>
 <footer class="bg-secondary" style="height: 100%;">
 
