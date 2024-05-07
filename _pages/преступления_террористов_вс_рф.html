@@ -405,29 +405,32 @@ image:
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
-  $('.owl-carousel').owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: true,
-    items: 1,
-    onInitialized: centerImage,
-    onTranslated: centerImage
-  });
+$('.owl-carousel').owlCarousel({
+  loop: true,
+  margin: 0,
+  nav: true,
+  items: 1,
+  onInitialized: centerImage,
+  onTranslated: centerImage
+});
 
-  function centerImage(event) {
-    var currentItem = event.item.index;
-    var $currentImage = $('.owl-item').eq(currentItem).find('img');
-    var containerWidth = $('.owl-carousel').width();
-    var imageWidth = $currentImage.width();
-    var leftPosition = (containerWidth - imageWidth) / 2;
-
-    $currentImage.css('left', leftPosition);
+$('[data-fancybox]').fancybox({
+  afterClose: function() {
+    $('.owl-carousel').trigger('refresh.owl.carousel');
   }
+});
 
-  $(document).on('click', '.fancybox-close-small', function() {
-    // Пересчитываем позиции изображений после закрытия галереи FancyBox
-    centerImage($('.owl-carousel').trigger('refresh.owl.carousel').data('owl.carousel'));
-  });
+function centerImage(event) {
+  var currentItem = event.item.index;
+  var $currentImage = $('.owl-item').eq(currentItem).find('img');
+  var containerWidth = $('.owl-carousel').width();
+  var imageWidth = $currentImage.width();
+  var leftPosition = (containerWidth - imageWidth) / 2;
+
+  console.log('Current Item:', currentItem, 'Container Width:', containerWidth, 'Image Width:', imageWidth, 'Left Position:', leftPosition);
+
+  $currentImage.css('left', leftPosition);
+}
 </script>
 
 </body>
