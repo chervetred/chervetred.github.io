@@ -10,54 +10,62 @@ image:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery Carousel</title>
-  <!-- Linking CSS for Carousel -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-  <!-- Linking FancyBox CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-  <!-- Linking jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- Linking Slick JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  <!-- Linking FancyBox JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <title>Instagram-like Gallery</title>
+  <!-- FancyBox CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
   <style>
+    /* Styling for the carousel */
     .carousel {
-      width: 80%;
-      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
     }
-    .carousel .item {
-      text-align: center;
+    .item {
+      flex: 0 0 auto;
+      width: 450px; /* Adjust this value according to your preference */
+      height: 450px; /* Fixed height */
+      scroll-snap-align: start;
     }
-    .carousel .item img {
-      max-height: 450px;
-      width: auto;
+    .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
+  <div class="carousel">
+    <div class="item">
+      <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии">
+      </a>
+    </div>
+    <div class="item">
+      <a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery">
+        <img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии">
+      </a>
+    </div>
+    <div class="item">
+      <a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery">
+        <img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии">
+      </a>
+    </div>
+  </div>
 
-<div class="carousel">
-  <div class="item"><a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="червепедия - военные преступления россии"></a></div>
-  <div class="item"><a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
-  <div class="item"><a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery"><img src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="червепедия - военные преступления россии"></a></div>
-</div>
-
-<script>
-  $(document).ready(function(){
-    $('.carousel').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: false,
-      autoplaySpeed: 2000,
-      dots: true,
-      prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-      nextArrow: '<button type="button" class="slick-next">Next</button>'
+  <!-- jQuery (necessary for FancyBox) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- FancyBox JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Activate FancyBox
+      $('[data-fancybox="gallery"]').fancybox({
+        loop: true,
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
 
