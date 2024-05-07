@@ -48,8 +48,8 @@ image:
 }
 
 .owl-carousel .item img {
-  width: 450px;
-  height: auto;
+  width: auto;
+  height: 500px;
   object-fit: contain;
 }
 
@@ -406,10 +406,11 @@ image:
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
 $('.owl-carousel').owlCarousel({
-  loop: true,
-  margin: 0,
+  loop: false,
+  margin: 10,
   nav: true,
   items: 1,
+  slideTransition: 'fade', // добавлено
   onInitialized: centerImage,
   onTranslated: centerImage
 });
@@ -431,6 +432,7 @@ function centerImage(event) {
 
   $currentImage.css('left', leftPosition);
 }
+
 </script>
 
 </body>
