@@ -19,48 +19,8 @@ image:
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
-	
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = [].slice.call(document.querySelectorAll("img"));
 
-    lazyImages.forEach(function(lazyImage) {
-      lazyImage.dataset.src = lazyImage.src;
-      lazyImage.classList.add("lazy");
-    });
-
-    if ("IntersectionObserver" in window) {
-      var lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var lazyImage = entry.target;
-            lazyImage.src = lazyImage.dataset.src;
-            lazyImageObserver.unobserve(lazyImage);
-          }
-        });
-      });
-
-      lazyImages.forEach(function(lazyImage) {
-        lazyImageObserver.observe(lazyImage);
-      });
-    }
-  });
-</script>
-
-	
 	<style>
-	/* Стили для миниатюры */
-	
-	.thumbnail {
-		float: right;
-		margin-left: 20px;
-		border: 1px solid #ddd;
-	}
-	
-	.thumbnail img {
-		width: 150px;
-		height: auto;
-	}
 	
 	#navigation {
 		height: 6000px;
