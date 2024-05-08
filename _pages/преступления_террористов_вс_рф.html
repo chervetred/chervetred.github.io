@@ -45,12 +45,14 @@ image:
         width: 100%;
         overflow: hidden;
         position: relative;
+        height: 450px; /* Фиксированная высота карусели */
     }
 
     .carousel img {
         width: auto;
-        height: 450px;
+        height: 100%; /* Изображения займут всю доступную высоту */
         display: none;
+        margin: 0 auto; /* Центрирование изображений */
     }
 
     .carousel img.active {
