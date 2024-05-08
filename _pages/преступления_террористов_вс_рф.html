@@ -57,8 +57,16 @@ image:
     .swiper-button-prev {
       top: 0;
       bottom: 0;
-      width: 50px; /* Ширина кнопок */
-      background-size: 20px; /* Размер иконок */
+      width: 50px;
+      background: rgba(0, 0, 0, 0.2); /* Полупрозрачный фон */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 20px;
+      color: white;
     }
   </style>
 </head>
