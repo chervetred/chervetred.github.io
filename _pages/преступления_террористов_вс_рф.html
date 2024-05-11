@@ -508,12 +508,6 @@ image:
     });
   </script>	
 
-      <script>
-        // Initialize Lazy Load
-        var lazyLoadInstance = new LazyLoad({
-            elements_selector: ".lazyload"
-            // Add more options if needed
-        });
     </script>
 
 	<script>
@@ -524,6 +518,10 @@ var lazyLoadInstance = new LazyLoad({
         el.classList.add('lazyloaded');
     } 
 });
+
+$("[data-fancybox]").fancybox({
+    // Настройки fancybox
+});	
 	</script>
 		
 <div> <footer class="bg-secondary" style="height: 100%;">
