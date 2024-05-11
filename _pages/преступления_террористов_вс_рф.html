@@ -46,9 +46,37 @@ image:
       height: 100%;
       object-fit: cover;
     }
+
+.lazyload { 
+  position: relative;
+  background: #f0f0f0; /*  фон для изображения */
+}
+
+.lazyload::before { 
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 4px solid #ccc; 
+  border-color: #000 transparent #000 transparent; /*  стили для "крутящейся" анимации */
+  animation: ld-ring 1.2s linear infinite;
+  display: block;
+}
+
+.lazyloaded::before {
+  display: none;
+}
+
+@keyframes ld-ring {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); } 
+}
+		
   </style>
-   
-		</head>
 	
 	<body>
 	
@@ -511,6 +539,16 @@ image:
             // Add more options if needed
         });
     </script>
+
+	<script>
+	var lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazyload",
+    // Add more options if needed
+    callback_loaded: function(el) {
+        el.classList.add('lazyloaded');
+    } 
+});
+	</script>
 		
 <div> <footer class="bg-secondary" style="height: 100%;">
 
