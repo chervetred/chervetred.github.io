@@ -48,33 +48,30 @@ image:
       object-fit: cover;
     }
 
-.lazyload { 
-  position: relative;
-  background: #f0f0f0; /*  фон для изображения */
+.lazyload {
+    position: relative;
 }
 
-.lazyload::before { 
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 4px solid #ccc; 
-  border-color: #000 transparent #000 transparent; /*  стили для "крутящейся" анимации */
-  animation: ld-ring 1.2s linear infinite;
-  display: block;
+.lazyload::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.ibb.co/XsGPnSb/Spin-1x-1-0s-200px-200px.gif') center center no-repeat;
+    background-size: contain;
+    z-index: 1;
+    animation: loaderAnimation 1s infinite linear;
+}
+
+@keyframes loaderAnimation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .lazyloaded::before {
-  display: none;
-}
-
-@keyframes ld-ring {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); } 
+    display: none;
 }
 		
   </style>
@@ -542,7 +539,7 @@ image:
     </script>
 
 	<script>
-	var lazyLoadInstance = new LazyLoad({
+var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazyload",
     // Add more options if needed
     callback_loaded: function(el) {
