@@ -48,30 +48,14 @@ image:
       object-fit: cover;
     }
 
-.lazyload {
-    position: relative;
+.loading {
+    background: url('https://i.ibb.co/XsGPnSb/Spin-1x-1-0s-200px-200px.gif') no-repeat center;
+    animation: spin 1s infinite linear;
 }
 
-.lazyload::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://i.ibb.co/XsGPnSb/Spin-1x-1-0s-200px-200px.gif') center center no-repeat;
-    background-size: contain;
-    z-index: 1;
-    animation: loaderAnimation 1s infinite linear;
-}
-
-@keyframes loaderAnimation {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.lazyloaded::before {
-    display: none;
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 		
   </style>
@@ -159,67 +143,67 @@ image:
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/6/62/Chernihiv_Oblast%2C_28.02.2022_%284%29_-_ruins.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/6/62/Chernihiv_Oblast%2C_28.02.2022_%284%29_-_ruins.jpg" alt="Image 1">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/6/62/Chernihiv_Oblast%2C_28.02.2022_%284%29_-_ruins.jpg" alt="Image 1">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/6/64/Ukrainian_rescuers_check_the_remains_of_a_school_in_Chernihiv_%281%29.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/6/64/Ukrainian_rescuers_check_the_remains_of_a_school_in_Chernihiv_%281%29.jpg" alt="Image 2">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/6/64/Ukrainian_rescuers_check_the_remains_of_a_school_in_Chernihiv_%281%29.jpg" alt="Image 2">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/ru/1/1e/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_1.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/ru/1/1e/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_1.jpg" alt="Image 3">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/ru/1/1e/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_1.jpg" alt="Image 3">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/ru/d/db/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_2.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/ru/d/db/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_2.jpg" alt="Image 4">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/ru/d/db/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_2.jpg" alt="Image 4">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/ru/a/a3/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_3.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/ru/a/a3/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_3.jpg" alt="Image 5">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/ru/a/a3/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_3.jpg" alt="Image 5">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/ru/7/77/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_4.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/ru/7/77/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_4.jpg" alt="Image 6">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/ru/7/77/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D0%B0%D0%B2%D0%B8%D0%B0%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D0%BF%D0%BE_%D0%B6%D0%B8%D0%BB%D0%BE%D0%BC%D1%83_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%83_03.03.2022_%28%D0%A7%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2%29_4.jpg" alt="Image 6">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/4/49/Russian_plane_with_bombs_shot_down_over_Chernihiv_%281%29.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/4/49/Russian_plane_with_bombs_shot_down_over_Chernihiv_%281%29.jpg" alt="Image 7">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/4/49/Russian_plane_with_bombs_shot_down_over_Chernihiv_%281%29.jpg" alt="Image 7">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/7/7a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%286%29.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%286%29.jpg" alt="Image 8">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%286%29.jpg" alt="Image 8">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/b/b7/Tarnovsky%27s_House_after_Russian_airstrike%2C_2022-03-11_%2801%29.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Tarnovsky%27s_House_after_Russian_airstrike%2C_2022-03-11_%2801%29.jpg" alt="Image 9">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Tarnovsky%27s_House_after_Russian_airstrike%2C_2022-03-11_%2801%29.jpg" alt="Image 9">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/a/ac/Hotel_Ukraine_in_Chernihiv_01.jpg?uselang=ru" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Hotel_Ukraine_in_Chernihiv_01.jpg?uselang=ru" alt="Image 10">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Hotel_Ukraine_in_Chernihiv_01.jpg?uselang=ru" alt="Image 10">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/d/de/Theodosius_of_Chernihiv_church_after_fighting_%282022-04-24%29_01.jpg?uselang=ru" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/d/de/Theodosius_of_Chernihiv_church_after_fighting_%282022-04-24%29_01.jpg?uselang=ru" alt="Image 11">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/d/de/Theodosius_of_Chernihiv_church_after_fighting_%282022-04-24%29_01.jpg?uselang=ru" alt="Image 11">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/3/3a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%283%29.jpg?uselang=ru" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%283%29.jpg?uselang=ru" alt="Image 12">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Russian_plane_with_bombs_shot_down_over_Chernihiv_%283%29.jpg?uselang=ru" alt="Image 12">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/5/53/Russian_plane_with_bombs_shot_down_over_Chernihiv_%288%29.jpg?uselang=ru" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/5/53/Russian_plane_with_bombs_shot_down_over_Chernihiv_%288%29.jpg?uselang=ru" alt="Image 13">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/5/53/Russian_plane_with_bombs_shot_down_over_Chernihiv_%288%29.jpg?uselang=ru" alt="Image 13">
             </a>
         </div> 
     </div>
@@ -238,82 +222,82 @@ image:
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61350635_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61350635_605.jpg" alt="Image 1">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61350635_605.jpg" alt="Image 1">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61352146_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61352146_605.jpg" alt="Image 2">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61352146_605.jpg" alt="Image 2">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61352118_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61352118_605.jpg" alt="Image 3">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61352118_605.jpg" alt="Image 3">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61351854_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61351854_605.jpg" alt="Image 4">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61351854_605.jpg" alt="Image 4">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61351929_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61351929_605.jpg" alt="Image 5">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61351929_605.jpg" alt="Image 5">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61351914_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61351914_605.jpg" alt="Image 6">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61351914_605.jpg" alt="Image 6">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61348565_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61348565_605.jpg" alt="Image 7">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61348565_605.jpg" alt="Image 7">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61351675_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61351675_605.jpg" alt="Image 8">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61351675_605.jpg" alt="Image 8">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61351869_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61351869_605.jpg" alt="Image 9">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61351869_605.jpg" alt="Image 9">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61351974_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61351974_605.jpg" alt="Image 10">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61351974_605.jpg" alt="Image 10">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61352529_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61352529_605.jpg" alt="Image 11">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61352529_605.jpg" alt="Image 11">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61352557_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61352557_605.jpg" alt="Image 12">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61352557_605.jpg" alt="Image 12">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61352607_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61352607_605.jpg" alt="Image 13">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61352607_605.jpg" alt="Image 13">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61352646_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61352646_605.jpg" alt="Image 14">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61352646_605.jpg" alt="Image 14">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61352104_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61352104_605.jpg" alt="Image 15">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61352104_605.jpg" alt="Image 15">
         </a>
       </div>
       <div class="swiper-slide">
         <a href="https://static.dw.com/image/61351959_605.jpg" data-fancybox="gallery">
-          <img class="lazyload" data-src="https://static.dw.com/image/61351959_605.jpg" alt="Image 16">
+          <img class="lazyload loading" data-src="https://static.dw.com/image/61351959_605.jpg" alt="Image 16">
         </a>
       </div>
     </div>
@@ -332,12 +316,12 @@ image:
   <div class="swiper-wrapper">
     <div class="swiper-slide">
       <a href="https://ichef.bbci.co.uk/news/800/cpsprodpb/13C7C/production/_124002018_bucha_church.jpg.webp" data-fancybox="gallery">
-        <img class="lazyload" data-src="https://ichef.bbci.co.uk/news/800/cpsprodpb/13C7C/production/_124002018_bucha_church.jpg.webp" alt="Image 1">
+        <img class="lazyload loading" data-src="https://ichef.bbci.co.uk/news/800/cpsprodpb/13C7C/production/_124002018_bucha_church.jpg.webp" alt="Image 1">
       </a>
     </div>
     <div class="swiper-slide">
       <a href="https://ichef.bbci.co.uk/news/800/cpsprodpb/C74C/production/_124002015_image001-v2-003.jpg.webp" data-fancybox="gallery">
-        <img class="lazyload" data-src="https://ichef.bbci.co.uk/news/800/cpsprodpb/C74C/production/_124002015_image001-v2-003.jpg.webp" alt="Image 2">
+        <img class="lazyload loading" data-src="https://ichef.bbci.co.uk/news/800/cpsprodpb/C74C/production/_124002015_image001-v2-003.jpg.webp" alt="Image 2">
       </a>
     </div>
   </div>
@@ -374,12 +358,12 @@ image:
   <div class="swiper-wrapper">
     <div class="swiper-slide">
       <a href="https://upload.wikimedia.org/wikipedia/commons/6/6d/Cemetery_in_Izium_made_during_Russian_occupation_%2807%29.jpg" data-fancybox="gallery">
-        <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Cemetery_in_Izium_made_during_Russian_occupation_%2807%29.jpg" alt="Image 1">
+        <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Cemetery_in_Izium_made_during_Russian_occupation_%2807%29.jpg" alt="Image 1">
       </a>
     </div>
     <div class="swiper-slide">
       <a href="https://upload.wikimedia.org/wikipedia/commons/f/f0/Cemetery_in_Izium_made_during_Russian_occupation_%2803%29.jpg" data-fancybox="gallery">
-        <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Cemetery_in_Izium_made_during_Russian_occupation_%2803%29.jpg" alt="Image 2">
+        <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Cemetery_in_Izium_made_during_Russian_occupation_%2803%29.jpg" alt="Image 2">
       </a>
     </div>
   </div>
@@ -404,17 +388,17 @@ image:
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="Image 1">
+                <img class="lazyload loading" data-src="https://upload.wikimedia.org/wikipedia/commons/7/79/%D0%A0%D0%BE%D1%81%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0_%D0%BF%D1%96%D0%B4_%D0%A2%D1%80%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%86%D0%B5%D0%BC_18.03.2022_%285%29.jpg" alt="Image 1">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="Image 2">
+                <img class="lazyload loading" data-src="https://i.guim.co.uk/img/media/f84a7b9a273ef558dcdb349c017f9c0e8b185437/0_297_6720_4183/master/6720.jpg?width=1900&dpr=1&s=none" alt="Image 2">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" data-fancybox="gallery">
-                <img class="lazyload" data-src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="Image 3">
+                <img class="lazyload loading" data-src="https://i.guim.co.uk/img/media/e292fcef33820d14aa90d5da98bf09b630316722/0_0_3360_2240/master/3360.jpg?width=1900&dpr=1&s=none" alt="Image 3">
             </a>
         </div>
     </div>
@@ -541,8 +525,8 @@ image:
 	<script>
 var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazyload",
-    // Add more options if needed
     callback_loaded: function(el) {
+        el.classList.remove('loading');
         el.classList.add('lazyloaded');
     } 
 });
