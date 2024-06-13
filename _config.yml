@@ -1,7 +1,7 @@
 ---
 #-------------------------------
 # General Site Settings
-baseurl: "" # The subpath of your site, e.g. /blog
+baseurl: /военные_преступления_вс_рф
 url: "" # The base hostname & protocol for your site, e.g. http://example.com
 title: Червепедия | Официальный сайт Черветреда
 logo: /assets/images/logo.png  
