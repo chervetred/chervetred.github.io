@@ -1,15 +1,15 @@
 ---
 #-------------------------------
 # General Site Settings
-baseurl: /военные_преступления_вс_рф
+baseurl: 
 url: "" # The base hostname & protocol for your site, e.g. http://example.com
 title: Червепедия | Официальный сайт Черветреда
 logo: /assets/images/logo.png  
 description: Червепедия - официальный сайт Черветреда - людей, которых объединяет русофобия.
 copyright: Червепедия - официальный сайт Черветреда - людей, которых объединяет русофобия. Based on [Parsa Jekyll](https://themefisher.com). The fixes & additional scripts by Дрюнька столичный.
-production_url: https://chervetred.github.io
+production_url: https://chervetred.github.io/%D0%B2%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5_%D0%BF%D1%80%D0%B5%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D1%81_%D1%80%D1%84/
 # Preloader
-preloader: false 
+preloader: true 
 menu:
   - name: Домой 
     url: /
