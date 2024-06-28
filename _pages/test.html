@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Черветред</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #1f1f1f;
+        }
+        header img {
+            height: 40px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        header input[type="search"] {
+            padding: 5px;
+            font-size: 16px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .telegram-post {
+            margin-bottom: 20px;
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #1f1f1f;
+        }
+        footer a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+        .load-more {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #333333;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Логотип">
+        <h1>Черветред</h1>
+        <input type="search" placeholder="Поиск...">
+    </header>
+    <div class="content" id="content">
+        <div class="telegram-post">
+            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethreadofficial/84" data-width="100%" data-single></script>
+        </div>
+        <div class="telegram-post">
+            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethreadofficial/82" data-width="100%"></script>
+        </div>
+    </div>
+    <button class="load-more" id="loadMore">Загрузить еще</button>
+    <footer>
+        <a href="https://vk.com" target="_blank"><i class="fab fa-vk"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://tumblr.com" target="_blank"><i class="fab fa-tumblr"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+    </footer>
+    <script>
+        document.getElementById('loadMore').addEventListener('click', function() {
+            const content = document.getElementById('content');
+            const newPost = document.createElement('div');
+            newPost.className = 'telegram-post';
+            newPost.innerHTML = '<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="chervethreadofficial/82" data-width="100%"></script>';
+            content.appendChild(newPost);
+        });
+    </script>
+</body>
+</html>
